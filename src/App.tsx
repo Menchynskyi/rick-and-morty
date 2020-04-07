@@ -2,12 +2,15 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Header, MainContainer, LinkStyled } from './AppStyled';
 import { Characters } from './pages';
+import { Logo } from './components';
 
 export const App: React.FC = () => {
   return (
     <>
       <Header>
-        <LinkStyled to="/">Rick and Morty</LinkStyled>
+        <LinkStyled to="/">
+          <Logo />
+        </LinkStyled>
       </Header>
       <MainContainer>
         <Switch>

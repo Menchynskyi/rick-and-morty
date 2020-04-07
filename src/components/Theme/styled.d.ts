@@ -20,5 +20,6 @@ declare module 'styled-components' {
       };
     };
     fontFamily: string;
+    hoverOpacity: string;
   }
 }

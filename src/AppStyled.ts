@@ -5,8 +5,6 @@ export const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  border-bottom: 1px solid white;
 `;
 
 export const MainContainer = styled.main`
@@ -15,8 +13,9 @@ export const MainContainer = styled.main`
 `;
 
 export const LinkStyled = styled(Link)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.text.primary};
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.typography.text.extraLarge};
+  cursor: default;
+
+  &:hover {
+    opacity: ${({ theme }) => theme.hoverOpacity};
+  }
 `;
