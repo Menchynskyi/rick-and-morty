@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const App: React.FC = () => {
-  return <div>Test</div>;
+  return <div>Rick and Morty</div>;
 };
