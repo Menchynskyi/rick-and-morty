@@ -14,6 +14,8 @@ declare module 'styled-components' {
     };
     typography: {
       text: {
+        extraLarge: string;
+        large: string;
         regular: string;
       };
     };

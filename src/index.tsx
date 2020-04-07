@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { normalize } from 'styled-normalize';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { App } from './App';
 import { theme } from './theme';
+import { client } from './client';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -24,10 +27,14 @@ export const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
-    </ThemeProvider>
+    <Router>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <App />
+        </ThemeProvider>
+      </ApolloProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

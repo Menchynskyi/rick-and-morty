@@ -13,6 +13,8 @@ export const theme: DefaultTheme = {
   },
   typography: {
     text: {
+      extraLarge: '18px',
+      large: '16px',
       regular: '14px',
     },
   },
