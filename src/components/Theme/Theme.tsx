@@ -19,13 +19,14 @@ export const theme: DefaultTheme = {
   },
   typography: {
     text: {
-      extraLarge: '18px',
-      large: '16px',
+      extraLarge: '22px',
+      large: '18px',
       regular: '14px',
     },
   },
   fontFamily: `'Open Sans', 'Arial', sans-serif`,
   hoverOpacity: '0.8',
+  borderRadius: '8px',
 };
 
 export const GlobalStyle = createGlobalStyle`
