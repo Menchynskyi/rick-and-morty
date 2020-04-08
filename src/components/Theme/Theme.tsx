@@ -13,8 +13,9 @@ export const theme: DefaultTheme = {
       secondary: '#001',
     },
     text: {
-      primary: '#fff',
+      primary: '#E8E8E8',
       secondary: '#ff9',
+      disabled: '#ABABAB',
     },
   },
   typography: {

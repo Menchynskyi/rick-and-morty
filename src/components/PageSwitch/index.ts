@@ -1,0 +1,1 @@
+export { PageSwitch } from './PageSwitch';

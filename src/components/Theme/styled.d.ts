@@ -10,6 +10,7 @@ declare module 'styled-components' {
       text: {
         primary: string;
         secondary: string;
+        disabled: string;
       };
     };
     typography: {
