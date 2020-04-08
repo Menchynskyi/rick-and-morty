@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import { Character } from '../../types';
-import { CardContainer, InfoContainer } from './CharacterCardStyled';
+import { CardContainer, InfoContainer, CardImage } from './CharacterCardStyled';
 
 type CharacterCardProps = {
   character: Character;
 };
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+  const [imageIsLoaded, setImageIsLoaded] = useState(false);
+
   const shortenName = (name: string): string => {
     const shortName = name.length > 23 ? `${name.slice(0, 22)}...` : name;
     return shortName;
@@ -15,7 +18,15 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
 
   return (
     <CardContainer>
-      <img src={character.image} alt={character.name} />
+      {!imageIsLoaded && <Skeleton width={300} height={300} />}
+      <CardImage
+        src={character.image}
+        alt={character.name}
+        onLoad={() => {
+          setImageIsLoaded(true);
+        }}
+        isLoaded={imageIsLoaded}
+      />
       <InfoContainer>{characterName}</InfoContainer>
     </CardContainer>
   );

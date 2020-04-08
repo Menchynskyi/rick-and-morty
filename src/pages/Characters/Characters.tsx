@@ -8,19 +8,19 @@ import { CharactersContainer } from './CharactersStyled';
 
 export const Characters = () => {
   const { data, loading, error } = useQuery(GET_ALL_CHARACTES, {
-    variables: { page: 1 },
+    variables: { page: 20 },
   });
 
-  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
-  const characters: Character[] = data.characters.results;
-
-  return (
-    <CharactersContainer>
-      {characters.map((character) => {
-        return <CharacterCard key={character.id} character={character} />;
-      }) || <Skeleton />}
-    </CharactersContainer>
+  const characters: Character[] = !loading && data.characters.results;
+  const content = loading ? (
+    <Skeleton width={300} height={300} count={12} />
+  ) : (
+    characters.map((character) => {
+      return <CharacterCard key={character.id} character={character} />;
+    })
   );
+
+  return <CharactersContainer>{content}</CharactersContainer>;
 };

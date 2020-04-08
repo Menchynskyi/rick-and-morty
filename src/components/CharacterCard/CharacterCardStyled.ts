@@ -17,3 +17,7 @@ export const InfoContainer = styled.div`
   font-size: ${({ theme }) => theme.typography.text.extraLarge};
   background-color: rgba(46, 46, 46, 0.8);
 `;
+
+export const CardImage = styled.img<{ isLoaded: boolean }>`
+  display: ${({ isLoaded }) => (isLoaded ? 'inline' : 'none')};
+`;
