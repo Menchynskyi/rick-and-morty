@@ -1,67 +1,45 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 type ButtonProps = {
-  fullWidth: boolean;
+  disabled: boolean;
 };
 
-const buttonStyle = css`
+export const PageSwitchContainer = styled.div`
   display: flex;
-  width: 50%;
-  padding: 0 90px;
+  justify-content: space-between;
+  height: 80px;
+  max-width: 1260px;
+  margin: 20px auto;
+  padding: 0 7.5px;
+`;
+
+export const Button = styled.button<ButtonProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 15px 0;
   border: none;
-  background-color: rgba(0, 224, 231, 0.5);
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background-color: ${({ theme, disabled }) =>
+    disabled
+      ? theme.colors.background.disabled
+      : theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: ${({ theme }) => theme.typography.text.extraLarge};
+  font-size: 48px;
   text-transform: uppercase;
-  transition: background-color 0.2s;
+  transition: opacity 0.2s;
 
   &:focus {
     outline: none;
   }
 
   &:hover {
-    cursor: pointer;
-    background-color: rgba(0, 224, 231, 0.4);
+    ${({ disabled, theme }) =>
+      !disabled &&
+      `
+        cursor: pointer;
+        opacity: ${theme.hoverOpacity};
+      `}
   }
-`;
-
-const nextButton = css`
-  justify-content: flex-end;
-  border-top-right-radius: ${({ theme }) => theme.borderRadius};
-  border-bottom-right-radius: ${({ theme }) => theme.borderRadius};
-`;
-
-const nextButtonFullWidth = css`
-  justify-content: center;
-  width: 100%;
-  border-radius: ${({ theme }) => theme.borderRadius};
-`;
-
-const prevButton = css`
-  border-top-left-radius: ${({ theme }) => theme.borderRadius};
-  border-bottom-left-radius: ${({ theme }) => theme.borderRadius};
-`;
-
-const prevButtonFullWidth = css`
-  justify-content: center;
-  width: 100%;
-  border-radius: ${({ theme }) => theme.borderRadius};
-`;
-
-export const PageSwitchContainer = styled.div`
-  display: flex;
-  height: 100px;
-  max-width: 1260px;
-  margin: 20px auto;
-  padding: 0 7.5px;
-`;
-
-export const PrevButton = styled.button<ButtonProps>`
-  ${buttonStyle}
-  ${({ fullWidth }) => (fullWidth ? prevButtonFullWidth : prevButton)};
-`;
-
-export const NextButton = styled.button<ButtonProps>`
-  ${buttonStyle};
-  ${({ fullWidth }) => (fullWidth ? nextButtonFullWidth : nextButton)};
 `;

@@ -10,7 +10,8 @@ export const theme: DefaultTheme = {
   colors: {
     background: {
       primary: '#1C1C1C',
-      secondary: '#001',
+      secondary: '#11B0C8',
+      disabled: '#6E6E6E',
     },
     text: {
       primary: '#E8E8E8',

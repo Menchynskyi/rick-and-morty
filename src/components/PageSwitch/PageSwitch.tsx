@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  PageSwitchContainer,
-  PrevButton,
-  NextButton,
-} from './PageSwitchStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { PageSwitchContainer, Button } from './PageSwitchStyled';
 import { scrollToTop } from '../../utils';
 
 type PageSwitchProps = {
@@ -34,24 +32,20 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({
 
   return (
     <PageSwitchContainer>
-      {!isFirstPage && (
-        <PrevButton
-          fullWidth={isLastPage}
-          type="button"
-          onClick={() => switchToPrevPage(page)}
-        >
-          Prev Page
-        </PrevButton>
-      )}
-      {!isLastPage && (
-        <NextButton
-          fullWidth={isFirstPage}
-          type="button"
-          onClick={() => switchToNextPage(page)}
-        >
-          Next Page
-        </NextButton>
-      )}
+      <Button
+        disabled={isFirstPage}
+        type="button"
+        onClick={() => switchToPrevPage(page)}
+      >
+        <FontAwesomeIcon icon={faAngleLeft} />
+      </Button>
+      <Button
+        disabled={isLastPage}
+        type="button"
+        onClick={() => switchToNextPage(page)}
+      >
+        <FontAwesomeIcon icon={faAngleRight} />
+      </Button>
     </PageSwitchContainer>
   );
 };

@@ -16,6 +16,7 @@ export const InfoContainer = styled.div`
   padding: 20px;
   font-size: ${({ theme }) => theme.typography.text.extraLarge};
   background-color: rgba(46, 46, 46, 0.8);
+  transition: all 2s ease-in-out;
 `;
 
 export const CardImage = styled.img<{ isLoaded: boolean }>`

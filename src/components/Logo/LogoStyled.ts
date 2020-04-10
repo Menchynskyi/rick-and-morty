@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export const LogoContainer = styled.div`
-  padding: 10px 0;
+  padding: 15px 0;
 `;
