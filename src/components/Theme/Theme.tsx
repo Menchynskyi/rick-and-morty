@@ -11,6 +11,7 @@ export const theme: DefaultTheme = {
     background: {
       primary: '#1C1C1C',
       secondary: '#11B0C8',
+      tertiary: '#FF8311',
       disabled: '#6E6E6E',
     },
     text: {

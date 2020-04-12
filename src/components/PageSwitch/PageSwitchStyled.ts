@@ -43,3 +43,37 @@ export const Button = styled.button<ButtonProps>`
       `}
   }
 `;
+
+export const PageStateContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: 36px;
+  background-color: ${({ theme }) => theme.colors.background.tertiary};
+  border-radius: ${({ theme }) => theme.borderRadius};
+`;
+
+export const Input = styled.input<{ isFocused: boolean }>`
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: 36px;
+  border: none;
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: ${({ isFocused }) => (isFocused ? 'text' : 'pointer')};
+  }
+
+  &::selection {
+    background-color: ${({ theme }) => theme.colors.background.secondary};
+  }
+`;
