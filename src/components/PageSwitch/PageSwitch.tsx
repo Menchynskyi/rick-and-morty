@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import {
   PageSwitchContainer,
   Button,
@@ -11,7 +12,6 @@ import { scrollToTop } from '../../utils';
 
 type PageSwitchProps = {
   page: number;
-  setPage: (page: number) => void;
   allPages: number;
 };
 
@@ -20,16 +20,18 @@ type InputState = {
   focused: boolean;
 };
 
-export const PageSwitch: React.FC<PageSwitchProps> = ({
-  page,
-  setPage,
-  allPages,
-}) => {
+export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
   const initialInputState = {
     value: page,
     focused: false,
   };
   const [inputState, setInputState] = useState<InputState>(initialInputState);
+  const { url } = useRouteMatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    setInputState({ value: page, focused: false });
+  }, [page]);
 
   const setCurrentPage = (currentPage: number) => {
     if (currentPage === page) {
@@ -38,7 +40,7 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({
     }
     if (currentPage >= 1 && currentPage <= allPages) {
       scrollToTop();
-      setPage(currentPage);
+      history.push(`${url.substring(0, url.lastIndexOf('/'))}/${currentPage}`);
       setInputState({ ...inputState, focused: false });
     } else {
       setInputState(initialInputState);
@@ -72,21 +74,26 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({
   };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      setCurrentPage(+inputState.value);
+    const currentValue = +inputState.value;
+    if (event.key === 'Enter' && currentValue > 0 && currentValue <= allPages) {
+      setCurrentPage(currentValue);
     }
   };
 
   const switchToNextPage = (currentPage: number) => {
     if (currentPage < allPages) {
       scrollToTop();
-      setPage(currentPage + 1);
+      history.push(
+        `${url.substring(0, url.lastIndexOf('/'))}/${currentPage + 1}`
+      );
     }
   };
   const switchToPrevPage = (currentPage: number) => {
     if (currentPage > 1) {
       scrollToTop();
-      setPage(currentPage - 1);
+      history.push(
+        `${url.substring(0, url.lastIndexOf('/'))}/${currentPage - 1}`
+      );
     }
   };
 
@@ -102,7 +109,7 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({
       >
         <FontAwesomeIcon icon={faAngleLeft} />
       </Button>
-      <PageStateContainer>
+      <PageStateContainer isFocused={inputState.focused}>
         <Input
           isFocused={inputState.focused}
           value={

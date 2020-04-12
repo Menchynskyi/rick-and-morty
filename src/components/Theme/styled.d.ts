@@ -20,6 +20,13 @@ declare module 'styled-components' {
         extraLarge: string;
         large: string;
         regular: string;
+        small: string;
+      };
+      heading: {
+        extraLarge: string;
+        large: string;
+        regular: string;
+        small: string;
       };
     };
     fontFamily: string;

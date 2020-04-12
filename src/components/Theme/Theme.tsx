@@ -25,10 +25,17 @@ export const theme: DefaultTheme = {
       extraLarge: '22px',
       large: '18px',
       regular: '14px',
+      small: '12px',
+    },
+    heading: {
+      extraLarge: '36px',
+      large: '34px',
+      regular: '32px',
+      small: '30px',
     },
   },
   fontFamily: `'Open Sans', 'Arial', sans-serif`,
-  hoverOpacity: '0.8',
+  hoverOpacity: '0.85',
   borderRadius: '8px',
 };
 

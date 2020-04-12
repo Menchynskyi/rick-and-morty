@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
+import { useRouteMatch } from 'react-router-dom';
 import { GET_ALL_CHARACTES } from '../../queries';
 import { CharacterCard, PageSwitch } from '../../components';
 import { Character } from '../../types';
 import { CharactersContainer } from './CharactersStyled';
 
 export const Characters = () => {
-  const [page, setPage] = useState(1);
+  const { params } = useRouteMatch<{ page: string }>();
+  const page = +params.page;
   const { data, loading, error } = useQuery(GET_ALL_CHARACTES, {
     variables: { page },
   });
@@ -27,11 +29,7 @@ export const Characters = () => {
     <>
       <CharactersContainer>{content}</CharactersContainer>
       {!loading && (
-        <PageSwitch
-          page={page}
-          setPage={setPage}
-          allPages={data.characters.info.pages}
-        />
+        <PageSwitch page={page} allPages={data.characters.info.pages} />
       )}
     </>
   );

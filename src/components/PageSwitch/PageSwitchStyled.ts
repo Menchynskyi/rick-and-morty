@@ -44,15 +44,20 @@ export const Button = styled.button<ButtonProps>`
   }
 `;
 
-export const PageStateContainer = styled.div`
+export const PageStateContainer = styled.div<{ isFocused: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 300px;
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: 36px;
+  font-size: ${({ theme }) => theme.typography.heading.large};
   background-color: ${({ theme }) => theme.colors.background.tertiary};
   border-radius: ${({ theme }) => theme.borderRadius};
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: ${({ isFocused, theme }) => !isFocused && theme.hoverOpacity};
+  }
 `;
 
 export const Input = styled.input<{ isFocused: boolean }>`
@@ -61,16 +66,12 @@ export const Input = styled.input<{ isFocused: boolean }>`
   overflow: hidden;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: 36px;
+  font-size: ${({ theme }) => theme.typography.heading.large};
   border: none;
-  transition: all 0.3s;
+  cursor: ${({ isFocused }) => (isFocused ? 'text' : 'pointer')};
 
   &:focus {
     outline: none;
-  }
-
-  &:hover {
-    cursor: ${({ isFocused }) => (isFocused ? 'text' : 'pointer')};
   }
 
   &::selection {
