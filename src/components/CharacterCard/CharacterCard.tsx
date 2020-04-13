@@ -11,7 +11,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
 
   const shortenName = (name: string): string => {
-    const shortName = name.length > 23 ? `${name.slice(0, 22)}...` : name;
+    const shortName = name.length > 22 ? `${name.slice(0, 20)}...` : name;
     return shortName;
   };
   const characterName = shortenName(character.name);

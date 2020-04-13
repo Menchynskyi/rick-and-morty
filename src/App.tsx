@@ -7,7 +7,7 @@ import { Logo } from './components';
 export const App: React.FC = () => {
   const location = useLocation();
   if (location.pathname === '/') {
-    return <Redirect to="/characters/1" />;
+    return <Redirect to="/characters" />;
   }
   return (
     <>
@@ -18,7 +18,7 @@ export const App: React.FC = () => {
       </Header>
       <MainContainer>
         <Switch>
-          <Route path="/characters/:page" component={Characters} />
+          <Route path="/characters" exact component={Characters} />
         </Switch>
       </MainContainer>
     </>

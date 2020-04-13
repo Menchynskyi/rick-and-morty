@@ -8,16 +8,14 @@ import { client } from './client';
 import { Theme } from './components';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <ApolloProvider client={client}>
-        <Theme>
-          <SkeletonTheme color="#2E2E2E" highlightColor="#303030">
-            <App />
-          </SkeletonTheme>
-        </Theme>
-      </ApolloProvider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <ApolloProvider client={client}>
+      <Theme>
+        <SkeletonTheme color="#2E2E2E" highlightColor="#303030">
+          <App />
+        </SkeletonTheme>
+      </Theme>
+    </ApolloProvider>
+  </Router>,
   document.getElementById('root')
 );

@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
-import { useRouteMatch } from 'react-router-dom';
 import { GET_ALL_CHARACTES } from '../../queries';
-import { CharacterCard, PageSwitch } from '../../components';
+import {
+  CharacterCard,
+  PageSwitch,
+  ErrorMessage,
+  FilterCharacters,
+} from '../../components';
 import { Character } from '../../types';
 import { CharactersContainer } from './CharactersStyled';
 
-export const Characters = () => {
-  const { params } = useRouteMatch<{ page: string }>();
-  const page = +params.page;
+export const Characters: React.FC = () => {
+  const [filterState, setFilterState] = useState({
+    name: '',
+    status: '',
+    species: '',
+    type: '',
+    gender: '',
+  });
+  const [page, setPage] = useState(1);
+
   const { data, loading, error } = useQuery(GET_ALL_CHARACTES, {
-    variables: { page },
+    variables: { page, filter: filterState },
   });
 
-  if (error) return <p>Error...</p>;
+  if (error) return <ErrorMessage text="There are no such characters" />;
 
   const characters: Character[] = !loading && data.characters.results;
   const content = loading ? (
@@ -27,9 +38,17 @@ export const Characters = () => {
 
   return (
     <>
+      <FilterCharacters
+        filterState={filterState}
+        setFilterState={setFilterState}
+      />
       <CharactersContainer>{content}</CharactersContainer>
       {!loading && (
-        <PageSwitch page={page} allPages={data.characters.info.pages} />
+        <PageSwitch
+          page={page}
+          allPages={data.characters.info.pages}
+          setPage={setPage}
+        />
       )}
     </>
   );
