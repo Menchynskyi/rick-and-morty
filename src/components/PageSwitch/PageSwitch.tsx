@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { useHistory, useRouteMatch } from 'react-router-dom';
 import {
   PageSwitchContainer,
   Button,
@@ -9,11 +8,11 @@ import {
   Input,
 } from './PageSwitchStyled';
 import { scrollToTop } from '../../utils';
+import { useCharacterDispatch } from '../../character-context';
 
 type PageSwitchProps = {
   page: number;
   allPages: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 type InputState = {
@@ -21,16 +20,13 @@ type InputState = {
   focused: boolean;
 };
 
-export const PageSwitch: React.FC<PageSwitchProps> = ({
-  page,
-  allPages,
-  setPage,
-}) => {
+export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
   const initialInputState = {
     value: page,
     focused: false,
   };
   const [inputState, setInputState] = useState<InputState>(initialInputState);
+  const dispatch = useCharacterDispatch();
 
   useEffect(() => {
     setInputState({ value: page, focused: false });
@@ -43,7 +39,7 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({
     }
     if (currentPage >= 1 && currentPage <= allPages) {
       scrollToTop();
-      setPage(currentPage);
+      dispatch({ type: 'setPage', payload: currentPage });
     } else {
       setInputState(initialInputState);
     }
@@ -85,13 +81,13 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({
   const switchToNextPage = () => {
     if (page < allPages) {
       scrollToTop();
-      setPage(page + 1);
+      dispatch({ type: 'nextPage' });
     }
   };
   const switchToPrevPage = () => {
     if (page > 1) {
       scrollToTop();
-      setPage(page - 1);
+      dispatch({ type: 'prevPage' });
     }
   };
 
