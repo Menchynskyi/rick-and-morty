@@ -10,8 +10,14 @@ export const theme: DefaultTheme = {
   colors: {
     background: {
       primary: '#1C1C1C',
-      secondary: '#11B0C8',
-      tertiary: '#FF8311',
+      secondary: {
+        main: 'rgb(17, 176, 200)',
+        hover: 'rgba(17, 176, 200, 0.8)',
+      },
+      tertiary: {
+        main: 'rgb(255, 131, 17)',
+        hover: 'rgba(255, 131, 17, 0.8)',
+      },
       disabled: '#6E6E6E',
     },
     text: {
@@ -20,7 +26,7 @@ export const theme: DefaultTheme = {
       disabled: '#ABABAB',
     },
   },
-  typography: {
+  fontSize: {
     text: {
       extraLarge: '22px',
       large: '18px',
@@ -35,7 +41,7 @@ export const theme: DefaultTheme = {
     },
   },
   fontFamily: `'Open Sans', 'Arial', sans-serif`,
-  hoverOpacity: '0.85',
+  hoverOpacity: '0.8',
   borderRadius: '8px',
 };
 
@@ -50,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     background-color: ${(props) => props.theme.colors.background.primary};
     font-family: ${(props) => props.theme.fontFamily};
-    font-size: ${(props) => props.theme.typography.text.regular};
+    font-size: ${(props) => props.theme.fontSize.text.regular};
     color: ${(props) => props.theme.colors.text.primary};
   }
 

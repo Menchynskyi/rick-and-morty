@@ -5,8 +5,14 @@ declare module 'styled-components' {
     colors: {
       background: {
         primary: string;
-        secondary: string;
-        tertiary: string;
+        secondary: {
+          main: string;
+          hover: string;
+        };
+        tertiary: {
+          main: string;
+          hover: string;
+        };
         disabled: string;
       };
       text: {
@@ -15,7 +21,7 @@ declare module 'styled-components' {
         disabled: string;
       };
     };
-    typography: {
+    fontSize: {
       text: {
         extraLarge: string;
         large: string;

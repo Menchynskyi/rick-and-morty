@@ -10,8 +10,8 @@ export const ErrorContainer = styled.div`
 
 export const ErrorText = styled.div`
   margin-top: 20px;
-  color: ${({ theme }) => theme.colors.background.tertiary};
-  font-size: ${({ theme }) => theme.typography.heading.extraLarge};
+  color: ${({ theme }) => theme.colors.background.tertiary.main};
+  font-size: ${({ theme }) => theme.fontSize.heading.extraLarge};
 `;
 
 export const Img = styled.img`

@@ -24,14 +24,19 @@ export const Button = styled.button<ButtonProps>`
   background-color: ${({ theme, disabled }) =>
     disabled
       ? theme.colors.background.disabled
-      : theme.colors.background.secondary};
+      : theme.colors.background.secondary.main};
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: 48px;
   text-transform: uppercase;
-  transition: opacity 0.2s;
+  transform: scale(1);
+  transition: background-color 0.2s, transform 0.1s;
 
   &:focus {
     outline: none;
+  }
+
+  &:active {
+    transform: scale(0.99);
   }
 
   &:hover {
@@ -39,7 +44,7 @@ export const Button = styled.button<ButtonProps>`
       !disabled &&
       `
         cursor: pointer;
-        opacity: ${theme.hoverOpacity};
+        background-color: ${theme.colors.background.secondary.hover};
       `}
   }
 `;
@@ -50,13 +55,14 @@ export const PageStateContainer = styled.div<{ isFocused: boolean }>`
   align-items: center;
   width: 300px;
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: ${({ theme }) => theme.typography.heading.large};
-  background-color: ${({ theme }) => theme.colors.background.tertiary};
+  font-size: ${({ theme }) => theme.fontSize.heading.large};
+  background-color: ${({ theme }) => theme.colors.background.tertiary.main};
   border-radius: ${({ theme }) => theme.borderRadius};
-  transition: opacity 0.2s;
+  transition: background-color 0.2s;
 
   &:hover {
-    opacity: ${({ isFocused, theme }) => !isFocused && theme.hoverOpacity};
+    background-color: ${({ isFocused, theme }) =>
+      !isFocused && theme.colors.background.tertiary.hover};
   }
 `;
 
@@ -66,7 +72,7 @@ export const Input = styled.input<{ isFocused: boolean }>`
   overflow: hidden;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: ${({ theme }) => theme.typography.heading.large};
+  font-size: ${({ theme }) => theme.fontSize.heading.large};
   border: none;
   cursor: ${({ isFocused }) => (isFocused ? 'text' : 'pointer')};
 
@@ -75,6 +81,6 @@ export const Input = styled.input<{ isFocused: boolean }>`
   }
 
   &::selection {
-    background-color: ${({ theme }) => theme.colors.background.secondary};
+    background-color: ${({ theme }) => theme.colors.background.secondary.main};
   }
 `;

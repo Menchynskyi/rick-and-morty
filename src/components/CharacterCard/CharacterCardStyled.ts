@@ -14,7 +14,7 @@ export const InfoContainer = styled.div`
   bottom: 0;
   width: 100%;
   padding: 20px;
-  font-size: ${({ theme }) => theme.typography.text.extraLarge};
+  font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
   background-color: rgba(46, 46, 46, 0.8);
   transition: all 2s ease-in-out;
 `;
