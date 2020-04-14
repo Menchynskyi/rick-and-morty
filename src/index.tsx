@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import { App } from './App';
 import { client } from './client';
-import { Theme } from './components';
+import { Theme } from './theme';
 
 ReactDOM.render(
   <Router>

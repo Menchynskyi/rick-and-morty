@@ -1,19 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
-import { GET_ALL_CHARACTES } from '../../queries';
-import { CharacterCard, PageSwitch, ErrorMessage } from '../../components';
-import { Character } from '../../types';
-import { CharactersContainer } from './CharactersStyled';
-import { useCharacterState } from '../../character-context';
-
-type FiterState = {
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-};
+import { GET_ALL_CHARACTES } from '../../../queries';
+import { CharacterCard, PageSwitch, ErrorMessage } from '../../../components';
+import { Character } from '../../../types';
+import { CharacterListContainer } from './CharacterListStyled';
+import { useCharacterState } from '../../../contexts';
 
 export const CharacterList: React.FC = () => {
   const { page, filterOptions } = useCharacterState();
@@ -34,7 +26,7 @@ export const CharacterList: React.FC = () => {
 
   return (
     <>
-      <CharactersContainer>{content}</CharactersContainer>
+      <CharacterListContainer>{content}</CharacterListContainer>
       {!loading && (
         <PageSwitch page={page} allPages={data.characters.info.pages} />
       )}

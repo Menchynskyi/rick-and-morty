@@ -1,6 +1,6 @@
 import React from 'react';
 import { FilterContainer, SelectStyled } from './FilterCharactersStyled';
-import { useCharacterDispatch } from '../../../character-context';
+import { useCharacterDispatch } from '../../../contexts';
 
 type Select = {
   value: string;

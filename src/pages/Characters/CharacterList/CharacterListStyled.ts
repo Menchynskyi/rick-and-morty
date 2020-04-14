@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CharactersContainer = styled.div`
+export const CharacterListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

@@ -8,7 +8,7 @@ import {
   Input,
 } from './PageSwitchStyled';
 import { scrollToTop } from '../../utils';
-import { useCharacterDispatch } from '../../character-context';
+import { useCharacterDispatch } from '../../contexts';
 
 type PageSwitchProps = {
   page: number;
