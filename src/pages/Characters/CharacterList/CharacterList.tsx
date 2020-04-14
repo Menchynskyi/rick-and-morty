@@ -4,7 +4,10 @@ import Skeleton from 'react-loading-skeleton';
 import { GET_ALL_CHARACTES } from '../../../queries';
 import { CharacterCard, PageSwitch, ErrorMessage } from '../../../components';
 import { Character } from '../../../types';
-import { CharacterListContainer } from './CharacterListStyled';
+import {
+  CharacterListContainer,
+  PageSwitchContainer,
+} from './CharacterListStyled';
 import { useCharacterState } from '../../../contexts';
 
 export const CharacterList: React.FC = () => {
@@ -28,7 +31,9 @@ export const CharacterList: React.FC = () => {
     <>
       <CharacterListContainer>{content}</CharacterListContainer>
       {!loading && (
-        <PageSwitch page={page} allPages={data.characters.info.pages} />
+        <PageSwitchContainer>
+          <PageSwitch page={page} allPages={data.characters.info.pages} />
+        </PageSwitchContainer>
       )}
     </>
   );

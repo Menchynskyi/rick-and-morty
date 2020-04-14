@@ -9,6 +9,7 @@ export const FilterContainer = styled.div`
 `;
 
 export const SelectStyled = styled(Select)`
-  width: 200px;
+  width: 300px;
   line-height: 30px;
+  background-color: ${({ theme }) => theme.colors.background.primary};
 `;

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import {
-  PageSwitchContainer,
-  Button,
-  PageStateContainer,
-  Input,
-} from './PageSwitchStyled';
+import { Button, PageStateContainer, Input } from './PageSwitchStyled';
 import { scrollToTop } from '../../utils';
 import { useCharacterDispatch } from '../../contexts';
 
@@ -97,7 +92,7 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
   if (allPages === 1) return null;
 
   return (
-    <PageSwitchContainer>
+    <>
       <Button disabled={isFirstPage} type="button" onClick={switchToPrevPage}>
         <FontAwesomeIcon icon={faAngleLeft} />
       </Button>
@@ -119,6 +114,6 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
       <Button disabled={isLastPage} type="button" onClick={switchToNextPage}>
         <FontAwesomeIcon icon={faAngleRight} />
       </Button>
-    </PageSwitchContainer>
+    </>
   );
 };

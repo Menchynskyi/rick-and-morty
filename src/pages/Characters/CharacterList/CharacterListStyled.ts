@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const CharacterListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   max-width: 1260px;
-  margin: 0 auto;
+  margin: 10px auto;
+  padding: 0 7.5px;
 
   & > span {
     display: flex;
@@ -17,4 +18,13 @@ export const CharacterListContainer = styled.div`
       border-radius: ${({ theme }) => theme.borderRadius};
     }
   }
+`;
+
+export const PageSwitchContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  max-width: 1260px;
+  margin: 10px auto 20px auto;
+  padding: 0 7.5px;
 `;

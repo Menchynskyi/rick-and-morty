@@ -4,15 +4,6 @@ type ButtonProps = {
   disabled: boolean;
 };
 
-export const PageSwitchContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  max-width: 1260px;
-  margin: 20px auto;
-  padding: 0 7.5px;
-`;
-
 export const Button = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
