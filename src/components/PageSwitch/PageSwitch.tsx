@@ -94,6 +94,8 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
   const isFirstPage = page === 1;
   const isLastPage = page === allPages;
 
+  if (allPages === 1) return null;
+
   return (
     <PageSwitchContainer>
       <Button disabled={isFirstPage} type="button" onClick={switchToPrevPage}>
