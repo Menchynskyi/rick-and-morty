@@ -7,13 +7,19 @@ declare module 'styled-components' {
         primary: string;
         secondary: {
           main: string;
+          transparent: string;
           hover: string;
         };
         tertiary: {
           main: string;
+          transparent: string;
           hover: string;
         };
-        disabled: string;
+        disabled: {
+          main: string;
+          transparent: string;
+          hover: string;
+        };
       };
       text: {
         primary: string;

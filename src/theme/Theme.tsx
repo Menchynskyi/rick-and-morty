@@ -12,13 +12,19 @@ export const theme: DefaultTheme = {
       primary: '#1C1C1C',
       secondary: {
         main: 'rgb(17, 176, 200)',
+        transparent: 'rgba(17, 176, 200, 0.9)',
         hover: 'rgba(17, 176, 200, 0.8)',
       },
       tertiary: {
         main: 'rgb(255, 131, 17)',
+        transparent: 'rgba(255, 131, 17, 0.9)',
         hover: 'rgba(255, 131, 17, 0.8)',
       },
-      disabled: '#6E6E6E',
+      disabled: {
+        main: 'rgb(110, 110, 110)',
+        transparent: 'rgba(110, 110, 110, 0.9)',
+        hover: 'rgba(110, 110, 110, 0.8)',
+      },
     },
     text: {
       primary: '#E8E8E8',

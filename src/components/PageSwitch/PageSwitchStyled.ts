@@ -14,7 +14,7 @@ export const Button = styled.button<ButtonProps>`
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme, disabled }) =>
     disabled
-      ? theme.colors.background.disabled
+      ? theme.colors.background.disabled.main
       : theme.colors.background.secondary.main};
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: 48px;

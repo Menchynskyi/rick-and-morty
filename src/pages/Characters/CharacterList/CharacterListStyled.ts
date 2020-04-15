@@ -3,10 +3,9 @@ import styled from 'styled-components';
 export const CharacterListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   max-width: 1260px;
   margin: 10px auto;
-  padding: 0 7.5px;
 
   & > span {
     display: flex;

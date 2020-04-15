@@ -50,7 +50,7 @@ export const SelectContainer = styled.div`
   }
   .react-select__menu {
     color: ${({ theme }) => theme.colors.text.primary};
-    background-color: ${({ theme }) => theme.colors.background.secondary.hover};
+    background-color: ${({ theme }) => theme.colors.background.secondary.main};
     border-radius: ${({ theme }) => theme.borderRadius};
   }
   .react-select__option {
@@ -62,6 +62,9 @@ export const SelectContainer = styled.div`
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
     }
+  }
+  .react-select__option--is-selected {
+    background-color: ${({ theme }) => theme.colors.background.tertiary.main};
   }
   .react-select__option--is-focused {
     color: ${({ theme }) => theme.colors.background.secondary.main};
@@ -118,7 +121,7 @@ export const Button = styled.button`
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   text-transform: capitalize;
   transform: scale(1);
-  transition: background-color 0.2s, transform 0.1s;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
 
   &:focus {
     outline: none;
