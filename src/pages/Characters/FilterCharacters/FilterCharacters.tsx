@@ -1,5 +1,12 @@
 import React from 'react';
-import { FilterContainer, SelectStyled } from './FilterCharactersStyled';
+import ReactSelect, { ValueType } from 'react-select';
+import {
+  FilterContainer,
+  SelectContainer,
+  InputStyled,
+  InnerContainer,
+  Button,
+} from './FilterCharactersStyled';
 import { useCharacterDispatch } from '../../../contexts';
 
 type Select = {
@@ -32,26 +39,46 @@ export const FilterCharacters: React.FC = () => {
     });
   };
 
-  const handleSelectChange = (option: string) => (event: Select) => {
-    const { value } = event;
+  const handleSelectChange = (option: string) => (
+    selectedOption: ValueType<Select>
+  ) => {
+    const { value } = selectedOption as Select;
     dispatch({ type: 'setFilterOptions', payload: { option, value } });
   };
 
   return (
     <FilterContainer>
-      <input onChange={handleInputChange('name')} placeholder="Name" />
-      <input onChange={handleInputChange('species')} placeholder="Species" />
-      <input onChange={handleInputChange('type')} placeholder="Type" />
-      <SelectStyled
-        onChange={handleSelectChange('status')}
-        options={setOptions(status)}
-        placeholder="Status"
-      />
-      <SelectStyled
-        onChange={handleSelectChange('gender')}
-        options={setOptions(gender)}
-        placeholder="Gender"
-      />
+      <InnerContainer>
+        <InputStyled onChange={handleInputChange('type')} placeholder="Type" />
+        <InputStyled
+          onChange={handleInputChange('species')}
+          placeholder="Species"
+        />
+      </InnerContainer>
+      <InnerContainer>
+        <InputStyled onChange={handleInputChange('name')} placeholder="Name" />
+        <Button type="button">Reset</Button>
+      </InnerContainer>
+      <InnerContainer>
+        <SelectContainer>
+          <ReactSelect
+            onChange={handleSelectChange('status')}
+            options={setOptions(status)}
+            placeholder="Status"
+            className="react-select-container"
+            classNamePrefix="react-select"
+          />
+        </SelectContainer>
+        <SelectContainer>
+          <ReactSelect
+            onChange={handleSelectChange('gender')}
+            options={setOptions(gender)}
+            placeholder="Gender"
+            className="react-select-container"
+            classNamePrefix="react-select"
+          />
+        </SelectContainer>
+      </InnerContainer>
     </FilterContainer>
   );
 };

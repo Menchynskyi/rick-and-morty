@@ -12,8 +12,6 @@ export const MainContainer = styled.main`
 `;
 
 export const LinkStyled = styled(Link)`
-  cursor: default;
-
   &:hover {
     opacity: ${({ theme }) => theme.hoverOpacity};
   }
