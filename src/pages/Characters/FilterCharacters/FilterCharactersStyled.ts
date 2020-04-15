@@ -21,6 +21,7 @@ export const InnerContainer = styled.div`
 export const SelectContainer = styled.div`
   width: 100%;
   color: ${({ theme }) => theme.colors.text.primary};
+
   .react-select__control {
     background-color: ${({ theme }) => theme.colors.background.primary};
     border: 2px solid ${({ theme }) => theme.colors.background.secondary.hover};
@@ -28,6 +29,7 @@ export const SelectContainer = styled.div`
     box-shadow: none;
     color: ${({ theme }) => theme.colors.text.primary};
     cursor: text;
+    transition: all 0.2s;
 
     &:focus {
       box-shadow: none;
@@ -42,7 +44,7 @@ export const SelectContainer = styled.div`
     display: none;
   }
   .react-select__indicator {
-    color: ${({ theme }) => theme.colors.background.disabled};
+    color: ${({ theme }) => theme.colors.background.disabled.main};
     cursor: pointer;
     &:hover {
       color: ${({ theme }) => theme.colors.text.primary};
@@ -71,7 +73,7 @@ export const SelectContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.text.primary};
   }
   .react-select__placeholder {
-    color: ${({ theme }) => theme.colors.text.disabled};
+    color: ${({ theme }) => theme.colors.text.secondary};
   }
   .react-select__input,
   .react-select__single-value {
@@ -79,6 +81,7 @@ export const SelectContainer = styled.div`
   }
   .react-select__value-container {
     padding: 2px 12px;
+    text-transform: capitalize;
   }
 `;
 
@@ -99,14 +102,14 @@ export const InputStyled = styled.input`
     border: 2px solid ${({ theme }) => theme.colors.background.secondary.main};
   }
   &::placeholder {
-    color: ${({ theme }) => theme.colors.text.disabled};
+    color: ${({ theme }) => theme.colors.text.secondary};
   }
   &:hover {
     border: 2px solid ${({ theme }) => theme.colors.background.secondary.main};
   }
 `;
 
-export const Button = styled.button`
+export const ResetButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,7 +119,7 @@ export const Button = styled.button`
   border: 2px solid ${({ theme }) => theme.colors.background.tertiary.hover};
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.background.disabled : 'inherit'};
+    disabled ? theme.colors.background.disabled.main : 'inherit'};
   color: ${({ theme }) => theme.colors.background.tertiary.hover};
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   text-transform: capitalize;

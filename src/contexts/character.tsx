@@ -15,7 +15,8 @@ type Action =
   | { type: 'nextPage' }
   | { type: 'prevPage' }
   | { type: 'setPage'; payload: number }
-  | { type: 'setFilterOptions'; payload: { option: string; value: string } };
+  | { type: 'setFilterOptions'; payload: { option: string; value: string } }
+  | { type: 'resetFilterOptions' };
 
 type CharacterContextState = {
   state: State;
@@ -56,6 +57,16 @@ const characterReducer = (state: State, action: Action) => {
       };
     }
     case 'setFilterOptions': {
+      if (action.payload.value === 'any') {
+        return {
+          ...state,
+          page: 1,
+          filterOptions: {
+            ...state.filterOptions,
+            [action.payload.option]: '',
+          },
+        };
+      }
       return {
         ...state,
         page: 1,
@@ -63,6 +74,11 @@ const characterReducer = (state: State, action: Action) => {
           ...state.filterOptions,
           [action.payload.option]: action.payload.value,
         },
+      };
+    }
+    case 'resetFilterOptions': {
+      return {
+        ...initialState,
       };
     }
     default:

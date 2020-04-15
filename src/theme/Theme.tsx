@@ -28,7 +28,7 @@ export const theme: DefaultTheme = {
     },
     text: {
       primary: '#E8E8E8',
-      secondary: '#ff9',
+      secondary: '#B0B0B0',
       disabled: '#ABABAB',
     },
   },

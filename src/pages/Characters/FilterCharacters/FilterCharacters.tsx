@@ -5,17 +5,17 @@ import {
   SelectContainer,
   InputStyled,
   InnerContainer,
-  Button,
+  ResetButton,
 } from './FilterCharactersStyled';
-import { useCharacterDispatch } from '../../../contexts';
+import { useCharacterDispatch, useCharacterState } from '../../../contexts';
 
 type Select = {
   value: string;
   label: string;
 };
 
-const status = ['Alive', 'Dead', 'unknown'];
-const gender = ['Female', 'Male', 'Genderless', 'unknown'];
+const status = ['any', 'Alive', 'Dead', 'unknown'];
+const gender = ['any', 'Female', 'Male', 'Genderless', 'unknown'];
 
 const setOptions = (propArray: string[]): Select[] => {
   return propArray.map((name) => {
@@ -28,6 +28,7 @@ const setOptions = (propArray: string[]): Select[] => {
 
 export const FilterCharacters: React.FC = () => {
   const dispatch = useCharacterDispatch();
+  const { filterOptions: state } = useCharacterState();
 
   const handleInputChange = (option: string) => (
     event: React.ChangeEvent<HTMLInputElement>
@@ -46,22 +47,42 @@ export const FilterCharacters: React.FC = () => {
     dispatch({ type: 'setFilterOptions', payload: { option, value } });
   };
 
+  const handleClick = () => {
+    dispatch({ type: 'resetFilterOptions' });
+  };
+
   return (
     <FilterContainer>
       <InnerContainer>
-        <InputStyled onChange={handleInputChange('type')} placeholder="Type" />
         <InputStyled
+          value={state.species}
           onChange={handleInputChange('species')}
           placeholder="Species"
         />
+        <InputStyled
+          value={state.type}
+          onChange={handleInputChange('type')}
+          placeholder="Type"
+        />
       </InnerContainer>
       <InnerContainer>
-        <InputStyled onChange={handleInputChange('name')} placeholder="Name" />
-        <Button type="button">Reset</Button>
+        <InputStyled
+          value={state.name}
+          onChange={handleInputChange('name')}
+          placeholder="Name"
+        />
+        <ResetButton type="button" onClick={handleClick}>
+          Reset
+        </ResetButton>
       </InnerContainer>
       <InnerContainer>
         <SelectContainer>
           <ReactSelect
+            value={
+              state.status === ''
+                ? null
+                : { value: state.status, label: state.status }
+            }
             onChange={handleSelectChange('status')}
             options={setOptions(status)}
             placeholder="Status"
@@ -71,6 +92,11 @@ export const FilterCharacters: React.FC = () => {
         </SelectContainer>
         <SelectContainer>
           <ReactSelect
+            value={
+              state.gender === ''
+                ? null
+                : { value: state.gender, label: state.gender }
+            }
             onChange={handleSelectChange('gender')}
             options={setOptions(gender)}
             placeholder="Gender"
