@@ -19,10 +19,6 @@ export const InfoContainer = styled.div`
   transition: all 2s ease-in-out;
 `;
 
-export const CardImage = styled.img<{ isLoaded: boolean }>`
-  display: ${({ isLoaded }) => (isLoaded ? 'inline' : 'none')};
-`;
-
 export const LinkStyled = styled(Link)`
   color: ${({ theme }) => theme.colors.text.primary};
 `;

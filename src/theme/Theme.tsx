@@ -64,10 +64,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${(props) => props.theme.fontFamily};
     font-size: ${(props) => props.theme.fontSize.text.regular};
     color: ${(props) => props.theme.colors.text.primary};
-
-    img {
-      border-radius: ${(props) => props.theme.borderRadius};
-    }
   }
 
 `;
