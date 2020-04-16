@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const CardContainer = styled.div`
   position: relative;
   width: 300px;
   height: 300px;
-  margin-bottom: 15px;
   border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
 `;
@@ -21,4 +21,8 @@ export const InfoContainer = styled.div`
 
 export const CardImage = styled.img<{ isLoaded: boolean }>`
   display: ${({ isLoaded }) => (isLoaded ? 'inline' : 'none')};
+`;
+
+export const LinkStyled = styled(Link)`
+  color: ${({ theme }) => theme.colors.text.primary};
 `;

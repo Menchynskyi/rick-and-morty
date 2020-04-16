@@ -7,6 +7,7 @@ import { Character } from '../../../types';
 import {
   CharacterListContainer,
   PageSwitchContainer,
+  CharacterListItem,
 } from './CharacterListStyled';
 import { useCharacterState } from '../../../contexts';
 
@@ -23,7 +24,11 @@ export const CharacterList: React.FC = () => {
     <Skeleton width={300} height={300} count={20} />
   ) : (
     characters.map((character) => {
-      return <CharacterCard key={character.id} character={character} />;
+      return (
+        <CharacterListItem key={character.id}>
+          <CharacterCard character={character} />
+        </CharacterListItem>
+      );
     })
   );
 

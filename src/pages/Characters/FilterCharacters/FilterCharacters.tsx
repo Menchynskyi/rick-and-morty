@@ -28,7 +28,7 @@ const setOptions = (propArray: string[]): Select[] => {
 
 export const FilterCharacters: React.FC = () => {
   const dispatch = useCharacterDispatch();
-  const { filterOptions: state } = useCharacterState();
+  const { filterOptions } = useCharacterState();
 
   const handleInputChange = (option: string) => (
     event: React.ChangeEvent<HTMLInputElement>
@@ -55,19 +55,19 @@ export const FilterCharacters: React.FC = () => {
     <FilterContainer>
       <InnerContainer>
         <InputStyled
-          value={state.species}
+          value={filterOptions.species}
           onChange={handleInputChange('species')}
           placeholder="Species"
         />
         <InputStyled
-          value={state.type}
+          value={filterOptions.type}
           onChange={handleInputChange('type')}
           placeholder="Type"
         />
       </InnerContainer>
       <InnerContainer>
         <InputStyled
-          value={state.name}
+          value={filterOptions.name}
           onChange={handleInputChange('name')}
           placeholder="Name"
         />
@@ -79,9 +79,9 @@ export const FilterCharacters: React.FC = () => {
         <SelectContainer>
           <ReactSelect
             value={
-              state.status === ''
+              filterOptions.status === ''
                 ? null
-                : { value: state.status, label: state.status }
+                : { value: filterOptions.status, label: filterOptions.status }
             }
             onChange={handleSelectChange('status')}
             options={setOptions(status)}
@@ -93,9 +93,9 @@ export const FilterCharacters: React.FC = () => {
         <SelectContainer>
           <ReactSelect
             value={
-              state.gender === ''
+              filterOptions.gender === ''
                 ? null
-                : { value: state.gender, label: state.gender }
+                : { value: filterOptions.gender, label: filterOptions.gender }
             }
             onChange={handleSelectChange('gender')}
             options={setOptions(gender)}
