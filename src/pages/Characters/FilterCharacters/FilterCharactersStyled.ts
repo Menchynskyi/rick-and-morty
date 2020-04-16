@@ -57,12 +57,16 @@ export const SelectContainer = styled.div`
   }
   .react-select__option {
     &:first-of-type {
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
+      border-top-left-radius: calc(${({ theme }) => theme.borderRadius} / 1.5);
+      border-top-right-radius: calc(${({ theme }) => theme.borderRadius} / 1.5);
     }
     &:last-of-type {
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: calc(
+        (${({ theme }) => theme.borderRadius} / 1.5)
+      );
+      border-bottom-right-radius: calc(
+        (${({ theme }) => theme.borderRadius} / 1.5)
+      );
     }
   }
   .react-select__option--is-selected {
