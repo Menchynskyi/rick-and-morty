@@ -1,21 +1,23 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
 import { GET_CHARACTER } from '../../queries';
-import { ErrorMessage, ProfileImage } from '../../components';
+import { ErrorMessage, ProfileImage, Loader } from '../../components';
 import {
   ProfileContainer,
   InfoContainer,
   InfoList,
   InfoListItem,
 } from './CharacterProfileStyled';
+import { EpisodeList } from './EpisodeList';
 
-export const CharacterProfile = () => {
+export const CharacterProfile: React.FC = () => {
   const { id } = useParams();
   const { data, loading, error } = useQuery(GET_CHARACTER, {
     variables: { id },
   });
-  if (loading) return <p>Loading</p>;
+  if (loading) return <Loader />;
   if (error) return <ErrorMessage />;
   const { character } = data;
   return (
@@ -53,6 +55,7 @@ export const CharacterProfile = () => {
           </InfoListItem>
         </InfoList>
       </InfoContainer>
+      <EpisodeList episodes={character.episode} />
     </ProfileContainer>
   );
 };
