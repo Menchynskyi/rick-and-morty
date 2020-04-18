@@ -33,11 +33,11 @@ export const SelectContainer = styled.div`
 
     &:focus {
       box-shadow: none;
-      border: 2px solid ${({ theme }) => theme.colors.background.secondary.main};
+      border-color: ${({ theme }) => theme.colors.background.secondary.main};
     }
 
     &:hover {
-      border: 2px solid ${({ theme }) => theme.colors.background.secondary.main};
+      border-color: ${({ theme }) => theme.colors.background.secondary.main};
     }
   }
   .react-select__indicator-separator {
@@ -103,13 +103,13 @@ export const InputStyled = styled.input`
 
   &:focus {
     outline: none;
-    border: 2px solid ${({ theme }) => theme.colors.background.secondary.main};
+    border-color: ${({ theme }) => theme.colors.background.secondary.main};
   }
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.secondary};
   }
   &:hover {
-    border: 2px solid ${({ theme }) => theme.colors.background.secondary.main};
+    border-color: ${({ theme }) => theme.colors.background.secondary.main};
   }
 `;
 

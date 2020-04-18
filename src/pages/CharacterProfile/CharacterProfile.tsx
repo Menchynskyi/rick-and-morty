@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
 import { GET_CHARACTER } from '../../queries';
 import { ErrorMessage, ProfileImage, Loader } from '../../components';
 import {
@@ -9,6 +8,7 @@ import {
   InfoContainer,
   InfoList,
   InfoListItem,
+  Container,
 } from './CharacterProfileStyled';
 import { EpisodeList } from './EpisodeList';
 
@@ -21,41 +21,43 @@ export const CharacterProfile: React.FC = () => {
   if (error) return <ErrorMessage />;
   const { character } = data;
   return (
-    <ProfileContainer>
-      <InfoContainer>
+    <Container>
+      <ProfileContainer>
         <ProfileImage src={character.image} alt={character.name} />
-        <InfoList>
-          <InfoListItem>
-            <span>name: </span>
-            <span>{character.name}</span>
-          </InfoListItem>
-          <InfoListItem>
-            <span>status: </span>
-            <span>{character.status}</span>
-          </InfoListItem>
-          <InfoListItem>
-            <span>gender: </span>
-            <span>{character.gender}</span>
-          </InfoListItem>
-          <InfoListItem>
-            <span>species: </span>
-            <span>{character.species}</span>
-          </InfoListItem>
-          <InfoListItem>
-            <span>type: </span>
-            <span>{character.type || 'None'}</span>
-          </InfoListItem>
-          <InfoListItem>
-            <span>origin location: </span>
-            <span>{character.origin.name}</span>
-          </InfoListItem>
-          <InfoListItem>
-            <span>current location: </span>
-            <span>{character.location.name}</span>
-          </InfoListItem>
-        </InfoList>
-      </InfoContainer>
+        <InfoContainer>
+          <InfoList>
+            <InfoListItem>
+              <span>name: </span>
+              <span>{character.name}</span>
+            </InfoListItem>
+            <InfoListItem>
+              <span>status: </span>
+              <span>{character.status}</span>
+            </InfoListItem>
+            <InfoListItem>
+              <span>gender: </span>
+              <span>{character.gender}</span>
+            </InfoListItem>
+            <InfoListItem>
+              <span>species: </span>
+              <span>{character.species}</span>
+            </InfoListItem>
+            <InfoListItem>
+              <span>type: </span>
+              <span>{character.type || 'None'}</span>
+            </InfoListItem>
+            <InfoListItem>
+              <span>origin location: </span>
+              <span>{character.origin.name}</span>
+            </InfoListItem>
+            <InfoListItem>
+              <span>current location: </span>
+              <span>{character.location.name}</span>
+            </InfoListItem>
+          </InfoList>
+        </InfoContainer>
+      </ProfileContainer>
       <EpisodeList episodes={character.episode} />
-    </ProfileContainer>
+    </Container>
   );
 };
