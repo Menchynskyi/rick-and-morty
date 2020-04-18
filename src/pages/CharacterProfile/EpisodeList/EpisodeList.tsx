@@ -7,6 +7,7 @@ import {
   EpisodesTitle,
   Button,
 } from './EpisodeListStyled';
+import { displayEpisodeNumber } from '../../../utils';
 
 type EpisodeListProps = {
   episodes: Episode[];
@@ -24,11 +25,11 @@ export const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
     <EpisodeListContainer>
       <EpisodesTitle>episodes: </EpisodesTitle>
       <EpisodeListStyled>
-        {visibleEpisodes.map(({ name, id, air_date }) => {
+        {visibleEpisodes.map(({ name, id, episode }) => {
           return (
             <EpisodeListItem key={id}>
               <span>{name}</span>
-              <span>{air_date}</span>
+              <span>{displayEpisodeNumber(episode)}</span>
             </EpisodeListItem>
           );
         })}

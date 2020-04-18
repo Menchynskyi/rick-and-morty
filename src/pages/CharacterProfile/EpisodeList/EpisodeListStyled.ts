@@ -21,6 +21,7 @@ export const EpisodeListStyled = styled.ul`
 export const EpisodeListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 10px;
   list-style: none;
   border: 1px solid transparent;
@@ -44,19 +45,17 @@ export const EpisodeListItem = styled.li`
 `;
 
 const fullHover = css`
-  color: ${({ theme }) => theme.colors.text.primary};
   background-color: ${({ theme }) => theme.colors.background.tertiary.main};
 `;
 
 const notFullHover = css`
-  color: ${({ theme }) => theme.colors.text.primary};
   background-color: ${({ theme }) => theme.colors.background.secondary.main};
 `;
 
 export const Button = styled.button<{ isFull: boolean }>`
   display: block;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 15px;
   background-color: transparent;
   font-size: ${({ theme }) => theme.fontSize.text.regular};
@@ -70,11 +69,17 @@ export const Button = styled.button<{ isFull: boolean }>`
         ? theme.colors.background.tertiary.main
         : theme.colors.background.secondary.main};
   border-radius: ${({ theme }) => theme.borderRadius};
-  transition: all 0.2s;
+  transform: scale(1);
+  transition: all 0.2s, transform 0.1s;
 
   &:hover {
     cursor: pointer;
+    color: ${({ theme }) => theme.colors.text.primary};
     ${({ isFull }) => (isFull ? fullHover : notFullHover)};
+  }
+
+  &:active {
+    transform: scale(0.99);
   }
 
   &:focus {
