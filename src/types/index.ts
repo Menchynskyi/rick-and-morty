@@ -8,6 +8,7 @@ export type Episode = {
   name: string;
   episode: string;
   air_date?: string;
+  characters: Character[];
 };
 
 export type Character = {

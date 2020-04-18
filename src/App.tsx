@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 import { Header, MainContainer, LinkStyled } from './AppStyled';
-import { Characters, CharacterProfile } from './pages';
+import { Characters, CharacterProfile, EpisodeProfile } from './pages';
 import { Logo } from './components';
 
 export const App: React.FC = () => {
@@ -20,6 +20,7 @@ export const App: React.FC = () => {
         <Switch>
           <Route path="/characters" exact component={Characters} />
           <Route path="/characters/:id" component={CharacterProfile} />
+          <Route path="/episodes/:id" component={EpisodeProfile} />
         </Switch>
       </MainContainer>
     </>

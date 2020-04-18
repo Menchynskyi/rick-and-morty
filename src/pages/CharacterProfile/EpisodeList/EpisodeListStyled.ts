@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const EpisodeListContainer = styled.div`
   margin: 50px 0;
@@ -19,9 +20,7 @@ export const EpisodeListStyled = styled.ul`
 `;
 
 export const EpisodeListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
   padding: 15px 10px;
   list-style: none;
   border: 1px solid transparent;
@@ -41,6 +40,24 @@ export const EpisodeListItem = styled.li`
   span:last-of-type {
     font-size: ${({ theme }) => theme.fontSize.text.small};
     color: ${({ theme }) => theme.colors.text.secondary};
+  }
+`;
+
+export const LinkStyled = styled(Link)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.text.primary};
+  text-decoration: none;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    content: '';
   }
 `;
 
