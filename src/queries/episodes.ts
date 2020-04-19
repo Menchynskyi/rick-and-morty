@@ -10,6 +10,8 @@ export const GET_EPISODE = gql`
       characters {
         id
         name
+        image
+        status
       }
     }
   }

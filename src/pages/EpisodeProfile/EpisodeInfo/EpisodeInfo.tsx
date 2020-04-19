@@ -7,7 +7,10 @@ import {
   fetchImdb,
 } from '../../../contexts';
 import { GET_EPISODE } from '../../../queries';
-import { ErrorMessage, Loader } from '../../../components';
+import { ErrorMessage, Loader, ProfileImage } from '../../../components';
+import { ShortEpisodeInfo } from './ShortEpisodeInfo';
+import { EpisodeInfoContainer } from './EpisodeInfoStyled';
+import { CharacterList } from '../CharacterList';
 
 export const EpisodeInfo: React.FC = () => {
   const dispatch = useEpisodeDispatch();
@@ -27,14 +30,21 @@ export const EpisodeInfo: React.FC = () => {
 
   if (loading || loadingImdb) return <Loader />;
   if (error) return <ErrorMessage />;
-  if (errorImdb) return <>Short Info Page</>;
+  if (errorImdb) return <ShortEpisodeInfo data={data.episode} />;
 
   const episodeData = { ...data.episode, ...dataImdb };
 
   return (
-    <div>
-      <span>{episodeData.plot}</span>
-      <img src={episodeData.poster} alt={episodeData.name} />
-    </div>
+    <EpisodeInfoContainer>
+      <div>
+        <ProfileImage
+          src={episodeData.poster}
+          alt={episodeData.name}
+          height={170}
+        />
+        <span>{episodeData.plot}</span>
+      </div>
+      <CharacterList characters={episodeData.characters} />
+    </EpisodeInfoContainer>
   );
 };
