@@ -19,7 +19,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
   const [characterListIsFull, setCharacterListIsFull] = useState(false);
   const visibleEpisodes = characterListIsFull
     ? characters
-    : characters.slice(0, 5);
+    : characters.slice(0, 4);
 
   const handleClick = () => {
     setCharacterListIsFull((prev) => !prev);
@@ -41,7 +41,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
           );
         })}
       </CharacterListStyled>
-      {characters.length > 5 && (
+      {characters.length > 4 && (
         <Button
           isFull={characterListIsFull}
           type="button"

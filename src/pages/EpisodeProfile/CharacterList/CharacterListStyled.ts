@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const CharacterListContainer = styled.div`
-  margin: 50px 0 30px 0;
+  margin: 20px 0 30px 0;
 `;
 
 export const CharactersTitle = styled.h2`
