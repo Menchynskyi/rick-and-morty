@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
 import {
@@ -25,8 +25,7 @@ export const EpisodeInfo: React.FC = () => {
     // eslint-disable-next-line
   }, []);
 
-  const loader = useMemo(() => <Loader />, []);
-  if (loading || loadingImdb) return loader;
+  if (loading || loadingImdb) return <Loader />;
   if (error) return <ErrorMessage />;
   if (errorImdb) return <>Short Info Page</>;
 

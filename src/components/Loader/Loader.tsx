@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { LoaderContainer } from './LoaderStyled';
 
 type Loader = {
@@ -14,17 +14,21 @@ const animationsList = [
 
 export const Loader: React.FC<Loader> = ({ imgSrc }) => {
   const randomNumber = Math.floor(Math.random() * animationsList.length);
-  const generateAnimation = (list: string[], id: number): string => {
-    if (imgSrc) return imgSrc;
-    return list[id];
-  };
-  return (
-    <LoaderContainer>
-      <img
-        height="300"
-        src={generateAnimation(animationsList, randomNumber)}
-        alt="loader"
-      />
-    </LoaderContainer>
-  );
+
+  return useMemo(() => {
+    const generateAnimation = (list: string[], id: number): string => {
+      if (imgSrc) return imgSrc;
+      return list[id];
+    };
+    return (
+      <LoaderContainer>
+        <img
+          height="300"
+          src={generateAnimation(animationsList, randomNumber)}
+          alt="loader"
+        />
+      </LoaderContainer>
+    );
+    // eslint-disable-next-line
+  }, []);
 };
