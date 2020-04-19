@@ -29,7 +29,7 @@ export const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
         {visibleEpisodes.map(({ name, id, episode }) => {
           return (
             <EpisodeListItem key={id}>
-              <LinkStyled to={`/episodes/${id}`}>
+              <LinkStyled to={`/episodes/${id}/${episode}`}>
                 <span>{name}</span>
                 <span>{displayEpisodeNumber(episode)}</span>
               </LinkStyled>

@@ -20,7 +20,10 @@ export const App: React.FC = () => {
         <Switch>
           <Route path="/characters" exact component={Characters} />
           <Route path="/characters/:id" component={CharacterProfile} />
-          <Route path="/episodes/:id" component={EpisodeProfile} />
+          <Route
+            path="/episodes/:id/:episodeNumber"
+            component={EpisodeProfile}
+          />
         </Switch>
       </MainContainer>
     </>
