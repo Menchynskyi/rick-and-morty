@@ -8,7 +8,7 @@ export const EpisodeListContainer = styled.div`
 export const EpisodesTitle = styled.h2`
   margin: 0 0 15px 0;
   font-weight: normal;
-  font-size: ${({ theme }) => theme.fontSize.text.large};
+  font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
   text-transform: capitalize;
   color: ${({ theme }) => theme.colors.background.tertiary.transparent};
 `;

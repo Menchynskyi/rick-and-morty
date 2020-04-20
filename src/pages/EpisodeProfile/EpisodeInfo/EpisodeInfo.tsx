@@ -88,7 +88,7 @@ export const EpisodeInfo: React.FC = () => {
         <div>{episodeData.plot}</div>
       </PlotContainer>
       <CharacterList
-        title="character"
+        title="characters"
         listLength={4}
         characters={episodeData.characters}
       />

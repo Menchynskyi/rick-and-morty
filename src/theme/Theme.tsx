@@ -34,7 +34,7 @@ export const theme: DefaultTheme = {
   },
   fontSize: {
     text: {
-      extraLarge: '22px',
+      extraLarge: '20px',
       large: '18px',
       regular: '14px',
       small: '12px',
