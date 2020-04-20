@@ -15,8 +15,14 @@ export const InfoContainer = styled.div`
   width: 100%;
   padding: 20px;
   font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
-  background-color: rgba(46, 46, 46, 0.8);
-  transition: all 2s ease-in-out;
+  background-color: ${({ theme }) => theme.colors.background.gray.hover};
+  transition: all 0.2s;
+
+  ${CardContainer}:hover & {
+    color: ${({ theme }) => theme.colors.background.secondary.main};
+    background-color: ${({ theme }) =>
+      theme.colors.background.gray.transparent};
+  }
 `;
 
 export const LinkStyled = styled(Link)`

@@ -25,6 +25,11 @@ export const theme: DefaultTheme = {
         transparent: 'rgba(110, 110, 110, 0.9)',
         hover: 'rgba(110, 110, 110, 0.8)',
       },
+      gray: {
+        main: 'rgb(46, 46, 46)',
+        transparent: 'rgba(46, 46, 46, 0.9)',
+        hover: 'rgba(46, 46, 46, 0.8)',
+      },
     },
     text: {
       primary: '#E8E8E8',
