@@ -7,11 +7,13 @@ type ProfileImageProps = {
   alt: string;
   height?: number;
   width?: number;
+  circle?: boolean;
 };
 
 export const ProfileImage: React.FC<ProfileImageProps> = ({
   height,
   width,
+  circle,
   ...rest
 }) => {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
@@ -19,7 +21,11 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
   return (
     <>
       {!imageIsLoaded && (
-        <Skeleton width={width || 300} height={height || 300} />
+        <Skeleton
+          width={width || 300}
+          height={height || 300}
+          circle={circle || false}
+        />
       )}
       <ImageStyled
         height={height || '100%'}

@@ -27,10 +27,18 @@ export const CharacterListItem = styled.li`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: all 0.2s;
 
+  img {
+    border-radius: 50%;
+  }
+
   &:hover {
     cursor: pointer;
     border-color: ${({ theme }) =>
       theme.colors.background.secondary.transparent};
+
+    img {
+      border-radius: ${({ theme }) => theme.borderRadius};
+    }
   }
 
   span:last-of-type {

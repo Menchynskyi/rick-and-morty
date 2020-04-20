@@ -33,7 +33,13 @@ export const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
           return (
             <CharacterListItem key={id}>
               <LinkStyled to={`/characters/${id}`}>
-                <ProfileImage src={image} alt={name} height={40} width={40} />
+                <ProfileImage
+                  circle
+                  src={image}
+                  alt={name}
+                  height={40}
+                  width={40}
+                />
                 <CharacterName>{name}</CharacterName>
                 <span>{status}</span>
               </LinkStyled>
