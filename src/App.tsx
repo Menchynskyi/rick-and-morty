@@ -1,7 +1,12 @@
 import React from 'react';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 import { Header, MainContainer, LinkStyled } from './AppStyled';
-import { Characters, CharacterProfile, EpisodeProfile } from './pages';
+import {
+  Characters,
+  CharacterProfile,
+  EpisodeProfile,
+  LocationProfile,
+} from './pages';
 import { Logo } from './components';
 
 export const App: React.FC = () => {
@@ -24,6 +29,7 @@ export const App: React.FC = () => {
             path="/episodes/:id/:episodeNumber"
             component={EpisodeProfile}
           />
+          <Route path="/locations/:id" component={LocationProfile} />
         </Switch>
       </MainContainer>
     </>

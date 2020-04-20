@@ -9,6 +9,7 @@ import {
   InfoList,
   InfoListItem,
   Container,
+  LinkStyled,
 } from './CharacterProfileStyled';
 import { EpisodeList } from './EpisodeList';
 
@@ -20,6 +21,22 @@ export const CharacterProfile: React.FC = () => {
   if (loading) return <Loader />;
   if (error) return <ErrorMessage />;
   const { character } = data;
+
+  const originLocation = character.origin.id ? (
+    <LinkStyled to={`/locations/${character.origin.id}`}>
+      {character.origin.name}
+    </LinkStyled>
+  ) : (
+    <span>{character.origin.name}</span>
+  );
+  const currentLocation = character.location.id ? (
+    <LinkStyled to={`/locations/${character.location.id}`}>
+      {character.location.name}
+    </LinkStyled>
+  ) : (
+    <span>{character.location.name}</span>
+  );
+
   return (
     <Container>
       <ProfileContainer>
@@ -48,11 +65,11 @@ export const CharacterProfile: React.FC = () => {
             </InfoListItem>
             <InfoListItem>
               <span>origin location: </span>
-              <span>{character.origin.name}</span>
+              {originLocation}
             </InfoListItem>
             <InfoListItem>
               <span>current location: </span>
-              <span>{character.location.name}</span>
+              {currentLocation}
             </InfoListItem>
           </InfoList>
         </InfoContainer>

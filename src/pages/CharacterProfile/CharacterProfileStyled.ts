@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   max-width: 900px;
@@ -37,5 +38,14 @@ export const InfoListItem = styled.li`
       flex-basis: 40%;
       color: ${({ theme }) => theme.colors.background.tertiary.transparent};
     }
+  }
+`;
+
+export const LinkStyled = styled(Link)`
+  color: ${({ theme }) => theme.colors.text.primary};
+  text-decoration: none;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.background.secondary.transparent};
   }
 `;
