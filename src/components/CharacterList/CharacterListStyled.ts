@@ -6,7 +6,7 @@ export const CharacterListContainer = styled.div`
 `;
 
 export const CharactersTitle = styled.h2`
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   font-weight: normal;
   font-size: ${({ theme }) => theme.fontSize.text.large};
   text-transform: capitalize;
@@ -114,4 +114,11 @@ export const Button = styled.button<{ isFull: boolean }>`
   &:focus {
     outline: none;
   }
+`;
+
+export const Message = styled.div`
+  margin-top: 5rem;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.background.tertiary.transparent};
+  font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
 `;

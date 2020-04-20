@@ -8,6 +8,7 @@ import {
   Button,
   LinkStyled,
   CharacterName,
+  Message,
 } from './CharacterListStyled';
 import { ProfileImage } from '../ProfileImage';
 
@@ -23,13 +24,17 @@ export const CharacterList: React.FC<CharacterListProps> = ({
   title,
 }) => {
   const [characterListIsFull, setCharacterListIsFull] = useState(false);
+  const filteredCharacters = characters.filter((char) => char.id);
   const visibleEpisodes = characterListIsFull
-    ? characters
-    : characters.slice(0, listLength);
+    ? filteredCharacters
+    : filteredCharacters.slice(0, listLength);
 
   const handleClick = () => {
     setCharacterListIsFull((prev) => !prev);
   };
+
+  if (filteredCharacters.length === 0)
+    return <Message>{`There are no ${title}`}</Message>;
 
   return (
     <CharacterListContainer>
@@ -53,7 +58,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({
           );
         })}
       </CharacterListStyled>
-      {characters.length > listLength && (
+      {filteredCharacters.length > listLength && (
         <Button
           isFull={characterListIsFull}
           type="button"

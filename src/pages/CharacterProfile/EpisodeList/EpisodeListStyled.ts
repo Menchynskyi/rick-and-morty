@@ -6,7 +6,7 @@ export const EpisodeListContainer = styled.div`
 `;
 
 export const EpisodesTitle = styled.h2`
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   font-weight: normal;
   font-size: ${({ theme }) => theme.fontSize.text.large};
   text-transform: capitalize;
