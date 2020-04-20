@@ -2,7 +2,8 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
 import { GET_ALL_CHARACTES } from '../../../queries';
-import { CharacterCard, PageSwitch, ErrorMessage } from '../../../components';
+import { CharacterCard } from '../CharacterCard';
+import { PageSwitch, ErrorMessage } from '../../../components';
 import { Character } from '../../../types';
 import {
   CharacterListContainer,

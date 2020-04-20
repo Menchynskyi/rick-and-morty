@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Character } from '../../../types';
+import { Character } from '../../types';
 import {
   CharacterListContainer,
   CharacterListStyled,
@@ -9,17 +9,23 @@ import {
   LinkStyled,
   CharacterName,
 } from './CharacterListStyled';
-import { ProfileImage } from '../../../components';
+import { ProfileImage } from '../ProfileImage';
 
 type CharacterListProps = {
   characters: Character[];
+  listLength: number;
+  title: string;
 };
 
-export const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
+export const CharacterList: React.FC<CharacterListProps> = ({
+  characters,
+  listLength,
+  title,
+}) => {
   const [characterListIsFull, setCharacterListIsFull] = useState(false);
   const visibleEpisodes = characterListIsFull
     ? characters
-    : characters.slice(0, 4);
+    : characters.slice(0, listLength);
 
   const handleClick = () => {
     setCharacterListIsFull((prev) => !prev);
@@ -27,7 +33,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
 
   return (
     <CharacterListContainer>
-      <CharactersTitle>characters: </CharactersTitle>
+      <CharactersTitle>{`${title}: `}</CharactersTitle>
       <CharacterListStyled>
         {visibleEpisodes.map(({ name, id, status, image }) => {
           return (
@@ -47,7 +53,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
           );
         })}
       </CharacterListStyled>
-      {characters.length > 4 && (
+      {characters.length > listLength && (
         <Button
           isFull={characterListIsFull}
           type="button"

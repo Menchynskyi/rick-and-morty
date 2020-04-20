@@ -9,8 +9,7 @@ import {
   ShortInfoContainer,
 } from './EpisodeInfoStyled';
 import episodePoster from './episode-poster.jpg';
-import { ProfileImage } from '../../../components';
-import { CharacterList } from '../CharacterList';
+import { ProfileImage, CharacterList } from '../../../components';
 import { separateEpisodeNumber } from '../../../utils';
 
 type ShortEpisodeInfoProps = { data: Episode };
@@ -32,7 +31,11 @@ export const ShortEpisodeInfo: React.FC<ShortEpisodeInfoProps> = ({ data }) => {
           </ShortInfoContainer>
         </InfoContainer>
       </InnerContainer>
-      <CharacterList characters={data.characters} />
+      <CharacterList
+        title="characters"
+        listLength={4}
+        characters={data.characters}
+      />
     </EpisodeInfoContainer>
   );
 };

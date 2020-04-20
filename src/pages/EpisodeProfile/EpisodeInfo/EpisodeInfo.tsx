@@ -10,7 +10,12 @@ import {
   fetchImdb,
 } from '../../../contexts';
 import { GET_EPISODE } from '../../../queries';
-import { ErrorMessage, Loader, ProfileImage } from '../../../components';
+import {
+  ErrorMessage,
+  Loader,
+  ProfileImage,
+  CharacterList,
+} from '../../../components';
 import { ShortEpisodeInfo } from './ShortEpisodeInfo';
 import {
   EpisodeInfoContainer,
@@ -23,7 +28,6 @@ import {
   EpisodeTitle,
   ExtraInfoContainer,
 } from './EpisodeInfoStyled';
-import { CharacterList } from '../CharacterList';
 import { separateEpisodeNumber } from '../../../utils';
 
 export const EpisodeInfo: React.FC = () => {
@@ -83,7 +87,11 @@ export const EpisodeInfo: React.FC = () => {
         <PlotTitle>Plot: </PlotTitle>
         <div>{episodeData.plot}</div>
       </PlotContainer>
-      <CharacterList characters={episodeData.characters} />
+      <CharacterList
+        title="character"
+        listLength={4}
+        characters={episodeData.characters}
+      />
     </EpisodeInfoContainer>
   );
 };

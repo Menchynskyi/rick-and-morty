@@ -1,11 +1,11 @@
 import React from 'react';
-import { Character } from '../../types';
+import { Character } from '../../../types';
 import {
   CardContainer,
   InfoContainer,
   LinkStyled,
 } from './CharacterCardStyled';
-import { ProfileImage } from '../ProfileImage';
+import { ProfileImage } from '../../../components/ProfileImage';
 
 type CharacterCardProps = {
   character: Character;
