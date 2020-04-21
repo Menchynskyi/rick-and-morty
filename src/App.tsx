@@ -8,6 +8,7 @@ import {
   LocationProfile,
 } from './pages';
 import { Logo } from './components';
+import { Theme } from './theme';
 
 export const App: React.FC = () => {
   const location = useLocation();
@@ -15,7 +16,7 @@ export const App: React.FC = () => {
     return <Redirect to="/characters" />;
   }
   return (
-    <>
+    <Theme darkMode>
       <Header>
         <LinkStyled to="/">
           <Logo />
@@ -32,6 +33,6 @@ export const App: React.FC = () => {
           <Route path="/locations/:id" component={LocationProfile} />
         </Switch>
       </MainContainer>
-    </>
+    </Theme>
   );
 };

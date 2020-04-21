@@ -31,6 +31,10 @@ declare module 'styled-components' {
         secondary: string;
         disabled: string;
       };
+      skeleton: {
+        main: string;
+        highlight: string;
+      };
     };
     fontSize: {
       text: {
