@@ -7,16 +7,17 @@ export const LocationsContainer = styled.div`
 `;
 
 export const LocationsListStyled = styled.ul`
-  padding: 20px 0;
+  padding: 20px 0 5px 0;
   margin: 0;
   font-size: ${({ theme }) => theme.fontSize.text.large};
 `;
 
 export const LocationsListItem = styled.li`
   position: relative;
-  padding: 25px 15px;
+  padding: 30px 20px;
+  margin-bottom: 15px;
   list-style: none;
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.colors.background.gray.transparent};
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: all 0.2s;
 
