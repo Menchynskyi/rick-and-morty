@@ -9,6 +9,7 @@ import {
   LinkStyled,
   CharacterName,
   Message,
+  ImageContainer,
 } from './CharacterListStyled';
 import { ProfileImage } from '../ProfileImage';
 
@@ -44,13 +45,9 @@ export const CharacterList: React.FC<CharacterListProps> = ({
           return (
             <CharacterListItem key={id}>
               <LinkStyled to={`/characters/${id}`}>
-                <ProfileImage
-                  circle
-                  src={image}
-                  alt={name}
-                  height={40}
-                  width={40}
-                />
+                <ImageContainer>
+                  <ProfileImage circle src={image} alt={name} height={40} />
+                </ImageContainer>
                 <CharacterName>{name}</CharacterName>
                 <span>{status}</span>
               </LinkStyled>

@@ -7,6 +7,7 @@ export const CardContainer = styled.div`
   height: 300px;
   border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.skeleton.main};
 `;
 
 export const InfoContainer = styled.div`

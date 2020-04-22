@@ -13,7 +13,7 @@ export const CharacterListContainer = styled.ul`
     flex-wrap: wrap;
     justify-content: space-around;
 
-    & > span {
+    .react-loading-skeleton {
       margin-bottom: 15px;
       border-radius: ${({ theme }) => theme.borderRadius};
     }

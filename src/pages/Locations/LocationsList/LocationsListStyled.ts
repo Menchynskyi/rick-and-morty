@@ -12,10 +12,11 @@ export const LocationsListStyled = styled.ul`
   margin: 0;
   font-size: ${({ theme }) => theme.fontSize.text.large};
 
-  span {
+  .react-loading-skeleton {
     height: 82px;
     margin-bottom: 15px;
     border-radius: ${({ theme }) => theme.borderRadius};
+    line-height: inherit;
   }
 `;
 

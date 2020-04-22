@@ -122,3 +122,10 @@ export const Message = styled.div`
   color: ${({ theme }) => theme.colors.background.tertiary.transparent};
   font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
 `;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  width: 40px;
+  background-color: ${({ theme }) => theme.colors.skeleton.main};
+  border-radius: 50%;
+`;
