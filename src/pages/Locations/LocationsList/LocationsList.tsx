@@ -3,7 +3,13 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_ALL_LOCATIONS } from '../../../queries';
 import { ErrorMessage } from '../../../components';
 import { Location } from '../../../types';
-import { LocationsContainer } from './LocationsListStyled';
+import {
+  LocationsContainer,
+  LinkStyled,
+  LocationsListStyled,
+  LocationsListItem,
+  Button,
+} from './LocationsListStyled';
 import { useLocationState } from '../../../contexts';
 
 type LocationQuery = {
@@ -30,6 +36,7 @@ export const LocationsList: React.FC = () => {
   if (loading) return <p>Loading</p>;
   if (error) return <ErrorMessage text="There are no sush locations" />;
   const { locations } = data;
+  const locationList: Location[] = locations.results;
 
   const handleClick = () => {
     if (locations.info.next) {
@@ -53,10 +60,21 @@ export const LocationsList: React.FC = () => {
 
   return (
     <LocationsContainer>
-      Locations
-      <button type="button" onClick={handleClick}>
-        More
-      </button>
+      <LocationsListStyled>
+        {locationList.map(({ id, name, type }) => (
+          <LocationsListItem key={id}>
+            <LinkStyled to={`/locations/${id}`}>
+              <span>{name}</span>
+              <span>{type}</span>
+            </LinkStyled>
+          </LocationsListItem>
+        ))}
+      </LocationsListStyled>
+      {locations.info.next && (
+        <Button type="button" onClick={handleClick}>
+          Show more
+        </Button>
+      )}
     </LocationsContainer>
   );
 };
