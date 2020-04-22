@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactSelect, { ValueType } from 'react-select';
 import {
   FilterContainer,
@@ -26,18 +26,31 @@ const setOptions = (propArray: string[]): Select[] => {
   });
 };
 
+const initialInputState = {
+  name: '',
+  species: '',
+  type: '',
+};
+
 export const FilterCharacters: React.FC = () => {
+  const [inputState, setInputState] = useState(initialInputState);
+  const [timer, setTimer] = useState(0);
   const dispatch = useCharacterDispatch();
   const { filterOptions } = useCharacterState();
 
-  const handleInputChange = (option: string) => (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    clearTimeout(timer);
     const { value } = event.target;
-    dispatch({
-      type: 'setFilterOptions',
-      payload: { option, value },
-    });
+    const option = event.target.name;
+    setInputState((prev) => ({ ...prev, [option]: value }));
+    setTimer(
+      setTimeout(() => {
+        dispatch({
+          type: 'setFilterOptions',
+          payload: { option, value },
+        });
+      }, 500)
+    );
   };
 
   const handleSelectChange = (option: string) => (
@@ -48,6 +61,7 @@ export const FilterCharacters: React.FC = () => {
   };
 
   const handleClick = () => {
+    setInputState(initialInputState);
     dispatch({ type: 'resetFilterOptions' });
   };
 
@@ -55,20 +69,23 @@ export const FilterCharacters: React.FC = () => {
     <FilterContainer>
       <InnerContainer>
         <InputStyled
-          value={filterOptions.species}
-          onChange={handleInputChange('species')}
+          value={inputState.species}
+          name="species"
+          onChange={handleInputChange}
           placeholder="Species"
         />
         <InputStyled
-          value={filterOptions.type}
-          onChange={handleInputChange('type')}
+          value={inputState.type}
+          name="type"
+          onChange={handleInputChange}
           placeholder="Type"
         />
       </InnerContainer>
       <InnerContainer>
         <InputStyled
-          value={filterOptions.name}
-          onChange={handleInputChange('name')}
+          value={inputState.name}
+          name="name"
+          onChange={handleInputChange}
           placeholder="Name"
         />
         <ResetButton type="button" onClick={handleClick}>
@@ -78,6 +95,7 @@ export const FilterCharacters: React.FC = () => {
       <InnerContainer>
         <SelectContainer>
           <ReactSelect
+            name="status"
             value={
               filterOptions.status === ''
                 ? null
@@ -92,6 +110,7 @@ export const FilterCharacters: React.FC = () => {
         </SelectContainer>
         <SelectContainer>
           <ReactSelect
+            name="gender"
             value={
               filterOptions.gender === ''
                 ? null
