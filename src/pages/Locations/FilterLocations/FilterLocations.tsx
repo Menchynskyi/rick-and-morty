@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FilterContainer,
   InputStyled,
@@ -16,6 +16,12 @@ export const FilterLocations: React.FC = () => {
   const [inputState, setInputState] = useState(initialInputState);
   const [timer, setTimer] = useState(0);
   const dispatch = useLocationDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: 'resetFilterOptions' });
+    };
+  }, [dispatch]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(timer);

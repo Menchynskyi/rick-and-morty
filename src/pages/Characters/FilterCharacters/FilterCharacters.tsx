@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactSelect, { ValueType } from 'react-select';
 import {
   FilterContainer,
@@ -37,6 +37,12 @@ export const FilterCharacters: React.FC = () => {
   const [timer, setTimer] = useState(0);
   const dispatch = useCharacterDispatch();
   const { filterOptions } = useCharacterState();
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: 'resetFilterOptions' });
+    };
+  }, [dispatch]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(timer);
