@@ -10,6 +10,12 @@ export const LocationsListStyled = styled.ul`
   padding: 20px 0 5px 0;
   margin: 0;
   font-size: ${({ theme }) => theme.fontSize.text.large};
+
+  span {
+    height: 82px;
+    margin-bottom: 15px;
+    border-radius: ${({ theme }) => theme.borderRadius};
+  }
 `;
 
 export const LocationsListItem = styled.li`
@@ -25,16 +31,18 @@ export const LocationsListItem = styled.li`
     cursor: pointer;
     border-color: ${({ theme }) =>
       theme.colors.background.secondary.transparent};
-
-    & span:first-of-type {
-      color: ${({ theme }) => theme.colors.background.secondary.transparent};
-    }
   }
+`;
 
-  span:last-of-type {
-    font-size: ${({ theme }) => theme.fontSize.text.regular};
-    color: ${({ theme }) => theme.colors.text.secondary};
+export const LocationName = styled.div`
+  ${LocationsListItem}:hover & {
+    color: ${({ theme }) => theme.colors.background.secondary.transparent};
   }
+`;
+
+export const LocationType = styled.div`
+  font-size: ${({ theme }) => theme.fontSize.text.regular};
+  color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
 export const LinkStyled = styled(Link)`

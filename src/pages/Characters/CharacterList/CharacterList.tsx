@@ -20,11 +20,11 @@ export const CharacterList: React.FC = () => {
 
   if (error) return <ErrorMessage text="There are no such characters" />;
 
-  const characters: Character[] = !loading && data.characters.results;
+  const characterList: Character[] = !loading && data.characters.results;
   const content = loading ? (
     <Skeleton width={300} height={300} count={20} />
   ) : (
-    characters.map((character) => {
+    characterList.map((character) => {
       return (
         <CharacterListItem key={character.id}>
           <CharacterCard character={character} />

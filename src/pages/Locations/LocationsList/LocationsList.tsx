@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import Skeleton from 'react-loading-skeleton';
 import { GET_ALL_LOCATIONS } from '../../../queries';
 import { ErrorMessage } from '../../../components';
 import { Location } from '../../../types';
@@ -9,6 +10,8 @@ import {
   LocationsListStyled,
   LocationsListItem,
   Button,
+  LocationName,
+  LocationType,
 } from './LocationsListStyled';
 import { useLocationState } from '../../../contexts';
 
@@ -33,15 +36,13 @@ export const LocationsList: React.FC = () => {
   const { data, loading, error, fetchMore } = useQuery(GET_ALL_LOCATIONS, {
     variables: { page, filter: filterOptions },
   });
-  if (loading) return <p>Loading</p>;
+
   if (error) return <ErrorMessage text="There are no sush locations" />;
-  const { locations } = data;
-  const locationList: Location[] = locations.results;
 
   const handleClick = () => {
-    if (locations.info.next) {
+    if (data.locations.info.next) {
       fetchMore({
-        variables: { page: locations.info.next, filter: filterOptions },
+        variables: { page: data.locations.info.next, filter: filterOptions },
         updateQuery: (prev, current: UpdatedQueryData) => {
           if (!current.fetchMoreResult) return prev;
           return {
@@ -58,19 +59,24 @@ export const LocationsList: React.FC = () => {
     }
   };
 
+  const locationList: Location[] = !loading && data.locations.results;
+  const content = loading ? (
+    <Skeleton count={10} />
+  ) : (
+    locationList.map(({ id, name, type }) => (
+      <LocationsListItem key={id}>
+        <LinkStyled to={`/locations/${id}`}>
+          <LocationName>{name}</LocationName>
+          <LocationType>{type}</LocationType>
+        </LinkStyled>
+      </LocationsListItem>
+    ))
+  );
+
   return (
     <LocationsContainer>
-      <LocationsListStyled>
-        {locationList.map(({ id, name, type }) => (
-          <LocationsListItem key={id}>
-            <LinkStyled to={`/locations/${id}`}>
-              <span>{name}</span>
-              <span>{type}</span>
-            </LinkStyled>
-          </LocationsListItem>
-        ))}
-      </LocationsListStyled>
-      {locations.info.next && (
+      <LocationsListStyled>{content}</LocationsListStyled>
+      {!loading && data.locations.info.next && (
         <Button type="button" onClick={handleClick}>
           Show more
         </Button>
