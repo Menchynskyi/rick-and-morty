@@ -6,6 +6,7 @@ import {
   CharacterProfile,
   EpisodeProfile,
   LocationProfile,
+  Locations,
 } from './pages';
 import { Logo } from './components';
 import { Theme } from './theme';
@@ -30,6 +31,7 @@ export const App: React.FC = () => {
             path="/episodes/:id/:episodeNumber"
             component={EpisodeProfile}
           />
+          <Route path="/locations" exact component={Locations} />
           <Route path="/locations/:id" component={LocationProfile} />
         </Switch>
       </MainContainer>
