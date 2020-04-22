@@ -16,3 +16,18 @@ export const GET_LOCATION = gql`
     }
   }
 `;
+
+export const GET_ALL_LOCATIONS = gql`
+  query AllLocations($filter: FilterLocation, $page: Int!) {
+    locations(filter: $filter, page: $page) {
+      info {
+        next
+      }
+      results {
+        id
+        name
+        type
+      }
+    }
+  }
+`;
