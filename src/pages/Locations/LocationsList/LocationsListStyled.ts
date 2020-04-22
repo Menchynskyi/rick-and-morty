@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const LocationsContainer = styled.div`
   max-width: 1260px;
-  margin: 40px auto;
+  margin: 15px auto;
+  padding: 0 7.5px;
 `;
 
 export const LocationsListStyled = styled.ul`

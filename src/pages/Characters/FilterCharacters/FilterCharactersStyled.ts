@@ -4,7 +4,7 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 1260px;
-  margin: 20px auto;
+  margin: 40px auto 20px auto;
   padding: 0 7.5px;
 `;
 
@@ -24,7 +24,7 @@ export const SelectContainer = styled.div`
 
   .react-select__control {
     background-color: ${({ theme }) => theme.colors.background.primary};
-    border: 2px solid ${({ theme }) => theme.colors.background.secondary.hover};
+    border: 1px solid ${({ theme }) => theme.colors.background.secondary.hover};
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: none;
     color: ${({ theme }) => theme.colors.text.primary};
@@ -95,7 +95,7 @@ export const InputStyled = styled.input`
   margin-bottom: 10px;
   padding: 10px 12px;
   background-color: inherit;
-  border: 2px solid ${({ theme }) => theme.colors.background.secondary.hover};
+  border: 1px solid ${({ theme }) => theme.colors.background.secondary.hover};
   border-radius: ${({ theme }) => theme.borderRadius};
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   color: ${({ theme }) => theme.colors.text.primary};
@@ -120,7 +120,7 @@ export const ResetButton = styled.button`
   width: 100%;
   min-height: 38px;
   padding: 10px;
-  border: 2px solid ${({ theme }) => theme.colors.background.tertiary.hover};
+  border: 1px solid ${({ theme }) => theme.colors.background.tertiary.hover};
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.background.disabled.main : 'inherit'};
