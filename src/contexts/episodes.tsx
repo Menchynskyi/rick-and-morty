@@ -119,6 +119,8 @@ const episodeReducer = (state: State, action: Action) => {
     case 'resetFilterOptions': {
       return {
         ...state,
+        season: '',
+        episode: '',
         filterOptions: { ...initialState.filterOptions },
       };
     }
