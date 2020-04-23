@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext } from 'react';
-import { separateEpisodeNumber } from '../utils';
+import { separateEpisodeNumber, combineEpisodeNumber } from '../utils';
 
 type EpisodeImdbInfo = {
   plot: string;
@@ -16,6 +16,8 @@ type State = {
     name: string;
     episode: string;
   };
+  season: string;
+  episode: string;
   page: number;
 };
 
@@ -23,7 +25,8 @@ type Action =
   | { type: 'successFetchImdb'; payload: { [field: string]: string } }
   | { type: 'errorFetchImdb' }
   | { type: 'resetDataImdb' }
-  | { type: 'setFilterOptions'; payload: { option: string; value: string } }
+  | { type: 'setFilterName'; payload: string }
+  | { type: 'setFilterEpisode'; payload: { option: string; value: string } }
   | { type: 'resetFilterOptions' };
 
 type EpisodeContextState = {
@@ -42,6 +45,8 @@ const initialState: State = {
     episode: '',
   },
   page: 1,
+  season: '',
+  episode: '',
 };
 
 const episodeReducer = (state: State, action: Action) => {
@@ -72,12 +77,38 @@ const episodeReducer = (state: State, action: Action) => {
         ...initialState,
       };
     }
-    case 'setFilterOptions': {
+    case 'setFilterName': {
       return {
         ...state,
         filterOptions: {
           ...state.filterOptions,
-          [action.payload.option]: action.payload.value,
+          name: action.payload,
+        },
+      };
+    }
+    case 'setFilterEpisode': {
+      if (action.payload.value === 'any') {
+        return {
+          ...state,
+          [action.payload.option]: '',
+          filterOptions: {
+            ...state.filterOptions,
+            [action.payload.option]: '',
+          },
+        };
+      }
+
+      const episode =
+        action.payload.option === 'season'
+          ? combineEpisodeNumber(action.payload.value, state.episode)
+          : combineEpisodeNumber(state.season, action.payload.value);
+
+      return {
+        ...state,
+        [action.payload.option]: action.payload.value,
+        filterOptions: {
+          ...state.filterOptions,
+          episode,
         },
       };
     }

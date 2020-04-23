@@ -16,3 +16,18 @@ export const separateEpisodeNumber = (episode: string): [number, number] => {
     .map((str) => Number(str));
   return [splittedEpisode[0], splittedEpisode[1]];
 };
+
+export const combineEpisodeNumber = (
+  season: string,
+  episode: string
+): string => {
+  const seasonNumber = `S0${season}`;
+  const episodeNumber = +episode < 10 ? `E0${episode}` : `E${episode}`;
+  if (!season) {
+    return `${episodeNumber}`;
+  }
+  if (!episode) {
+    return `${seasonNumber}`;
+  }
+  return `${seasonNumber}${episodeNumber}`;
+};

@@ -19,12 +19,14 @@ export const NavListItem = styled.li<{ active: boolean }>`
   padding: 20px 10px;
   border-bottom: ${({ active, theme }) =>
     active && `3px solid ${theme.colors.background.secondary.main}`};
+  color: ${({ theme, active }) =>
+    active ? theme.colors.text.primary : theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.fontSize.text.medium};
   list-style: none;
 `;
 
 export const LinkStyled = styled(Link)`
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: inherit;
   text-decoration: none;
   transition: all 0.2s;
 
@@ -39,6 +41,6 @@ export const LinkStyled = styled(Link)`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.background.secondary.transparent};
+    color: ${({ theme }) => theme.colors.text.primary};
   }
 `;
