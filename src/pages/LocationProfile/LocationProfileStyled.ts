@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const LocationContainer = styled.div`
   max-width: 900px;
-  margin: 20px auto;
+  margin: 40px auto;
 `;
 
 export const InfoContainer = styled.div`

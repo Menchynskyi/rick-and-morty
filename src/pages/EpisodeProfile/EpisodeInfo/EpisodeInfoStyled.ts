@@ -4,7 +4,7 @@ export const EpisodeInfoContainer = styled.div`
   display: flex;
   flex-flow: column wrap;
   max-width: 900px;
-  margin: 20px auto;
+  margin: 40px auto;
 `;
 
 export const EpisodeTitle = styled.h1`
