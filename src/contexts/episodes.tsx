@@ -12,12 +12,19 @@ type State = {
   dataImdb: EpisodeImdbInfo;
   loadingImdb: boolean;
   errorImdb: boolean;
+  filterOptions: {
+    name: string;
+    episode: string;
+  };
+  page: number;
 };
 
 type Action =
   | { type: 'successFetchImdb'; payload: { [field: string]: string } }
   | { type: 'errorFetchImdb' }
-  | { type: 'resetDataImdb' };
+  | { type: 'resetDataImdb' }
+  | { type: 'setFilterOptions'; payload: { option: string; value: string } }
+  | { type: 'resetFilterOptions' };
 
 type EpisodeContextState = {
   state: State;
@@ -30,6 +37,11 @@ const initialState: State = {
   dataImdb: null,
   loadingImdb: true,
   errorImdb: false,
+  filterOptions: {
+    name: '',
+    episode: '',
+  },
+  page: 1,
 };
 
 const episodeReducer = (state: State, action: Action) => {
@@ -58,6 +70,21 @@ const episodeReducer = (state: State, action: Action) => {
     case 'resetDataImdb': {
       return {
         ...initialState,
+      };
+    }
+    case 'setFilterOptions': {
+      return {
+        ...state,
+        filterOptions: {
+          ...state.filterOptions,
+          [action.payload.option]: action.payload.value,
+        },
+      };
+    }
+    case 'resetFilterOptions': {
+      return {
+        ...state,
+        filterOptions: { ...initialState.filterOptions },
       };
     }
     default:
