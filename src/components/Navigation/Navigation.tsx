@@ -1,10 +1,13 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   LinkStyled,
   NavList,
   NavListItem,
   NavStyled,
+  GithubLink,
 } from './NavigationStyled';
 
 const routes = [
@@ -24,6 +27,9 @@ export const Navigation: React.FC = () => {
           </NavListItem>
         ))}
       </NavList>
+      <GithubLink href="https://github.com/Menchynskyi/rick-and-morty">
+        <FontAwesomeIcon icon={faGithub} size="2x" />
+      </GithubLink>
     </NavStyled>
   );
 };
