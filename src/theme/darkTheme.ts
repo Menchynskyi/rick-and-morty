@@ -39,6 +39,7 @@ export const darkTheme: DefaultTheme = {
     text: {
       extraLarge: '20px',
       large: '18px',
+      medium: '16px',
       regular: '14px',
       small: '12px',
     },

@@ -19,7 +19,7 @@ export const NavListItem = styled.li<{ active: boolean }>`
   padding: 20px 10px;
   border-bottom: ${({ active, theme }) =>
     active && `3px solid ${theme.colors.background.secondary.main}`};
-  font-size: ${({ theme }) => theme.fontSize.text.large};
+  font-size: ${({ theme }) => theme.fontSize.text.medium};
   list-style: none;
 `;
 

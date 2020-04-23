@@ -40,6 +40,7 @@ declare module 'styled-components' {
       text: {
         extraLarge: string;
         large: string;
+        medium: string;
         regular: string;
         small: string;
       };
