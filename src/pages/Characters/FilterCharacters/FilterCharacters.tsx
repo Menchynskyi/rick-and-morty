@@ -75,24 +75,27 @@ export const FilterCharacters: React.FC = () => {
     <FilterContainer>
       <InnerContainer>
         <InputStyled
-          value={inputState.species}
           name="species"
-          onChange={handleInputChange}
           placeholder="Species"
+          autoComplete="off"
+          onChange={handleInputChange}
+          value={inputState.species}
         />
         <InputStyled
-          value={inputState.type}
           name="type"
-          onChange={handleInputChange}
           placeholder="Type"
+          autoComplete="off"
+          value={inputState.type}
+          onChange={handleInputChange}
         />
       </InnerContainer>
       <InnerContainer>
         <InputStyled
-          value={inputState.name}
           name="name"
-          onChange={handleInputChange}
           placeholder="Name"
+          autoComplete="off"
+          value={inputState.name}
+          onChange={handleInputChange}
         />
         <ResetButton type="button" onClick={handleClick}>
           Reset

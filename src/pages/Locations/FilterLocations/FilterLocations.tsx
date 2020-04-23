@@ -48,18 +48,21 @@ export const FilterLocations: React.FC = () => {
       <InputStyled
         name="name"
         placeholder="Name"
+        autoComplete="off"
         value={inputState.name}
         onChange={handleChange}
       />
       <InputStyled
         name="type"
         placeholder="Type"
+        autoComplete="off"
         value={inputState.type}
         onChange={handleChange}
       />
       <InputStyled
         name="dimension"
         placeholder="Dimension"
+        autoComplete="off"
         value={inputState.dimension}
         onChange={handleChange}
       />

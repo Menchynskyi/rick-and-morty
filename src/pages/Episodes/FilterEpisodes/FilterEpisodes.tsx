@@ -83,8 +83,9 @@ export const FilterEpisodes: React.FC = () => {
     <FilterContainer>
       <InputStyled
         name="name"
-        value={inputState.name}
+        autoComplete="off"
         placeholder="Name"
+        value={inputState.name}
         onChange={handleChange}
       />
       <SelectContainer>
