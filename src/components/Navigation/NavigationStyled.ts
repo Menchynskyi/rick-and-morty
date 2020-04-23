@@ -1,22 +1,24 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const NavStyled = styled.nav`
-  width: 1260px;
+export const NavStyled = styled.nav<{ isFull: boolean }>`
+  width: ${({ isFull }) => (isFull ? '1260px' : '900px')};
   margin: 0 auto;
-  padding: 0 7.5px;
+  padding: ${({ isFull }) => (isFull ? '0 7.5px' : '0')};
+  transition: all 0.2s;
 `;
 
 export const NavList = styled.ul`
   display: flex;
   padding: 0;
+  margin: 0;
 `;
 
 export const NavListItem = styled.li<{ active: boolean }>`
   position: relative;
   padding: 20px 10px;
   border-bottom: ${({ active, theme }) =>
-    active && `2px solid ${theme.colors.background.secondary.main}`};
+    active && `3px solid ${theme.colors.background.secondary.main}`};
   font-size: ${({ theme }) => theme.fontSize.text.large};
   list-style: none;
 `;

@@ -16,7 +16,7 @@ const routes = [
 export const Navigation: React.FC = () => {
   const { pathname } = useLocation();
   return (
-    <NavStyled>
+    <NavStyled isFull={!routes.every(({ path }) => path !== pathname)}>
       <NavList>
         {routes.map(({ name, path }) => (
           <NavListItem active={pathname.startsWith(path)} key={name}>
