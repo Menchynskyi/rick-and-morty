@@ -7,6 +7,7 @@ import {
   InfoHeader,
   EpisodeTitle,
   ShortInfoContainer,
+  ImageContainer,
 } from './EpisodeInfoStyled';
 import episodePoster from './episode-poster.jpg';
 import { ProfileImage, CharacterList } from '../../../components';
@@ -20,7 +21,9 @@ export const ShortEpisodeInfo: React.FC<ShortEpisodeInfoProps> = ({ data }) => {
   return (
     <EpisodeInfoContainer>
       <InnerContainer>
-        <ProfileImage src={episodePoster} alt={data.name} height={170} />
+        <ImageContainer>
+          <ProfileImage src={episodePoster} alt={data.name} height={170} />
+        </ImageContainer>
         <InfoContainer>
           <InfoHeader>
             <EpisodeTitle>{data.name}</EpisodeTitle>

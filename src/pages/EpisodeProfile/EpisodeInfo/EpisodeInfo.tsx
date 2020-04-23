@@ -27,6 +27,7 @@ import {
   InfoHeader,
   EpisodeTitle,
   ExtraInfoContainer,
+  ImageContainer,
 } from './EpisodeInfoStyled';
 import { separateEpisodeNumber } from '../../../utils';
 
@@ -56,11 +57,13 @@ export const EpisodeInfo: React.FC = () => {
   return (
     <EpisodeInfoContainer>
       <InnerContainer>
-        <ProfileImage
-          src={episodeData.poster}
-          alt={episodeData.name}
-          height={170}
-        />
+        <ImageContainer>
+          <ProfileImage
+            src={episodeData.poster}
+            alt={episodeData.name}
+            height={170}
+          />
+        </ImageContainer>
         <InfoContainer>
           <InfoHeader>
             <EpisodeTitle>{episodeData.name}</EpisodeTitle>

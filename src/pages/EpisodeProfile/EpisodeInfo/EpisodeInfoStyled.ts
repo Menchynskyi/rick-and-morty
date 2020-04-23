@@ -90,3 +90,10 @@ export const ShortInfoContainer = styled.div`
     font-size: ${({ theme }) => theme.fontSize.text.regular};
   }
 `;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  width: 300px;
+  background-color: ${({ theme }) => theme.colors.skeleton.main};
+  border-radius: ${({ theme }) => theme.borderRadius};
+`;
