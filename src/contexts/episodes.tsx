@@ -88,12 +88,16 @@ const episodeReducer = (state: State, action: Action) => {
     }
     case 'setFilterEpisode': {
       if (action.payload.value === 'any') {
+        const episode =
+          action.payload.option === 'season'
+            ? combineEpisodeNumber('', state.episode)
+            : combineEpisodeNumber(state.season, '');
         return {
           ...state,
           [action.payload.option]: '',
           filterOptions: {
             ...state.filterOptions,
-            [action.payload.option]: '',
+            episode,
           },
         };
       }
