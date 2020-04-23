@@ -5,11 +5,13 @@ import {
   Characters,
   CharacterProfile,
   EpisodeProfile,
+  Episodes,
   LocationProfile,
   Locations,
 } from './pages';
 import { Navigation } from './components';
 import { Theme } from './theme';
+import { EpisodeProvider } from './contexts';
 
 export const App: React.FC = () => {
   const location = useLocation();
@@ -25,12 +27,15 @@ export const App: React.FC = () => {
         <Switch>
           <Route path="/characters" exact component={Characters} />
           <Route path="/characters/:id" component={CharacterProfile} />
-          <Route
-            path="/episodes/:id/:episodeNumber"
-            component={EpisodeProfile}
-          />
           <Route path="/locations" exact component={Locations} />
           <Route path="/locations/:id" component={LocationProfile} />
+          <EpisodeProvider>
+            <Route path="/episodes" exact component={Episodes} />
+            <Route
+              path="/episodes/:id/:episodeNumber"
+              component={EpisodeProfile}
+            />
+          </EpisodeProvider>
         </Switch>
       </MainContainer>
     </Theme>

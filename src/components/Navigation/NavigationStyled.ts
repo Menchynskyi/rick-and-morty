@@ -5,7 +5,7 @@ export const NavStyled = styled.nav<{ isFull: boolean }>`
   width: ${({ isFull }) => (isFull ? '1260px' : '900px')};
   margin: 0 auto;
   padding: ${({ isFull }) => (isFull ? '0 7.5px' : '0')};
-  transition: all 0.2s;
+  transition: all 0.2s, width 0.3s ease-out, padding 0.3s ease-out;
 `;
 
 export const NavList = styled.ul`
