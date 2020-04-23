@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
-import { Header, MainContainer, LinkStyled } from './AppStyled';
+import { Header, MainContainer } from './AppStyled';
 import {
   Characters,
   CharacterProfile,
@@ -8,7 +8,7 @@ import {
   LocationProfile,
   Locations,
 } from './pages';
-import { Logo } from './components';
+import { Navigation } from './components';
 import { Theme } from './theme';
 
 export const App: React.FC = () => {
@@ -19,9 +19,7 @@ export const App: React.FC = () => {
   return (
     <Theme darkMode>
       <Header>
-        <LinkStyled to="/">
-          <Logo />
-        </LinkStyled>
+        <Navigation />
       </Header>
       <MainContainer>
         <Switch>

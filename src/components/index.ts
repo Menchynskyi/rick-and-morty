@@ -4,3 +4,4 @@ export { ErrorMessage } from './ErrorMessage';
 export { ProfileImage } from './ProfileImage';
 export { Loader } from './Loader';
 export { CharacterList } from './CharacterList';
+export { Navigation } from './Navigation';

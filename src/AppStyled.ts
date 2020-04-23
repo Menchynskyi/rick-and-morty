@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: ${({ theme }) => theme.colors.background.gray.transparent};
 `;
 
 export const MainContainer = styled.main`
