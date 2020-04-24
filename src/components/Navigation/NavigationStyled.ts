@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export const NavStyled = styled.nav<{ isFull: boolean }>`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: ${({ isFull }) => (isFull ? '1260px' : '900px')};
   margin: 0 auto;
   padding: ${({ isFull }) => (isFull ? '0 7.5px' : '0')};
