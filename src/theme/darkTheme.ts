@@ -24,6 +24,11 @@ export const darkTheme: DefaultTheme = {
         transparent: 'rgba(46, 46, 46, 0.9)',
         hover: 'rgba(46, 46, 46, 0.8)',
       },
+      white: {
+        main: 'rgb(232, 232, 232)',
+        transparent: 'rgba(232, 232, 232, 0.9)',
+        hover: 'rgba(232, 232, 232, 0.8)',
+      },
     },
     text: {
       primary: '#E8E8E8',

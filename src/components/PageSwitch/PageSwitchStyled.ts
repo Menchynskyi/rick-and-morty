@@ -16,7 +16,7 @@ export const Button = styled.button<ButtonProps>`
     disabled
       ? theme.colors.background.disabled.main
       : theme.colors.background.secondary.main};
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.background.white.main};
   font-size: 48px;
   text-transform: uppercase;
   transform: scale(1);
@@ -45,7 +45,7 @@ export const PageStateContainer = styled.div<{ isFocused: boolean }>`
   justify-content: center;
   align-items: center;
   width: 300px;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.background.white.main};
   font-size: ${({ theme }) => theme.fontSize.heading.large};
   background-color: ${({ theme }) => theme.colors.background.tertiary.main};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -62,7 +62,7 @@ export const Input = styled.input<{ isFocused: boolean }>`
   text-align: center;
   overflow: hidden;
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.background.white.main};
   font-size: ${({ theme }) => theme.fontSize.heading.large};
   border: none;
   cursor: ${({ isFocused }) => (isFocused ? 'text' : 'pointer')};
