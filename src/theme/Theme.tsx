@@ -25,11 +25,11 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 type ThemeProps = {
-  darkMode?: boolean;
+  lightMode?: boolean;
 };
 
-export const Theme: React.FC<ThemeProps> = ({ children, darkMode }) => {
-  const theme = darkMode ? darkTheme : lightTheme;
+export const Theme: React.FC<ThemeProps> = ({ children, lightMode }) => {
+  const theme = lightMode ? lightTheme : darkTheme;
 
   return (
     <ThemeProvider theme={theme}>

@@ -11,15 +11,16 @@ import {
 } from './pages';
 import { Navigation } from './components';
 import { Theme } from './theme';
-import { EpisodeProvider } from './contexts';
+import { EpisodeProvider, useModeState } from './contexts';
 
 export const App: React.FC = () => {
+  const { lightMode } = useModeState();
   const location = useLocation();
   if (location.pathname === '/') {
     return <Redirect to="/characters" />;
   }
   return (
-    <Theme darkMode>
+    <Theme lightMode={lightMode}>
       <Header>
         <Navigation />
       </Header>

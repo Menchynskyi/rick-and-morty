@@ -9,6 +9,7 @@ import {
   NavStyled,
   GithubLink,
 } from './NavigationStyled';
+import { ToggleTheme } from '../ToggleTheme';
 
 const routes = [
   { name: 'Characters', path: '/characters' },
@@ -27,9 +28,7 @@ export const Navigation: React.FC = () => {
           </NavListItem>
         ))}
       </NavList>
-      <GithubLink href="https://github.com/Menchynskyi/rick-and-morty">
-        <FontAwesomeIcon icon={faGithub} size="2x" />
-      </GithubLink>
+      <ToggleTheme />
     </NavStyled>
   );
 };

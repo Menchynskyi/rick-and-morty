@@ -2,15 +2,13 @@ import React from 'react';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { ToggleThemeContainer } from './ToggleThemeStyled';
 import { Toggle } from '../Toggle';
+import { useModeToggle } from '../../contexts';
 
-type ToggleTheme = {
-  toggleTheme: () => void;
-};
-
-export const ToggleTheme: React.FC<ToggleTheme> = ({ toggleTheme }) => {
+export const ToggleTheme: React.FC = () => {
+  const toggleMode = useModeToggle();
   return (
     <ToggleThemeContainer>
-      <Toggle leftIcon={faMoon} rightIcon={faSun} handleToggle={toggleTheme} />
+      <Toggle leftIcon={faMoon} rightIcon={faSun} handleToggle={toggleMode} />
     </ToggleThemeContainer>
   );
 };
