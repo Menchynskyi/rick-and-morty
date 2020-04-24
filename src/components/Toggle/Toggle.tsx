@@ -1,9 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { ToggleThumb, ToggleContainer, InputStyled } from './ToggleStyled';
 
-export const Toggle: React.FC = () => {
+type ToggleProps = {
+  leftIcon?: any; //eslint-disable-line
+  rightIcon?: any; //eslint-disable-line
+  handleToggle: () => void;
+};
+
+export const Toggle: React.FC<ToggleProps> = ({
+  leftIcon,
+  rightIcon,
+  handleToggle,
+}) => {
   const checkboxRef = useRef<HTMLInputElement | null>(null);
   const [state, setState] = useState({
     isChecked: false,
@@ -15,6 +24,7 @@ export const Toggle: React.FC = () => {
       event.preventDefault();
       checkbox!.focus();
       checkbox!.click();
+      handleToggle();
       return;
     }
     setState((prev) => {
@@ -45,8 +55,8 @@ export const Toggle: React.FC = () => {
 
   return (
     <ToggleContainer onClick={handleClick} isChecked={state.isChecked}>
-      <FontAwesomeIcon icon={faMoon} />
-      <FontAwesomeIcon icon={faSun} />
+      {leftIcon && <FontAwesomeIcon icon={leftIcon} />}
+      {rightIcon && <FontAwesomeIcon icon={rightIcon} />}
       <ToggleThumb isChecked={state.isChecked} isTarget={state.isTarget} />
       <InputStyled
         ref={checkboxRef}
