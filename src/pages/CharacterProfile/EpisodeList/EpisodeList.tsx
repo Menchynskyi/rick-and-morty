@@ -8,7 +8,7 @@ import {
   Button,
   LinkStyled,
 } from './EpisodeListStyled';
-import { displayEpisodeNumber } from '../../../utils';
+import { displaySeparateEpisode } from '../../../utils';
 
 type EpisodeListProps = {
   episodes: Episode[];
@@ -31,7 +31,7 @@ export const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
             <EpisodeListItem key={id}>
               <LinkStyled to={`/episodes/${id}/${episode}`}>
                 <span>{name}</span>
-                <span>{displayEpisodeNumber(episode)}</span>
+                <span>{displaySeparateEpisode(episode)}</span>
               </LinkStyled>
             </EpisodeListItem>
           );

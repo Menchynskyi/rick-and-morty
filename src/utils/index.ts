@@ -2,14 +2,22 @@ export const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
 
-export const displayEpisodeNumber = (episode: string): string => {
-  const firstPart = episode.slice(0, episode.length / 2);
-  const secondPart = episode.slice(episode.length / 2, episode.length);
-  return `${firstPart} ${secondPart}`;
+export const displaySeparateEpisode = (episode: string): string => {
+  const reg = /[se]/i;
+  if (!reg.test(episode)) {
+    return 'No such episode';
+  }
+  const splittedEpisode = episode.split(reg).filter(Boolean);
+  return `S${splittedEpisode[0]} E${splittedEpisode[1]}`;
 };
 
-export const separateEpisodeNumber = (episode: string): [number, number] => {
-  const reg = /[S,E,s,e]/;
+export const separateEpisodeNumber = (
+  episode: string
+): [number, number] | [string, string] => {
+  const reg = /[se]/i;
+  if (!reg.test(episode)) {
+    return ['', ''];
+  }
   const splittedEpisode = episode
     .split(reg)
     .filter(Boolean)
@@ -21,7 +29,10 @@ export const combineEpisodeNumber = (
   season: string,
   episode: string
 ): string => {
-  const seasonNumber = `S0${season}`;
+  if (Number.isNaN(+season) || Number.isNaN(+episode)) {
+    return '';
+  }
+  const seasonNumber = +season < 10 ? `S0${season}` : `S${season}`;
   const episodeNumber = +episode < 10 ? `E0${episode}` : `E${episode}`;
   if (!season) {
     return `${episodeNumber}`;

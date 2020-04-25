@@ -1,13 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   LinkStyled,
   NavList,
   NavListItem,
   NavStyled,
-  GithubLink,
 } from './NavigationStyled';
 import { ToggleTheme } from '../ToggleTheme';
 
