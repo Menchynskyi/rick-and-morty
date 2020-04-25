@@ -1,5 +1,9 @@
-export const scrollToTop = () => {
-  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+export const scrollTo = (
+  top: number,
+  left: number,
+  behavior: 'auto' | 'smooth'
+) => {
+  window.scrollTo({ top, left, behavior });
 };
 
 export const displaySeparateEpisode = (episode: string): string => {
