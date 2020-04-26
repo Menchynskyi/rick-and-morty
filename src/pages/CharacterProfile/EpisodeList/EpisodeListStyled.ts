@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const EpisodeListContainer = styled.div`
@@ -61,45 +61,6 @@ export const LinkStyled = styled(Link)`
   }
 `;
 
-const fullHover = css`
-  background-color: ${({ theme }) => theme.colors.background.tertiary.main};
-`;
-
-const notFullHover = css`
-  background-color: ${({ theme }) => theme.colors.background.secondary.main};
-`;
-
-export const Button = styled.button<{ isFull: boolean }>`
-  display: block;
-  width: 100%;
+export const ButtonContainer = styled.div`
   margin-top: 15px;
-  padding: 15px;
-  background-color: transparent;
-  font-size: ${({ theme }) => theme.fontSize.text.regular};
-  color: ${({ isFull, theme }) =>
-    isFull
-      ? theme.colors.background.tertiary.main
-      : theme.colors.background.secondary.main};
-  border: 1px solid
-    ${({ isFull, theme }) =>
-      isFull
-        ? theme.colors.background.tertiary.main
-        : theme.colors.background.secondary.main};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  transform: scale(1);
-  transition: all 0.2s, transform 0.1s;
-
-  &:hover {
-    cursor: pointer;
-    color: ${({ theme }) => theme.colors.text.primary};
-    ${({ isFull }) => (isFull ? fullHover : notFullHover)};
-  }
-
-  &:active {
-    transform: scale(0.99);
-  }
-
-  &:focus {
-    outline: none;
-  }
 `;

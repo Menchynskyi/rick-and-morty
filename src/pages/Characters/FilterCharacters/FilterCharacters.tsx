@@ -5,9 +5,9 @@ import {
   SelectContainer,
   InputStyled,
   InnerContainer,
-  ResetButton,
 } from './FilterCharactersStyled';
 import { useCharacterDispatch, useCharacterState } from '../../../contexts';
+import { Button } from '../../../components';
 
 type Select = {
   value: string;
@@ -67,8 +67,11 @@ export const FilterCharacters: React.FC = () => {
   };
 
   const handleClick = () => {
-    setInputState(initialInputState);
-    dispatch({ type: 'resetFilterOptions' });
+    if (Object.values(inputState).some((value) => value)) {
+      clearTimeout(timer);
+      setInputState(initialInputState);
+      dispatch({ type: 'resetFilterOptions' });
+    }
   };
 
   return (
@@ -97,9 +100,15 @@ export const FilterCharacters: React.FC = () => {
           value={inputState.name}
           onChange={handleInputChange}
         />
-        <ResetButton type="button" onClick={handleClick}>
+        <Button
+          color="secondary"
+          size="small"
+          fullWidth
+          type="button"
+          onClick={handleClick}
+        >
           Reset
-        </ResetButton>
+        </Button>
       </InnerContainer>
       <InnerContainer>
         <SelectContainer>

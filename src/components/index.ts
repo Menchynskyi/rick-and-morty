@@ -6,3 +6,4 @@ export { Loader } from './Loader';
 export { CharacterList } from './CharacterList';
 export { Navigation } from './Navigation';
 export { Toggle } from './Toggle';
+export { Button } from './Button';

@@ -5,9 +5,10 @@ import {
   EpisodeListStyled,
   EpisodeListItem,
   EpisodesTitle,
-  Button,
   LinkStyled,
+  ButtonContainer,
 } from './EpisodeListStyled';
+import { Button } from '../../../components';
 import { displaySeparateEpisode } from '../../../utils';
 
 type EpisodeListProps = {
@@ -38,9 +39,16 @@ export const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
         })}
       </EpisodeListStyled>
       {episodes.length > 5 && (
-        <Button isFull={episodeListIsFull} type="button" onClick={handleClick}>
-          {episodeListIsFull ? 'Show less' : 'Show more'}
-        </Button>
+        <ButtonContainer>
+          <Button
+            color={!episodeListIsFull ? 'primary' : 'secondary'}
+            fullWidth
+            type="button"
+            onClick={handleClick}
+          >
+            {episodeListIsFull ? 'Show less' : 'Show more'}
+          </Button>
+        </ButtonContainer>
       )}
     </EpisodeListContainer>
   );
