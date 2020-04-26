@@ -30,6 +30,11 @@ declare module 'styled-components' {
           transparent: string;
           hover: string;
         };
+        black: {
+          main: string;
+          transparent: string;
+          hover: string;
+        };
       };
       text: {
         primary: string;

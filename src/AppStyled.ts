@@ -8,11 +8,13 @@ export const Header = styled.header`
   right: 0;
   z-index: 1000;
   background-color: ${({ theme }) => theme.colors.background.gray.transparent};
+  transition: background-color 0.2s, color 0.2s;
 `;
 
 export const MainContainer = styled.main`
   margin-top: 65px;
   padding-top: 5px;
+  transition: background-color 0.2s, color 0.2s;
 `;
 
 export const LinkStyled = styled(Link)`

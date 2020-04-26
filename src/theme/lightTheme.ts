@@ -29,6 +29,11 @@ export const lightTheme: DefaultTheme = {
         transparent: 'rgba(232, 232, 232, 0.9)',
         hover: 'rgba(232, 232, 232, 0.8)',
       },
+      black: {
+        main: 'rgb(159, 159, 159)',
+        transparent: 'rgba(159, 159, 159, 0.9)',
+        hover: 'rgba(159, 159, 159, 0.8)',
+      },
     },
     text: {
       primary: '#1C1C1C',

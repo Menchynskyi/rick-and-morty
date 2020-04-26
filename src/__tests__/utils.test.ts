@@ -72,9 +72,15 @@ describe('Combine episode number function:', () => {
 });
 
 describe('ScrollTo function:', () => {
+  const { scrollTo: originScrollTo } = window;
+
   beforeEach(() => {
     window.scrollTo = jest.fn();
     scrollTo(0, 0, 'smooth');
+  });
+
+  afterAll(() => {
+    window.scrollTo = originScrollTo;
   });
 
   test('should call window scrollTo with correct parametrs', () => {

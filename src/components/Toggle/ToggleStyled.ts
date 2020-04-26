@@ -9,7 +9,7 @@ export const ToggleContainer = styled.div<{ isChecked: boolean }>`
   position: relative;
   width: 46px;
   height: 22px;
-  background-color: ${({ theme }) => theme.colors.background.primary};
+  background-color: ${({ theme }) => theme.colors.background.black.main};
   border-radius: 30px;
   line-height: 1;
   transition: all 0.4s ease;
@@ -33,7 +33,7 @@ export const ToggleThumb = styled.div<ToggleThumbProps>`
   width: 18px;
   height: 18px;
   z-index: 1;
-  background-color: ${({ theme }) => theme.colors.text.primary};
+  background-color: ${({ theme }) => theme.colors.background.white.main};
   border-radius: 50%;
   box-sizing: border-box;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;

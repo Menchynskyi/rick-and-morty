@@ -3,7 +3,7 @@ import { DefaultTheme } from 'styled-components';
 export const darkTheme: DefaultTheme = {
   colors: {
     background: {
-      primary: '#1C1C1C',
+      primary: 'rgb(28, 28, 28)',
       secondary: {
         main: 'rgb(17, 176, 200)',
         transparent: 'rgba(17, 176, 200, 0.9)',
@@ -28,6 +28,11 @@ export const darkTheme: DefaultTheme = {
         main: 'rgb(232, 232, 232)',
         transparent: 'rgba(232, 232, 232, 0.9)',
         hover: 'rgba(232, 232, 232, 0.8)',
+      },
+      black: {
+        main: 'rgb(28, 28, 28)',
+        transparent: 'rgba(28, 28, 28, 0.9)',
+        hover: 'rgba(28, 28, 28, 0.8)',
       },
     },
     text: {
