@@ -1,5 +1,15 @@
-import styled from 'styled-components';
+import styled, { ThemedStyledProps, DefaultTheme } from 'styled-components';
 import { ButtonProps } from './Button';
+
+type StyledComponentsProps = ThemedStyledProps<
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >,
+  DefaultTheme
+>;
+
+type ButtonStyledProps = StyledComponentsProps & ButtonProps;
 
 const setPadding = ({ size }: ButtonProps) => {
   switch (size) {
@@ -21,57 +31,76 @@ const setPadding = ({ size }: ButtonProps) => {
   }
 };
 
+const setFontSize = ({ theme, size }: ButtonStyledProps) => {
+  switch (size) {
+    case 'large': {
+      return theme.fontSize.text.large;
+    }
+    case 'regular':
+    case 'small':
+    case 'extraSmall': {
+      return theme.fontSize.text.regular;
+    }
+    default: {
+      return theme.fontSize.text.regular;
+    }
+  }
+};
+
+const setBorderColor = ({ theme, color }: ButtonStyledProps) => {
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.main;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.main;
+    }
+    default: {
+      return theme.colors.background.secondary.main;
+    }
+  }
+};
+
+const setColor = ({ theme, color }: ButtonStyledProps) => {
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.main;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.main;
+    }
+    default: {
+      return theme.colors.background.secondary.main;
+    }
+  }
+};
+
+const setBackgroundColor = ({ theme, color }: ButtonStyledProps) => {
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.main;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.main;
+    }
+    default: {
+      return theme.colors.background.secondary.main;
+    }
+  }
+};
+
 export const ButtonStyled = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: ${({ fullWidth }) => fullWidth && '100%'};
   padding: ${setPadding};
-  border: 1px solid
-    ${({ theme, color }) => {
-      switch (color) {
-        case 'primary': {
-          return theme.colors.background.secondary.main;
-        }
-        case 'secondary': {
-          return theme.colors.background.tertiary.main;
-        }
-        default: {
-          return theme.colors.background.secondary.main;
-        }
-      }
-    }};
+  border: 1px solid ${setBorderColor};
   border-radius: ${({ theme }) => theme.borderRadius};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.background.disabled.main : 'inherit'};
-  color: ${({ theme, color }) => {
-    switch (color) {
-      case 'primary': {
-        return theme.colors.background.secondary.main;
-      }
-      case 'secondary': {
-        return theme.colors.background.tertiary.main;
-      }
-      default: {
-        return theme.colors.background.secondary.main;
-      }
-    }
-  }};
-  font-size: ${({ theme, size }) => {
-    switch (size) {
-      case 'large': {
-        return theme.fontSize.text.large;
-      }
-      case 'regular':
-      case 'small':
-      case 'extraSmall': {
-        return theme.fontSize.text.regular;
-      }
-      default: {
-        return theme.fontSize.text.regular;
-      }
-    }
-  }};
+  color: ${setColor};
+  font-size: ${setFontSize};
   text-transform: capitalize;
   transition: background-color 0.2s, color 0.2s;
 
@@ -80,20 +109,8 @@ export const ButtonStyled = styled.button<ButtonProps>`
   }
 
   &:hover {
-    cursor: ${({ disabled }) => !disabled && 'pointer'};
+    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
     color: ${({ theme }) => theme.colors.background.white.main};
-    background-color: ${({ theme, color }) => {
-      switch (color) {
-        case 'primary': {
-          return theme.colors.background.secondary.main;
-        }
-        case 'secondary': {
-          return theme.colors.background.tertiary.main;
-        }
-        default: {
-          return theme.colors.background.secondary.main;
-        }
-      }
-    }};
+    background-color: ${setBackgroundColor};
   }
 `;
