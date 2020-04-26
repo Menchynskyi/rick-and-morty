@@ -9,7 +9,7 @@ import {
   ShortInfoContainer,
   ImageContainer,
 } from './EpisodeInfoStyled';
-import episodePoster from './episode-poster.jpg';
+import episodePoster from '../../../assets/episode-poster.jpg';
 import { ProfileImage, CharacterList } from '../../../components';
 import { separateEpisodeNumber } from '../../../utils';
 

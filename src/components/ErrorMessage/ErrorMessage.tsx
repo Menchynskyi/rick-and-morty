@@ -1,6 +1,6 @@
 import React from 'react';
 import { ErrorContainer, ErrorText, Img } from './ErrorMessageStyled';
-import errorImage from './error.gif';
+import errorImage from '../../assets/error.gif';
 
 type ErrorMessageProps = {
   text?: string;
