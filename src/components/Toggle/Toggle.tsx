@@ -5,17 +5,19 @@ import { ToggleThumb, ToggleContainer, InputStyled } from './ToggleStyled';
 type ToggleProps = {
   leftIcon?: any; //eslint-disable-line
   rightIcon?: any; //eslint-disable-line
-  handleToggle: () => void;
+  isChecked?: boolean;
+  handleToggle?: () => void;
 };
 
 export const Toggle: React.FC<ToggleProps> = ({
   leftIcon,
   rightIcon,
   handleToggle,
+  isChecked,
 }) => {
   const checkboxRef = useRef<HTMLInputElement | null>(null);
   const [state, setState] = useState({
-    isChecked: false,
+    isChecked: !!isChecked,
     isTarget: false,
   });
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -24,7 +26,9 @@ export const Toggle: React.FC<ToggleProps> = ({
       event.preventDefault();
       checkbox!.focus();
       checkbox!.click();
-      handleToggle();
+      if (handleToggle) {
+        handleToggle();
+      }
       return;
     }
     setState((prev) => {
