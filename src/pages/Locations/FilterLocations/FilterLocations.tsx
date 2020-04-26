@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import {
   FilterContainer,
   InputStyled,
-  ResetButton,
+  ButtonContainer,
 } from './FilterLocationsStyled';
 import { useLocationDispatch } from '../../../contexts';
+import { Button } from '../../../components';
 
 const initialInputState = {
   name: '',
@@ -39,8 +40,11 @@ export const FilterLocations: React.FC = () => {
   };
 
   const handleClick = () => {
-    setInputState(initialInputState);
-    dispatch({ type: 'resetFilterOptions' });
+    if (Object.values(inputState).some((value) => value)) {
+      clearTimeout(timer);
+      setInputState(initialInputState);
+      dispatch({ type: 'resetFilterOptions' });
+    }
   };
 
   return (
@@ -66,9 +70,17 @@ export const FilterLocations: React.FC = () => {
         value={inputState.dimension}
         onChange={handleChange}
       />
-      <ResetButton type="button" onClick={handleClick}>
-        Reset
-      </ResetButton>
+      <ButtonContainer>
+        <Button
+          color="secondary"
+          size="small"
+          fullWidth
+          type="button"
+          onClick={handleClick}
+        >
+          Reset
+        </Button>
+      </ButtonContainer>
     </FilterContainer>
   );
 };

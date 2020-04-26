@@ -3,10 +3,11 @@ import ReactSelect, { ValueType } from 'react-select';
 import {
   InputStyled,
   FilterContainer,
-  ResetButton,
   SelectContainer,
+  ButtonContainer,
 } from './FilterEpisodesStyled';
 import { useEpisodeDispatch, useEpisodeState } from '../../../contexts';
+import { Button } from '../../../components';
 
 type Select = {
   value?: string;
@@ -75,8 +76,11 @@ export const FilterEpisodes: React.FC = () => {
   };
 
   const handleClick = () => {
-    setInputState(initialInputState);
-    dispatch({ type: 'resetFilterOptions' });
+    if (Object.values(inputState).some((value) => value)) {
+      clearTimeout(timer);
+      setInputState(initialInputState);
+      dispatch({ type: 'resetFilterOptions' });
+    }
   };
 
   return (
@@ -114,9 +118,17 @@ export const FilterEpisodes: React.FC = () => {
           }
         />
       </SelectContainer>
-      <ResetButton type="button" onClick={handleClick}>
-        Reset
-      </ResetButton>
+      <ButtonContainer>
+        <Button
+          size="small"
+          color="secondary"
+          fullWidth
+          type="button"
+          onClick={handleClick}
+        >
+          Reset
+        </Button>
+      </ButtonContainer>
     </FilterContainer>
   );
 };

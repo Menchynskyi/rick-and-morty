@@ -102,7 +102,7 @@ export const FilterCharacters: React.FC = () => {
         />
         <Button
           color="secondary"
-          size="small"
+          size="extraSmall"
           fullWidth
           type="button"
           onClick={handleClick}

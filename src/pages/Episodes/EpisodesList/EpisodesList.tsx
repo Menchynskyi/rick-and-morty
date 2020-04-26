@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
 import { GET_ALL_EPISODES } from '../../../queries';
-import { ErrorMessage } from '../../../components';
+import { ErrorMessage, Button } from '../../../components';
 import { Episode } from '../../../types';
 import {
   EpisodeName,
@@ -10,8 +10,8 @@ import {
   EpisodesListContainer,
   EpisodesListItem,
   EpisodesListStyled,
-  Button,
   LinkStyled,
+  ButtonContainer,
 } from './EpisodesListStyled';
 import { useEpisodeState } from '../../../contexts';
 import { displaySeparateEpisode } from '../../../utils';
@@ -78,9 +78,17 @@ export const EpisodesList: React.FC = () => {
     <EpisodesListContainer>
       <EpisodesListStyled>{content}</EpisodesListStyled>
       {!loading && data.episodes.info.next && (
-        <Button type="button" onClick={handleClick}>
-          Show more
-        </Button>
+        <ButtonContainer>
+          <Button
+            color="primary"
+            size="large"
+            fullWidth
+            type="button"
+            onClick={handleClick}
+          >
+            Show more
+          </Button>
+        </ButtonContainer>
       )}
     </EpisodesListContainer>
   );

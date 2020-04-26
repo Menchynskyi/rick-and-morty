@@ -2,14 +2,14 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
 import { GET_ALL_LOCATIONS } from '../../../queries';
-import { ErrorMessage } from '../../../components';
+import { ErrorMessage, Button } from '../../../components';
 import { Location } from '../../../types';
 import {
   LocationsContainer,
   LinkStyled,
   LocationsListStyled,
   LocationsListItem,
-  Button,
+  ButtonContainer,
   LocationName,
   LocationType,
 } from './LocationsListStyled';
@@ -77,9 +77,17 @@ export const LocationsList: React.FC = () => {
     <LocationsContainer>
       <LocationsListStyled>{content}</LocationsListStyled>
       {!loading && data.locations.info.next && (
-        <Button type="button" onClick={handleClick}>
-          Show more
-        </Button>
+        <ButtonContainer>
+          <Button
+            color="primary"
+            size="large"
+            fullWidth
+            type="button"
+            onClick={handleClick}
+          >
+            Show more
+          </Button>
+        </ButtonContainer>
       )}
     </LocationsContainer>
   );

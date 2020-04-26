@@ -31,42 +31,6 @@ export const InputStyled = styled.input`
   }
 `;
 
-export const ResetButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  min-height: 38px;
-  padding: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.background.tertiary.hover};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.background.disabled.main : 'inherit'};
-  color: ${({ theme }) => theme.colors.background.tertiary.hover};
-  font-size: ${({ theme }) => theme.fontSize.text.regular};
-  text-transform: capitalize;
-  transform: scale(1);
-  transition: background-color 0.2s, color 0.2s, transform 0.1s;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    transform: scale(0.99);
-  }
-
-  &:hover {
-    ${({ disabled, theme }) =>
-      !disabled &&
-      `
-        cursor: pointer;
-        background-color: ${theme.colors.background.tertiary.main};
-        color: ${theme.colors.text.primary};
-      `}
-  }
-`;
-
 export const SelectContainer = styled.div`
   width: 300px;
   color: ${({ theme }) => theme.colors.text.primary};
@@ -141,4 +105,8 @@ export const SelectContainer = styled.div`
     padding: 2px 12px;
     text-transform: capitalize;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  width: 300px;
 `;

@@ -65,30 +65,6 @@ export const LinkStyled = styled(Link)`
   }
 `;
 
-export const Button = styled.button`
-  display: block;
-  width: 100%;
+export const ButtonContainer = styled.div`
   margin-top: 15px;
-  padding: 25px;
-  background-color: transparent;
-  font-size: ${({ theme }) => theme.fontSize.text.large};
-  color: ${({ theme }) => theme.colors.background.secondary.main};
-  border: 1px solid ${({ theme }) => theme.colors.background.secondary.main};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  transform: scale(1);
-  transition: all 0.2s, transform 0.1s;
-
-  &:hover {
-    cursor: pointer;
-    color: ${({ theme }) => theme.colors.text.primary};
-    background-color: ${({ theme }) => theme.colors.background.secondary.main};
-  }
-
-  &:active {
-    transform: scale(0.99);
-  }
-
-  &:focus {
-    outline: none;
-  }
 `;

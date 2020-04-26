@@ -64,10 +64,13 @@ export const LinkStyled = styled(Link)`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  margin-top: 15px;
+`;
+
 export const Button = styled.button`
   display: block;
   width: 100%;
-  margin-top: 15px;
   padding: 25px;
   background-color: transparent;
   font-size: ${({ theme }) => theme.fontSize.text.large};

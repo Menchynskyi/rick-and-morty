@@ -5,7 +5,7 @@ type HTMLButton = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonProps = {
   color?: 'primary' | 'secondary';
-  size?: 'large' | 'regular' | 'small';
+  size?: 'large' | 'regular' | 'small' | 'extraSmall';
   fullWidth?: boolean;
 } & HTMLButton;
 

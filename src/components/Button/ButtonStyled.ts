@@ -3,8 +3,11 @@ import { ButtonProps } from './Button';
 
 const setPadding = ({ size }: ButtonProps) => {
   switch (size) {
-    case 'small': {
+    case 'extraSmall': {
       return '10px';
+    }
+    case 'small': {
+      return '12px';
     }
     case 'regular': {
       return '15px';
@@ -59,10 +62,9 @@ export const ButtonStyled = styled.button<ButtonProps>`
       case 'large': {
         return theme.fontSize.text.large;
       }
-      case 'regular': {
-        return theme.fontSize.text.regular;
-      }
-      case 'small': {
+      case 'regular':
+      case 'small':
+      case 'extraSmall': {
         return theme.fontSize.text.regular;
       }
       default: {
