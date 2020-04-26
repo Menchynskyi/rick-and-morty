@@ -5,13 +5,14 @@ import {
   CharacterListStyled,
   CharacterListItem,
   CharactersTitle,
-  Button,
+  ButtonContainer,
   LinkStyled,
   CharacterName,
   Message,
   ImageContainer,
 } from './CharacterListStyled';
 import { ProfileImage } from '../ProfileImage';
+import { Button } from '../Button';
 
 type CharacterListProps = {
   characters: Character[];
@@ -56,13 +57,16 @@ export const CharacterList: React.FC<CharacterListProps> = ({
         })}
       </CharacterListStyled>
       {filteredCharacters.length > listLength && (
-        <Button
-          isFull={characterListIsFull}
-          type="button"
-          onClick={handleClick}
-        >
-          {characterListIsFull ? 'Show less' : 'Show more'}
-        </Button>
+        <ButtonContainer>
+          <Button
+            color={!characterListIsFull ? 'primary' : 'secondary'}
+            fullWidth
+            type="button"
+            onClick={handleClick}
+          >
+            {characterListIsFull ? 'Show less' : 'Show more'}
+          </Button>
+        </ButtonContainer>
       )}
     </CharacterListContainer>
   );
