@@ -3,11 +3,10 @@ import ReactSelect, { ValueType } from 'react-select';
 import {
   InputContainer,
   FilterContainer,
-  SelectContainer,
   ButtonContainer,
 } from './FilterEpisodesStyled';
 import { useEpisodeDispatch, useEpisodeState } from '../../../contexts';
-import { Button, Input } from '../../../components';
+import { Button, Input, Select } from '../../../components';
 
 type Select = {
   value?: string;
@@ -95,32 +94,28 @@ export const FilterEpisodes: React.FC = () => {
           fullWidth
         />
       </InputContainer>
-      <SelectContainer>
-        <ReactSelect
-          placeholder="Season"
-          className="react-select-container"
-          classNamePrefix="react-select"
-          options={seasonOptions}
-          onChange={handleSelectChange('season')}
-          value={
-            season === '' ? null : { value: season, label: `Seoson ${season}` }
-          }
-        />
-      </SelectContainer>
-      <SelectContainer>
-        <ReactSelect
-          placeholder="Episode"
-          className="react-select-container"
-          classNamePrefix="react-select"
-          options={episodeOptions}
-          onChange={handleSelectChange('episode')}
-          value={
-            episode === ''
-              ? null
-              : { value: episode, label: `Episode ${episode}` }
-          }
-        />
-      </SelectContainer>
+      <Select
+        placeholder="Season"
+        className="react-select-container"
+        classNamePrefix="react-select"
+        options={seasonOptions}
+        onChange={handleSelectChange('season')}
+        value={
+          season === '' ? null : { value: season, label: `Seoson ${season}` }
+        }
+      />
+      <Select
+        placeholder="Episode"
+        className="react-select-container"
+        classNamePrefix="react-select"
+        options={episodeOptions}
+        onChange={handleSelectChange('episode')}
+        value={
+          episode === ''
+            ? null
+            : { value: episode, label: `Episode ${episode}` }
+        }
+      />
       <ButtonContainer>
         <Button
           size="small"

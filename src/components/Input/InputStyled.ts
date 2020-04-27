@@ -55,12 +55,8 @@ export const InputStyled = styled.input<any>`
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.background.secondary.main};
   }
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.secondary};
-  }
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.background.secondary.main};
   }
 `;

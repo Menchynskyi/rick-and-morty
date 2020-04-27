@@ -5,9 +5,14 @@ export const SelectContainer = styled.div<SelectProps>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : '300px')};
   color: ${({ theme }) => theme.colors.text.primary};
 
+  .react-select-container {
+    height: 100%;
+  }
+
   .react-select__control {
+    height: 100%;
     background-color: ${({ theme }) => theme.colors.background.primary};
-    border: 1px solid ${({ theme }) => theme.colors.background.secondary.hover};
+    border: 1px solid ${({ theme }) => theme.colors.background.secondary.main};
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: none;
     color: ${({ theme }) => theme.colors.text.primary};
@@ -16,11 +21,6 @@ export const SelectContainer = styled.div<SelectProps>`
 
     &:focus {
       box-shadow: none;
-      border-color: ${({ theme }) => theme.colors.background.secondary.main};
-    }
-
-    &:hover {
-      border-color: ${({ theme }) => theme.colors.background.secondary.main};
     }
   }
   .react-select__indicator-separator {
