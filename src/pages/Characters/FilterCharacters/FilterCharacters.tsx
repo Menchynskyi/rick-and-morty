@@ -3,11 +3,10 @@ import ReactSelect, { ValueType } from 'react-select';
 import {
   FilterContainer,
   SelectContainer,
-  InputStyled,
   InnerContainer,
 } from './FilterCharactersStyled';
 import { useCharacterDispatch, useCharacterState } from '../../../contexts';
-import { Button } from '../../../components';
+import { Button, Input } from '../../../components';
 
 type Select = {
   value: string;
@@ -77,28 +76,34 @@ export const FilterCharacters: React.FC = () => {
   return (
     <FilterContainer>
       <InnerContainer>
-        <InputStyled
+        <Input
           name="species"
           placeholder="Species"
           autoComplete="off"
           onChange={handleInputChange}
           value={inputState.species}
+          fullWidth
+          size="small"
         />
-        <InputStyled
+        <Input
           name="type"
           placeholder="Type"
           autoComplete="off"
           value={inputState.type}
           onChange={handleInputChange}
+          fullWidth
+          size="small"
         />
       </InnerContainer>
       <InnerContainer>
-        <InputStyled
+        <Input
           name="name"
           placeholder="Name"
           autoComplete="off"
           value={inputState.name}
           onChange={handleInputChange}
+          fullWidth
+          size="small"
         />
         <Button
           color="secondary"

@@ -13,8 +13,8 @@ export const InnerContainer = styled.div`
   flex-flow: column wrap;
   justify-content: space-between;
   width: 300px;
-  & input:last-of-type {
-    margin-bottom: 0;
+  & input:first-child {
+    margin-bottom: 10px;
   }
 `;
 
@@ -82,33 +82,12 @@ export const SelectContainer = styled.div`
   .react-select__input,
   .react-select__single-value {
     color: ${({ theme }) => theme.colors.text.primary};
+    & input {
+      margin-bottom: 0;
+    }
   }
   .react-select__value-container {
     padding: 2px 12px;
     text-transform: capitalize;
-  }
-`;
-
-export const InputStyled = styled.input`
-  width: 100%;
-  min-height: 38px;
-  margin-bottom: 10px;
-  padding: 10px 12px;
-  background-color: inherit;
-  border: 1px solid ${({ theme }) => theme.colors.background.secondary.hover};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  font-size: ${({ theme }) => theme.fontSize.text.regular};
-  color: ${({ theme }) => theme.colors.text.primary};
-  transition: all 0.2s;
-
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.colors.background.secondary.main};
-  }
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.text.secondary};
-  }
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.background.secondary.main};
   }
 `;
