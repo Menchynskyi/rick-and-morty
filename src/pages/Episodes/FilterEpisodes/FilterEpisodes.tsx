@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ReactSelect, { ValueType } from 'react-select';
 import {
-  InputStyled,
+  InputContainer,
   FilterContainer,
   SelectContainer,
   ButtonContainer,
 } from './FilterEpisodesStyled';
 import { useEpisodeDispatch, useEpisodeState } from '../../../contexts';
-import { Button } from '../../../components';
+import { Button, Input } from '../../../components';
 
 type Select = {
   value?: string;
@@ -85,13 +85,16 @@ export const FilterEpisodes: React.FC = () => {
 
   return (
     <FilterContainer>
-      <InputStyled
-        name="name"
-        autoComplete="off"
-        placeholder="Name"
-        value={inputState.name}
-        onChange={handleChange}
-      />
+      <InputContainer>
+        <Input
+          name="name"
+          autoComplete="off"
+          placeholder="Name"
+          value={inputState.name}
+          onChange={handleChange}
+          fullWidth
+        />
+      </InputContainer>
       <SelectContainer>
         <ReactSelect
           placeholder="Season"
