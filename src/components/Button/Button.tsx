@@ -1,13 +1,12 @@
 import React from 'react';
 import { ButtonStyled } from './ButtonStyled';
 
-type HTMLButton = React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-export type ButtonProps = {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: 'primary' | 'secondary';
-  size?: 'large' | 'regular' | 'small' | 'extraSmall';
+  size?: 'extraSmall' | 'small' | 'regular' | 'large';
   fullWidth?: boolean;
-} & HTMLButton;
+}
 
 export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
   return <ButtonStyled {...rest}>{children}</ButtonStyled>;

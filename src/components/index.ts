@@ -7,3 +7,4 @@ export { CharacterList } from './CharacterList';
 export { Navigation } from './Navigation';
 export { Toggle } from './Toggle';
 export { Button } from './Button';
+export { Input } from './Input';
