@@ -94,6 +94,7 @@ export const ShortInfoContainer = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   width: 300px;
+  min-height: 170px;
   background-color: ${({ theme }) => theme.colors.skeleton.main};
   border-radius: ${({ theme }) => theme.borderRadius};
 `;

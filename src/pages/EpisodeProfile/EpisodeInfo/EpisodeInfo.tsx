@@ -58,11 +58,7 @@ export const EpisodeInfo: React.FC = () => {
     <EpisodeInfoContainer>
       <InnerContainer>
         <ImageContainer>
-          <ProfileImage
-            src={episodeData.poster}
-            alt={episodeData.name}
-            height={170}
-          />
+          <ProfileImage src={episodeData.poster} alt={episodeData.name} />
         </ImageContainer>
         <InfoContainer>
           <InfoHeader>
