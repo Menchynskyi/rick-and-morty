@@ -8,11 +8,13 @@ export const lightTheme: DefaultTheme = {
         main: 'rgb(13, 150, 171)',
         transparent: 'rgba(13, 150, 171)',
         hover: 'rgba(13, 150, 171)',
+        dark: 'rgba(13, 150, 171, 0.8)',
       },
       tertiary: {
         main: 'rgb(229, 121, 21)',
         transparent: 'rgba(229, 121, 21)',
-        hover: 'rgba(229, 121, 21)',
+        hover: 'rgba(229, 121, 21, 0.9)',
+        dark: 'rgba(229, 121, 21, 0.8)',
       },
       disabled: {
         main: 'rgb(212, 212, 212)',

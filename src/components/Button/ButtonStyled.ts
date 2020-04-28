@@ -61,7 +61,10 @@ const setBorderColor = ({ theme, color }: ButtonStyledProps) => {
   }
 };
 
-const setColor = ({ theme, color }: ButtonStyledProps) => {
+const setColor = ({ theme, color, filled }: ButtonStyledProps) => {
+  if (filled) {
+    return theme.colors.background.white.main;
+  }
   switch (color) {
     case 'primary': {
       return theme.colors.background.secondary.main;
@@ -75,7 +78,49 @@ const setColor = ({ theme, color }: ButtonStyledProps) => {
   }
 };
 
-const setBackgroundColor = ({ theme, color }: ButtonStyledProps) => {
+const setBackgroundColor = ({
+  theme,
+  filled,
+  disabled,
+  color,
+}: ButtonStyledProps) => {
+  if (disabled) {
+    return theme.colors.background.disabled.main;
+  }
+  if (filled) {
+    switch (color) {
+      case 'primary': {
+        return theme.colors.background.secondary.main;
+      }
+      case 'secondary': {
+        return theme.colors.background.tertiary.main;
+      }
+      default: {
+        return 'inherit';
+      }
+    }
+  }
+  return 'inherit';
+};
+
+const setHoverBackgroundColor = ({
+  theme,
+  color,
+  filled,
+}: ButtonStyledProps) => {
+  if (filled) {
+    switch (color) {
+      case 'primary': {
+        return theme.colors.background.secondary.hover;
+      }
+      case 'secondary': {
+        return theme.colors.background.tertiary.hover;
+      }
+      default: {
+        return theme.colors.background.secondary.hover;
+      }
+    }
+  }
   switch (color) {
     case 'primary': {
       return theme.colors.background.secondary.main;
@@ -97,8 +142,7 @@ export const ButtonStyled = styled.button<ButtonProps>`
   padding: ${setPadding};
   border: 1px solid ${setBorderColor};
   border-radius: ${({ theme }) => theme.borderRadius};
-  background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.background.disabled.main : 'inherit'};
+  background-color: ${setBackgroundColor};
   color: ${setColor};
   font-size: ${setFontSize};
   text-transform: capitalize;
@@ -111,6 +155,6 @@ export const ButtonStyled = styled.button<ButtonProps>`
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
     color: ${({ theme }) => theme.colors.background.white.main};
-    background-color: ${setBackgroundColor};
+    background-color: ${setHoverBackgroundColor};
   }
 `;

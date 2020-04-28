@@ -8,11 +8,13 @@ export const darkTheme: DefaultTheme = {
         main: 'rgb(17, 176, 200)',
         transparent: 'rgba(17, 176, 200, 0.9)',
         hover: 'rgba(17, 176, 200, 0.8)',
+        dark: 'rgba(17, 176, 200, 0.5)',
       },
       tertiary: {
         main: 'rgb(255, 131, 17)',
         transparent: 'rgba(255, 131, 17, 0.9)',
         hover: 'rgba(255, 131, 17, 0.8)',
+        dark: 'rgba(255, 131, 17, 0.5)',
       },
       disabled: {
         main: 'rgb(110, 110, 110)',

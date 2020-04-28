@@ -9,11 +9,13 @@ declare module 'styled-components' {
           main: string;
           transparent: string;
           hover: string;
+          dark: string;
         };
         tertiary: {
           main: string;
           transparent: string;
           hover: string;
+          dark: string;
         };
         disabled: {
           main: string;
