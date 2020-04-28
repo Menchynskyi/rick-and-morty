@@ -10,6 +10,7 @@ export const EpisodeInfoContainer = styled.div`
 export const EpisodeTitle = styled.h1`
   margin: 0;
   font-size: ${({ theme }) => theme.fontSize.heading.small};
+  font-weight: normal;
 `;
 
 export const PlotTitle = styled.h2`
@@ -21,7 +22,7 @@ export const PlotTitle = styled.h2`
 `;
 
 export const PlotContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 50px;
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   line-height: 1.7em;
 `;

@@ -5,14 +5,14 @@ export const lightTheme: DefaultTheme = {
     background: {
       primary: 'rbg(232, 232, 232)',
       secondary: {
-        main: 'rgb(17, 176, 200)',
-        transparent: 'rgba(17, 176, 200, 0.9)',
-        hover: 'rgba(17, 176, 200, 0.8)',
+        main: 'rgb(13, 150, 171)',
+        transparent: 'rgba(13, 150, 171)',
+        hover: 'rgba(13, 150, 171)',
       },
       tertiary: {
-        main: 'rgb(255, 131, 17)',
-        transparent: 'rgba(255, 131, 17, 0.9)',
-        hover: 'rgba(255, 131, 17, 0.8)',
+        main: 'rgb(229, 121, 21)',
+        transparent: 'rgba(229, 121, 21)',
+        hover: 'rgba(229, 121, 21)',
       },
       disabled: {
         main: 'rgb(212, 212, 212)',

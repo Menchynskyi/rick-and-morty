@@ -17,7 +17,7 @@ type EpisodeListProps = {
 
 export const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
   const [episodeListIsFull, setEpisodeListIsFull] = useState(false);
-  const visibleEpisodes = episodeListIsFull ? episodes : episodes.slice(0, 5);
+  const visibleEpisodes = episodeListIsFull ? episodes : episodes.slice(0, 7);
 
   const handleClick = () => {
     setEpisodeListIsFull((prev) => !prev);
@@ -38,7 +38,7 @@ export const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
           );
         })}
       </EpisodeListStyled>
-      {episodes.length > 5 && (
+      {episodes.length > 7 && (
         <ButtonContainer>
           <Button
             color={!episodeListIsFull ? 'primary' : 'secondary'}

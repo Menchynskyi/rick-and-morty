@@ -36,7 +36,7 @@ export const ShortEpisodeInfo: React.FC<ShortEpisodeInfoProps> = ({ data }) => {
       </InnerContainer>
       <CharacterList
         title="characters"
-        listLength={4}
+        listLength={6}
         characters={data.characters}
       />
     </EpisodeInfoContainer>

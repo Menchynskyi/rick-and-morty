@@ -43,7 +43,7 @@ export const LocationProfile: React.FC = () => {
       <CharacterList
         characters={location.residents}
         title="residents"
-        listLength={6}
+        listLength={7}
       />
     </LocationContainer>
   );
