@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactSelect, { ValueType } from 'react-select';
+import { ValueType } from 'react-select';
 import {
   InputContainer,
   FilterContainer,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactSelect, { ValueType } from 'react-select';
+import { ValueType } from 'react-select';
 import { FilterContainer, InnerContainer } from './FilterCharactersStyled';
 import { useCharacterDispatch, useCharacterState } from '../../../contexts';
 import { Button, Input, Select } from '../../../components';
