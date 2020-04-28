@@ -34,7 +34,7 @@ export const SelectContainer = styled.div<SelectProps>`
     }
   }
   .react-select__menu {
-    color: ${({ theme }) => theme.colors.text.primary};
+    color: ${({ theme }) => theme.colors.background.white.main};
     background-color: ${({ theme }) => theme.colors.background.secondary.main};
     border-radius: ${({ theme }) => theme.borderRadius};
   }
@@ -57,7 +57,7 @@ export const SelectContainer = styled.div<SelectProps>`
   }
   .react-select__option--is-focused {
     color: ${({ theme }) => theme.colors.background.secondary.main};
-    background-color: ${({ theme }) => theme.colors.text.primary};
+    background-color: ${({ theme }) => theme.colors.background.white.main};
   }
   .react-select__placeholder {
     color: ${({ theme }) => theme.colors.text.secondary};
