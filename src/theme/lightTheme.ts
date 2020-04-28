@@ -8,13 +8,13 @@ export const lightTheme: DefaultTheme = {
         main: 'rgb(13, 150, 171)',
         transparent: 'rgba(13, 150, 171)',
         hover: 'rgba(13, 150, 171)',
-        dark: 'rgba(13, 150, 171, 0.8)',
+        dark: 'rgba(13, 150, 171, 0.1)',
       },
       tertiary: {
         main: 'rgb(229, 121, 21)',
         transparent: 'rgba(229, 121, 21)',
         hover: 'rgba(229, 121, 21, 0.9)',
-        dark: 'rgba(229, 121, 21, 0.8)',
+        dark: 'rgba(229, 121, 21, 0.1)',
       },
       disabled: {
         main: 'rgb(212, 212, 212)',
@@ -25,6 +25,7 @@ export const lightTheme: DefaultTheme = {
         main: 'rgb(222, 222, 222)',
         transparent: 'rgba(222, 222, 222, 0.9)',
         hover: 'rgba(222, 222, 222, 0.8)',
+        dark: 'rgba(222, 222, 222, 0.6)',
       },
       white: {
         main: 'rgb(232, 232, 232)',
@@ -43,8 +44,8 @@ export const lightTheme: DefaultTheme = {
       disabled: '#ABABAB',
     },
     skeleton: {
-      main: '#D6D6D6',
-      highlight: '#E0E0E0',
+      main: '#EEEEEE',
+      highlight: '#F7F7F7',
     },
   },
   fontSize: {

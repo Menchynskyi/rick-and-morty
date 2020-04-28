@@ -61,10 +61,7 @@ const setBorderColor = ({ theme, color }: ButtonStyledProps) => {
   }
 };
 
-const setColor = ({ theme, color, filled }: ButtonStyledProps) => {
-  if (filled) {
-    return theme.colors.background.white.main;
-  }
+const setColor = ({ theme, color }: ButtonStyledProps) => {
   switch (color) {
     case 'primary': {
       return theme.colors.background.secondary.main;
@@ -90,10 +87,10 @@ const setBackgroundColor = ({
   if (filled) {
     switch (color) {
       case 'primary': {
-        return theme.colors.background.secondary.main;
+        return theme.colors.background.secondary.dark;
       }
       case 'secondary': {
-        return theme.colors.background.tertiary.main;
+        return theme.colors.background.tertiary.dark;
       }
       default: {
         return 'inherit';

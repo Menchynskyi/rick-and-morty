@@ -7,7 +7,7 @@ export const Header = styled.header`
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: ${({ theme }) => theme.colors.background.gray.transparent};
+  background-color: ${({ theme }) => theme.colors.background.gray.dark};
   transition: background-color 0.2s, color 0.2s;
 `;
 
