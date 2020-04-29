@@ -7,7 +7,7 @@ export const lightTheme: DefaultTheme = {
       secondary: {
         main: 'rgb(13, 150, 171)',
         transparent: 'rgba(13, 150, 171)',
-        hover: 'rgba(13, 150, 171)',
+        hover: 'rgba(13, 150, 171, 0.9)',
         dark: 'rgba(13, 150, 171, 0.1)',
       },
       tertiary: {
