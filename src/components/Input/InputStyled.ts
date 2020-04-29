@@ -1,15 +1,9 @@
 import styled, { ThemedStyledProps, DefaultTheme } from 'styled-components';
 import { InputProps } from './Input';
 
-type StyledComponentsProps = ThemedStyledProps<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  >,
-  DefaultTheme
->;
+type StyledComponentsProps = ThemedStyledProps<InputProps, DefaultTheme>;
 
-type InputStyledProps = StyledComponentsProps & InputProps;
+export type InputStyledProps = StyledComponentsProps & InputProps;
 
 const setBorderColor = ({ theme, color }: InputStyledProps) => {
   switch (color) {
@@ -42,11 +36,45 @@ const setPadding = ({ size }: InputProps) => {
   }
 };
 
+const setPlaceholderColor = ({ theme, color, filled }: InputStyledProps) => {
+  if (!filled) {
+    return theme.colors.text.secondary;
+  }
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.main;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.main;
+    }
+    default: {
+      return theme.colors.background.secondary.main;
+    }
+  }
+};
+
+const setBackgroundColor = ({ theme, color, filled }: InputStyledProps) => {
+  if (!filled) {
+    return theme.colors.background.primary;
+  }
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.dark;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.dark;
+    }
+    default: {
+      return theme.colors.background.secondary.dark;
+    }
+  }
+};
+
 // eslint-disable-next-line
 export const InputStyled = styled.input<any>`
   width: ${({ fullWidth }) => fullWidth && '100%'};
   padding: ${setPadding};
-  background-color: inherit;
+  background-color: ${setBackgroundColor};
   border: 1px solid ${setBorderColor};
   border-radius: ${({ theme }) => theme.borderRadius};
   font-size: ${({ theme }) => theme.fontSize.text.regular};
@@ -55,8 +83,9 @@ export const InputStyled = styled.input<any>`
 
   &:focus {
     outline: none;
+    background-color: transparent;
   }
   &::placeholder {
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${setPlaceholderColor};
   }
 `;

@@ -10,10 +10,14 @@ export interface ButtonProps
   filled?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  filled,
+  ...rest
+}) => {
   const { lightMode } = useModeState();
   return (
-    <ButtonStyled filled={lightMode} {...rest}>
+    <ButtonStyled filled={filled || lightMode} {...rest}>
       {children}
     </ButtonStyled>
   );
