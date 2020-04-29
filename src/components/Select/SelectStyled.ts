@@ -1,5 +1,45 @@
-import styled from 'styled-components';
+import styled, { ThemedStyledProps, DefaultTheme } from 'styled-components';
 import { SelectProps } from './Select';
+
+type SelectStyledProps = ThemedStyledProps<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  DefaultTheme
+> &
+  SelectProps;
+
+const setPlaceholderColor = ({ theme, color, filled }: SelectStyledProps) => {
+  if (!filled) {
+    return theme.colors.text.secondary;
+  }
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.main;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.main;
+    }
+    default: {
+      return theme.colors.background.secondary.main;
+    }
+  }
+};
+
+const setBackgroundColor = ({ theme, color, filled }: SelectStyledProps) => {
+  if (!filled) {
+    return theme.colors.background.primary;
+  }
+  switch (color) {
+    case 'primary': {
+      return theme.colors.background.secondary.dark;
+    }
+    case 'secondary': {
+      return theme.colors.background.tertiary.dark;
+    }
+    default: {
+      return theme.colors.background.secondary.dark;
+    }
+  }
+};
 
 export const SelectContainer = styled.div<SelectProps>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : '300px')};
@@ -8,10 +48,13 @@ export const SelectContainer = styled.div<SelectProps>`
   .react-select-container {
     height: 100%;
   }
+  .react-select__no--options--message {
+    color: red;
+  }
 
   .react-select__control {
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.background.primary};
+    background-color: ${setBackgroundColor};
     border: 1px solid ${({ theme }) => theme.colors.background.secondary.main};
     border-radius: ${({ theme }) => theme.borderRadius};
     box-shadow: none;
@@ -23,11 +66,14 @@ export const SelectContainer = styled.div<SelectProps>`
       box-shadow: none;
     }
   }
+  .react-select__control--is-focused {
+    background-color: transparent;
+  }
   .react-select__indicator-separator {
     display: none;
   }
   .react-select__indicator {
-    color: ${({ theme }) => theme.colors.background.disabled.main};
+    color: ${setPlaceholderColor};
     cursor: pointer;
     &:hover {
       color: ${({ theme }) => theme.colors.text.primary};
@@ -60,7 +106,7 @@ export const SelectContainer = styled.div<SelectProps>`
     background-color: ${({ theme }) => theme.colors.background.white.main};
   }
   .react-select__placeholder {
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${setPlaceholderColor};
   }
   .react-select__input,
   .react-select__single-value {
@@ -72,5 +118,8 @@ export const SelectContainer = styled.div<SelectProps>`
   .react-select__value-container {
     padding: 2px 12px;
     text-transform: capitalize;
+  }
+  .react-select__menu-notice--no-options {
+    color: ${({ theme }) => theme.colors.background.white.main};
   }
 `;
