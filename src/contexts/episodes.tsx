@@ -154,7 +154,7 @@ export const fetchImdb = async (
   const [season, episode] = separateEpisodeNumber(episodeNumber);
   try {
     const res = await fetch(
-      `http://www.omdbapi.com/?apikey=3efc64ca&i=tt2861424&Season=${season}&Episode=${episode}`
+      `https://www.omdbapi.com/?apikey=3efc64ca&i=tt2861424&Season=${season}&Episode=${episode}`
     );
     const dataImdb = await res.json();
     if (dataImdb.Error) {
