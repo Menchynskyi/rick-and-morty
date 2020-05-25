@@ -5,6 +5,10 @@ export const LocationContainer = styled.div`
   margin: 15px auto;
   padding: 0 20px;
 
+  @media ${({ theme }) => theme.device.mobileS} {
+    padding: 0 10px;
+  }
+
   @media ${({ theme }) => theme.device.laptop} {
     margin: 40px auto;
   }

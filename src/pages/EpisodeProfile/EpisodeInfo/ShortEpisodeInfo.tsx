@@ -22,7 +22,7 @@ export const ShortEpisodeInfo: React.FC<ShortEpisodeInfoProps> = ({ data }) => {
     <EpisodeInfoContainer>
       <InnerContainer>
         <ImageContainer>
-          <ProfileImage src={episodePoster} alt={data.name} height={170} />
+          <ProfileImage src={episodePoster} alt={data.name} />
         </ImageContainer>
         <InfoContainer>
           <InfoHeader>
