@@ -65,11 +65,11 @@ export const CharacterProfile: React.FC = () => {
             </InfoListItem>
             <InfoListItem>
               <span>origin location: </span>
-              {originLocation}
+              <span>{originLocation}</span>
             </InfoListItem>
             <InfoListItem>
               <span>current location: </span>
-              {currentLocation}
+              <span>{currentLocation}</span>
             </InfoListItem>
           </InfoList>
         </InfoContainer>

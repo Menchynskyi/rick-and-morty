@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const LocationsContainer = styled.div`
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 15px 0;
   padding: 0 17.5px;
 
   @media ${({ theme }) => theme.device.mobileS} {

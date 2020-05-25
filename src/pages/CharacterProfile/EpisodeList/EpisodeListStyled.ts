@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const EpisodeListContainer = styled.div`
-  margin: 50px 0 25px 0;
+  margin: 20px 0 30px 0;
+
+  @media ${({ theme }) => theme.device.laptop} {
+    margin-top: 50px;
+  }
 `;
 
 export const EpisodesTitle = styled.h2`
