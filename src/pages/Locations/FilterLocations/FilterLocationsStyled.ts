@@ -19,6 +19,7 @@ export const FilterContainer = styled.div`
   }
 
   @media ${({ theme }) => theme.device.mobileS} {
+    margin-top: 15px;
     padding: 0 10px;
 
     input {

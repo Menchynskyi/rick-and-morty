@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ValueType } from 'react-select';
-import {
-  InputContainer,
-  FilterContainer,
-  ButtonContainer,
-} from './FilterEpisodesStyled';
+import { FilterContainer } from './FilterEpisodesStyled';
 import { useEpisodeDispatch, useEpisodeState } from '../../../contexts';
 import { Button, Input, Select } from '../../../components';
 
@@ -84,49 +80,51 @@ export const FilterEpisodes: React.FC = () => {
 
   return (
     <FilterContainer>
-      <InputContainer>
-        <Input
-          name="name"
-          autoComplete="off"
-          placeholder="Name"
-          value={inputState.name}
-          onChange={handleChange}
+      <Input
+        name="name"
+        autoComplete="off"
+        placeholder="Name"
+        value={inputState.name}
+        onChange={handleChange}
+        fullWidth
+      />
+      <div className="select--wrap">
+        <Select
           fullWidth
+          placeholder="Season"
+          className="react-select-container"
+          classNamePrefix="react-select"
+          options={seasonOptions}
+          onChange={handleSelectChange('season')}
+          value={
+            season === '' ? null : { value: season, label: `Seoson ${season}` }
+          }
         />
-      </InputContainer>
-      <Select
-        placeholder="Season"
-        className="react-select-container"
-        classNamePrefix="react-select"
-        options={seasonOptions}
-        onChange={handleSelectChange('season')}
-        value={
-          season === '' ? null : { value: season, label: `Seoson ${season}` }
-        }
-      />
-      <Select
-        placeholder="Episode"
-        className="react-select-container"
-        classNamePrefix="react-select"
-        options={episodeOptions}
-        onChange={handleSelectChange('episode')}
-        value={
-          episode === ''
-            ? null
-            : { value: episode, label: `Episode ${episode}` }
-        }
-      />
-      <ButtonContainer>
-        <Button
-          size="small"
-          color="secondary"
+      </div>
+      <div className="select--wrap">
+        <Select
           fullWidth
-          type="button"
-          onClick={handleClick}
-        >
-          Reset
-        </Button>
-      </ButtonContainer>
+          placeholder="Episode"
+          className="react-select-container"
+          classNamePrefix="react-select"
+          options={episodeOptions}
+          onChange={handleSelectChange('episode')}
+          value={
+            episode === ''
+              ? null
+              : { value: episode, label: `Episode ${episode}` }
+          }
+        />
+      </div>
+      <Button
+        size="small"
+        color="secondary"
+        fullWidth
+        type="button"
+        onClick={handleClick}
+      >
+        Reset
+      </Button>
     </FilterContainer>
   );
 };

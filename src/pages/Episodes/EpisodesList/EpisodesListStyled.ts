@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 
 export const EpisodesListContainer = styled.div`
   max-width: 1280px;
-  margin: 15px auto;
+  margin: 0 auto;
   padding: 0 17.5px;
 
   @media ${({ theme }) => theme.device.mobileS} {
     padding: 0 10px;
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    margin: 15px auto;
   }
 `;
 export const EpisodesListStyled = styled.ul`

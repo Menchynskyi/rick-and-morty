@@ -43,6 +43,7 @@ const setBackgroundColor = ({ theme, color, filled }: SelectStyledProps) => {
 
 export const SelectContainer = styled.div<SelectProps>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : '300px')};
+  height: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   color: ${({ theme }) => theme.colors.text.primary};
 
   .react-select-container {
