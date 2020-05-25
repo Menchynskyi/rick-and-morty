@@ -3,15 +3,47 @@ import styled from 'styled-components';
 export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 1260px;
-  margin: 40px auto 0 auto;
-  padding: 0 7.5px;
-`;
+  flex-flow: wrap;
+  max-width: 1280px;
+  margin: 20px auto 0 auto;
+  padding: 0 17.5px;
 
-export const InputContainer = styled.div`
-  width: 300px;
-`;
+  input {
+    width: 48%;
+    margin-bottom: 15px;
+  }
 
-export const ButtonContainer = styled.div`
-  width: 300px;
+  button {
+    width: 48%;
+    margin-bottom: 15px;
+  }
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    padding: 0 10px;
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    justify-content: space-around;
+    margin: 40px auto 0 auto;
+
+    input {
+      width: calc(25% - 11.25px);
+      margin-right: 15px;
+      margin-bottom: 0;
+    }
+
+    button {
+      width: calc(25% - 11.25px);
+      margin-bottom: 0;
+    }
+  }
 `;

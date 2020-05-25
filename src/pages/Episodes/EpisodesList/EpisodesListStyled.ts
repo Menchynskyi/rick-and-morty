@@ -2,9 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const EpisodesListContainer = styled.div`
-  max-width: 1260px;
+  max-width: 1280px;
   margin: 15px auto;
-  padding: 0 7.5px;
+  padding: 0 17.5px;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    padding: 0 10px;
+  }
 `;
 export const EpisodesListStyled = styled.ul`
   padding: 20px 0 5px 0;

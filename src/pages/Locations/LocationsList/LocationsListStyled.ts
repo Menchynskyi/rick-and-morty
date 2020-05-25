@@ -2,9 +2,17 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const LocationsContainer = styled.div`
-  max-width: 1260px;
-  margin: 15px auto;
-  padding: 0 7.5px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 17.5px;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    padding: 0 10px;
+  }
+
+  @media ${({ theme }) => theme.device.laptop} {
+    margin: 15px auto;
+  }
 `;
 
 export const LocationsListStyled = styled.ul`
