@@ -67,5 +67,14 @@ declare module 'styled-components' {
     fontFamily: string;
     hoverOpacity: string;
     borderRadius: string;
+    device: {
+      mobileS: string;
+      mobile: string;
+      tablet: string;
+      tabletOnly: string;
+      laptop: string;
+      laptopOnly: string;
+      desktop: string;
+    };
   }
 }

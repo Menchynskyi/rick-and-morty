@@ -1,6 +1,8 @@
 import { DefaultTheme } from 'styled-components';
+import { darkTheme } from './darkTheme';
 
 export const lightTheme: DefaultTheme = {
+  ...darkTheme,
   colors: {
     background: {
       primary: 'rbg(232, 232, 232)',
@@ -48,22 +50,4 @@ export const lightTheme: DefaultTheme = {
       highlight: '#F7F7F7',
     },
   },
-  fontSize: {
-    text: {
-      extraLarge: '20px',
-      large: '18px',
-      medium: '16px',
-      regular: '14px',
-      small: '12px',
-    },
-    heading: {
-      extraLarge: '36px',
-      large: '34px',
-      regular: '32px',
-      small: '30px',
-    },
-  },
-  fontFamily: `'Open Sans', 'Arial', sans-serif`,
-  hoverOpacity: '0.8',
-  borderRadius: '8px',
 };
