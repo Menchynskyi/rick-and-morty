@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 export const LocationContainer = styled.div`
-  max-width: 900px;
-  margin: 40px auto;
+  max-width: 940px;
+  margin: 15px auto;
+  padding: 0 20px;
+
+  @media ${({ theme }) => theme.device.laptop} {
+    margin: 40px auto;
+  }
 `;
 
 export const InfoContainer = styled.div`
