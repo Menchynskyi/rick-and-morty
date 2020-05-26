@@ -8,7 +8,7 @@ export const MobileHeaderStyled = styled.div`
 `;
 
 export const BarsButton = styled.button`
-  padding: 3px 0;
+  padding: 3px 0 3px 20px;
   background-color: transparent;
   border: none;
   color: ${({ theme }) => theme.colors.text.secondary};
