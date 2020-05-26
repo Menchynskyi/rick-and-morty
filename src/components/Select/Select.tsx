@@ -19,17 +19,19 @@ export const Select: React.FC<SelectProps> = ({
 }) => {
   const { lightMode } = useModeState();
   return (
-    <SelectContainer
-      filled={filled || lightMode}
-      color={color}
-      size={size}
-      fullWidth={fullWidth}
-    >
-      <ReactSelect
-        {...rest}
-        className="react-select-container"
-        classNamePrefix="react-select"
-      />
-    </SelectContainer>
+    <div className="react-select-wrapper">
+      <SelectContainer
+        filled={filled || lightMode}
+        color={color}
+        size={size}
+        fullWidth={fullWidth}
+      >
+        <ReactSelect
+          {...rest}
+          className="react-select-container"
+          classNamePrefix="react-select"
+        />
+      </SelectContainer>
+    </div>
   );
 };

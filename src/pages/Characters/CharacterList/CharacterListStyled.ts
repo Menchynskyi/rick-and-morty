@@ -32,4 +32,9 @@ export const PageSwitchContainer = styled.div`
   max-width: 1260px;
   margin: 10px auto 20px auto;
   padding: 0 7.5px;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    margin-top: 0;
+    height: 55px;
+  }
 `;
