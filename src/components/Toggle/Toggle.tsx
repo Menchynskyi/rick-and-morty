@@ -17,7 +17,6 @@ export const Toggle: React.FC<ToggleProps> = ({
 }) => {
   const checkboxRef = useRef<HTMLInputElement | null>(null);
   const [state, setState] = useState({
-    isChecked: !!isChecked,
     isTarget: false,
   });
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -29,14 +28,7 @@ export const Toggle: React.FC<ToggleProps> = ({
       if (handleToggle) {
         handleToggle();
       }
-      return;
     }
-    setState((prev) => {
-      return {
-        ...prev,
-        isChecked: !prev.isChecked,
-      };
-    });
   };
 
   const handleFocus = () => {
@@ -58,10 +50,10 @@ export const Toggle: React.FC<ToggleProps> = ({
   };
 
   return (
-    <ToggleContainer onClick={handleClick} isChecked={state.isChecked}>
+    <ToggleContainer onClick={handleClick} isChecked={!!isChecked}>
       {leftIcon && <FontAwesomeIcon icon={leftIcon} />}
       {rightIcon && <FontAwesomeIcon icon={rightIcon} />}
-      <ToggleThumb isChecked={state.isChecked} isTarget={state.isTarget} />
+      <ToggleThumb isChecked={!!isChecked} isTarget={state.isTarget} />
       <InputStyled
         ref={checkboxRef}
         onFocus={handleFocus}
