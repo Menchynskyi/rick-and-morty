@@ -9,7 +9,7 @@ export const FilterContainer = styled.div`
   padding: 0 17.5px;
 
   input,
-  .select--wrap {
+  .react-select-wrapper {
     width: 48%;
     margin-bottom: 15px;
   }
@@ -24,11 +24,11 @@ export const FilterContainer = styled.div`
     padding: 0 10px;
 
     input,
-    .select--wrap {
+    .react-select-wrapper {
       width: 100%;
     }
 
-    .select--wrap {
+    .react-select-wrapper {
       height: 42px;
     }
 
@@ -43,7 +43,7 @@ export const FilterContainer = styled.div`
     margin: 40px auto 0 auto;
 
     input,
-    .select--wrap {
+    .react-select-wrapper {
       width: calc(25% - 11.25px);
       margin-right: 15px;
       margin-bottom: 0;

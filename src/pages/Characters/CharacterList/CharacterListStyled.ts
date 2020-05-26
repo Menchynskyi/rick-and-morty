@@ -6,7 +6,7 @@ export const CharacterListContainer = styled.ul`
   justify-content: space-around;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 10px 10px;
 
   & > span {
     display: flex;
@@ -17,6 +17,10 @@ export const CharacterListContainer = styled.ul`
       margin-bottom: 15px;
       border-radius: ${({ theme }) => theme.borderRadius};
     }
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    padding: 20px 10px;
   }
 `;
 
@@ -32,4 +36,9 @@ export const PageSwitchContainer = styled.div`
   max-width: 1260px;
   margin: 10px auto 20px auto;
   padding: 0 7.5px;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    margin-top: 0;
+    height: 60px;
+  }
 `;

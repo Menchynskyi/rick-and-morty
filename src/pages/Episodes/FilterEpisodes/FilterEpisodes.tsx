@@ -88,34 +88,30 @@ export const FilterEpisodes: React.FC = () => {
         onChange={handleChange}
         fullWidth
       />
-      <div className="select--wrap">
-        <Select
-          fullWidth
-          placeholder="Season"
-          className="react-select-container"
-          classNamePrefix="react-select"
-          options={seasonOptions}
-          onChange={handleSelectChange('season')}
-          value={
-            season === '' ? null : { value: season, label: `Seoson ${season}` }
-          }
-        />
-      </div>
-      <div className="select--wrap">
-        <Select
-          fullWidth
-          placeholder="Episode"
-          className="react-select-container"
-          classNamePrefix="react-select"
-          options={episodeOptions}
-          onChange={handleSelectChange('episode')}
-          value={
-            episode === ''
-              ? null
-              : { value: episode, label: `Episode ${episode}` }
-          }
-        />
-      </div>
+      <Select
+        fullWidth
+        placeholder="Season"
+        className="react-select-container"
+        classNamePrefix="react-select"
+        options={seasonOptions}
+        onChange={handleSelectChange('season')}
+        value={
+          season === '' ? null : { value: season, label: `Seoson ${season}` }
+        }
+      />
+      <Select
+        fullWidth
+        placeholder="Episode"
+        className="react-select-container"
+        classNamePrefix="react-select"
+        options={episodeOptions}
+        onChange={handleSelectChange('episode')}
+        value={
+          episode === ''
+            ? null
+            : { value: episode, label: `Episode ${episode}` }
+        }
+      />
       <Button
         size="small"
         color="secondary"

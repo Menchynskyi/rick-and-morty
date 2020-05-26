@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ValueType } from 'react-select';
-import { FilterContainer, InnerContainer } from './FilterCharactersStyled';
+import { FilterContainer } from './FilterCharactersStyled';
 import { useCharacterDispatch, useCharacterState } from '../../../contexts';
 import { Button, Input, Select } from '../../../components';
 
@@ -71,74 +71,70 @@ export const FilterCharacters: React.FC = () => {
 
   return (
     <FilterContainer>
-      <InnerContainer>
-        <Input
-          name="species"
-          placeholder="Species"
-          autoComplete="off"
-          onChange={handleInputChange}
-          value={inputState.species}
-          fullWidth
-          size="small"
-        />
-        <Input
-          name="type"
-          placeholder="Type"
-          autoComplete="off"
-          value={inputState.type}
-          onChange={handleInputChange}
-          fullWidth
-          size="small"
-        />
-      </InnerContainer>
-      <InnerContainer>
-        <Input
-          name="name"
-          placeholder="Name"
-          autoComplete="off"
-          value={inputState.name}
-          onChange={handleInputChange}
-          fullWidth
-          size="small"
-        />
-        <Button
-          color="secondary"
-          size="extraSmall"
-          fullWidth
-          type="button"
-          onClick={handleClick}
-        >
-          Reset
-        </Button>
-      </InnerContainer>
-      <InnerContainer>
-        <Select
-          name="status"
-          value={
-            filterOptions.status === ''
-              ? null
-              : { value: filterOptions.status, label: filterOptions.status }
-          }
-          onChange={handleSelectChange('status')}
-          options={setOptions(status)}
-          placeholder="Status"
-          className="react-select-container"
-          classNamePrefix="react-select"
-        />
-        <Select
-          name="gender"
-          value={
-            filterOptions.gender === ''
-              ? null
-              : { value: filterOptions.gender, label: filterOptions.gender }
-          }
-          onChange={handleSelectChange('gender')}
-          options={setOptions(gender)}
-          placeholder="Gender"
-          className="react-select-container"
-          classNamePrefix="react-select"
-        />
-      </InnerContainer>
+      <Input
+        name="name"
+        placeholder="Name"
+        autoComplete="off"
+        value={inputState.name}
+        onChange={handleInputChange}
+        fullWidth
+        size="small"
+      />
+      <Select
+        name="gender"
+        value={
+          filterOptions.gender === ''
+            ? null
+            : { value: filterOptions.gender, label: filterOptions.gender }
+        }
+        onChange={handleSelectChange('gender')}
+        options={setOptions(gender)}
+        placeholder="Gender"
+        className="react-select-container"
+        classNamePrefix="react-select"
+        fullWidth
+      />
+      <Select
+        name="status"
+        value={
+          filterOptions.status === ''
+            ? null
+            : { value: filterOptions.status, label: filterOptions.status }
+        }
+        onChange={handleSelectChange('status')}
+        options={setOptions(status)}
+        placeholder="Status"
+        className="react-select-container"
+        classNamePrefix="react-select"
+        fullWidth
+      />
+      <Input
+        name="type"
+        placeholder="Type"
+        autoComplete="off"
+        value={inputState.type}
+        onChange={handleInputChange}
+        fullWidth
+        size="small"
+      />
+      <Input
+        name="species"
+        placeholder="Species"
+        autoComplete="off"
+        onChange={handleInputChange}
+        value={inputState.species}
+        fullWidth
+        size="small"
+      />
+      <Button
+        color="secondary"
+        size="extraSmall"
+        fullWidth
+        type="button"
+        onClick={handleClick}
+      >
+        Reset
+      </Button>
     </FilterContainer>
   );
 };
