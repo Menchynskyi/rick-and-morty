@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { faBars, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import {
   LinkStyled,
   NavList,
@@ -52,13 +53,16 @@ export const Navigation: React.FC = () => {
         </NavStyled>
       </DesktopOnly>
       <MobileOnly>
-        <MobileHeader handleToggleBar={handleToggleBar} />
+        <MobileHeader icon={faBars} handleToggleBar={handleToggleBar} />
         <MobileNavBar
           handleToggleBar={handleToggleBar}
           routes={routes}
           isOpen={mobileBarIsOpen}
         >
-          <MobileHeader handleToggleBar={handleToggleBar} />
+          <MobileHeader
+            icon={faTimesCircle}
+            handleToggleBar={handleToggleBar}
+          />
         </MobileNavBar>
       </MobileOnly>
     </>

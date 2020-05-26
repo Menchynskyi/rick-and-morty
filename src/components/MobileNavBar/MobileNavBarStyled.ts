@@ -19,12 +19,14 @@ export const AsideStyled = styled.aside<MobileNavBarStyledProps>`
   padding: 0;
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.background.gray.main};
-  font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
+  font-size: ${({ theme }) => theme.fontSize.text.large};
 `;
 
 export const NavList = styled.ul`
   margin: 0;
-  padding: 20px 0;
+  padding: 0;
+  border-top: ${({ theme }) =>
+    `1px solid ${theme.colors.background.disabled.main}`};
 `;
 
 export const NavListItem = styled.li<NavListItemProps>`
@@ -34,14 +36,10 @@ export const NavListItem = styled.li<NavListItemProps>`
   margin: 0;
   padding: 20px;
   list-style: none;
-  color: ${({ theme, isActive }) =>
-    isActive
-      ? theme.colors.background.secondary.main
-      : theme.colors.text.primary};
-  border-bottom: ${({ theme, isActive }) =>
-    isActive
-      ? `1px solid ${theme.colors.background.secondary.main}`
-      : `1px solid ${theme.colors.background.white.hover}`};
+  border-bottom: ${({ theme }) =>
+    `1px solid ${theme.colors.background.disabled.main}`};
+  background-color: ${({ isActive, theme }) =>
+    isActive && theme.colors.background.secondary.dark};
 `;
 
 export const LinkStyled = styled(Link)`
