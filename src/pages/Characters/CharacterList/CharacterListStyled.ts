@@ -4,9 +4,9 @@ export const CharacterListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  max-width: 1260px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 20px 10px;
 
   & > span {
     display: flex;
