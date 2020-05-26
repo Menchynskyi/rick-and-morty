@@ -1,32 +1,37 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   LinkStyled,
   NavList,
   NavListItem,
   NavStyled,
-  MobileNav,
-  BarsButton,
 } from './NavigationStyled';
 import { ToggleTheme } from '../ToggleTheme';
 import { scrollTo } from '../../utils';
 import { MobileOnly, DesktopOnly } from '../../media';
 import { useModeState } from '../../contexts';
+import { MobileNavBar } from '../MobileNavBar';
+import { Route } from '../../types';
+import { MobileHeader } from '../MobileHeader';
 
-const routes = [
+const routes: Route[] = [
   { name: 'Characters', path: '/characters' },
   { name: 'Episodes', path: '/episodes' },
   { name: 'Locations', path: '/locations' },
 ];
 
 export const Navigation: React.FC = () => {
+  const [mobileBarIsOpen, setMobileBarIsOpen] = useState(false);
   const { pathname } = useLocation();
   const { lightMode } = useModeState();
+
   const handleClickNavigation = useCallback(() => {
     scrollTo(0, 0, 'smooth');
   }, []);
+
+  const handleToggleBar = () => {
+    setMobileBarIsOpen((prev) => !prev);
+  };
 
   return (
     <>
@@ -47,12 +52,14 @@ export const Navigation: React.FC = () => {
         </NavStyled>
       </DesktopOnly>
       <MobileOnly>
-        <MobileNav>
-          <ToggleTheme lightMode={lightMode} />
-          <BarsButton>
-            <FontAwesomeIcon icon={faBars} />
-          </BarsButton>
-        </MobileNav>
+        <MobileHeader handleToggleBar={handleToggleBar} />
+        <MobileNavBar
+          handleToggleBar={handleToggleBar}
+          routes={routes}
+          isOpen={mobileBarIsOpen}
+        >
+          <MobileHeader handleToggleBar={handleToggleBar} />
+        </MobileNavBar>
       </MobileOnly>
     </>
   );

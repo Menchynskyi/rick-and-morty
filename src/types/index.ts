@@ -26,3 +26,8 @@ export type Character = {
   episode?: Episode[];
   origin?: Location;
 };
+
+export type Route = {
+  name: string;
+  path: string;
+};

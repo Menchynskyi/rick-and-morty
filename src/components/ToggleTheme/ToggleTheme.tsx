@@ -10,7 +10,6 @@ type ToggleThemeProps = {
 
 export const ToggleTheme: React.FC<ToggleThemeProps> = ({ lightMode }) => {
   const toggleMode = useModeToggle();
-  console.log(lightMode);
   return (
     <ToggleThemeContainer>
       <Toggle

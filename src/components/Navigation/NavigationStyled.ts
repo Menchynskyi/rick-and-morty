@@ -58,17 +58,3 @@ export const GithubLink = styled.a`
     color: ${({ theme }) => theme.colors.background.secondary.main};
   }
 `;
-
-export const MobileNav = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 10px;
-`;
-
-export const BarsButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  font-size: ${({ theme }) => theme.fontSize.text.extraLarge};
-`;
