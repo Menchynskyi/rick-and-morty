@@ -109,6 +109,7 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
           onClick={handleClick}
           onBlur={handleBlur}
           onKeyPress={handleKeyPress}
+          inputMode="numeric"
         />
       </PageStateContainer>
       <Button disabled={isLastPage} type="button" onClick={switchToNextPage}>
