@@ -5,7 +5,7 @@ export const FilterContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1280px;
-  margin: 40px auto 20px auto;
+  margin: 20px auto 20px auto;
   padding: 0 17.5px;
 
   input,
@@ -20,7 +20,7 @@ export const FilterContainer = styled.div`
   }
 
   @media ${({ theme }) => theme.device.mobileS} {
-    margin-top: 15px;
+    margin: 15px auto 10px auto;
     padding: 0 10px;
 
     input,
@@ -32,29 +32,34 @@ export const FilterContainer = styled.div`
       }
     }
 
+    input[name='type'],
+    input[name='name'],
+    input[name='species'],
     .react-select-wrapper {
       height: 42px;
     }
 
     button {
       width: 100%;
+      height: 42px;
       margin-bottom: 0;
     }
   }
 
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-top: 30px;
+  }
+
   @media ${({ theme }) => theme.device.laptop} {
-    justify-content: center;
     margin: 40px auto 0 auto;
 
     input,
     .react-select-wrapper {
       width: calc(25% - 11.25px);
-      margin-bottom: 0;
     }
 
     button {
       width: calc(25% - 11.25px);
-      margin-bottom: 0;
     }
   }
 `;

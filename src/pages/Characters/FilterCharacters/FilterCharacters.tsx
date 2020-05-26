@@ -72,15 +72,6 @@ export const FilterCharacters: React.FC = () => {
   return (
     <FilterContainer>
       <Input
-        name="species"
-        placeholder="Species"
-        autoComplete="off"
-        onChange={handleInputChange}
-        value={inputState.species}
-        fullWidth
-        size="small"
-      />
-      <Input
         name="name"
         placeholder="Name"
         autoComplete="off"
@@ -89,14 +80,19 @@ export const FilterCharacters: React.FC = () => {
         fullWidth
         size="small"
       />
-      <Input
-        name="type"
-        placeholder="Type"
-        autoComplete="off"
-        value={inputState.type}
-        onChange={handleInputChange}
+      <Select
+        name="gender"
+        value={
+          filterOptions.gender === ''
+            ? null
+            : { value: filterOptions.gender, label: filterOptions.gender }
+        }
+        onChange={handleSelectChange('gender')}
+        options={setOptions(gender)}
+        placeholder="Gender"
+        className="react-select-container"
+        classNamePrefix="react-select"
         fullWidth
-        size="small"
       />
       <Select
         name="status"
@@ -112,6 +108,24 @@ export const FilterCharacters: React.FC = () => {
         classNamePrefix="react-select"
         fullWidth
       />
+      <Input
+        name="type"
+        placeholder="Type"
+        autoComplete="off"
+        value={inputState.type}
+        onChange={handleInputChange}
+        fullWidth
+        size="small"
+      />
+      <Input
+        name="species"
+        placeholder="Species"
+        autoComplete="off"
+        onChange={handleInputChange}
+        value={inputState.species}
+        fullWidth
+        size="small"
+      />
       <Button
         color="secondary"
         size="extraSmall"
@@ -121,20 +135,6 @@ export const FilterCharacters: React.FC = () => {
       >
         Reset
       </Button>
-      <Select
-        name="gender"
-        value={
-          filterOptions.gender === ''
-            ? null
-            : { value: filterOptions.gender, label: filterOptions.gender }
-        }
-        onChange={handleSelectChange('gender')}
-        options={setOptions(gender)}
-        placeholder="Gender"
-        className="react-select-container"
-        classNamePrefix="react-select"
-        fullWidth
-      />
     </FilterContainer>
   );
 };
