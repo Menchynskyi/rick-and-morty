@@ -51,7 +51,6 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.2s;
 
   &::before {
     position: absolute;

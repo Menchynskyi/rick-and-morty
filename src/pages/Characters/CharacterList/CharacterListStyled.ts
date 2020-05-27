@@ -25,7 +25,10 @@ export const CharacterListContainer = styled.ul`
 `;
 
 export const CharacterListItem = styled.li`
+  display: flex;
+  justify-content: center;
   margin-bottom: 15px;
+  width: 315px;
   list-style: none;
 `;
 
