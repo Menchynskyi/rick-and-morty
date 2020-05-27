@@ -8,6 +8,15 @@ export const CardContainer = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.skeleton.main};
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    width: 100%;
+    height: calc(100vw - 20px);
+
+    & img {
+      width: 100%;
+    }
+  }
 `;
 
 export const InfoContainer = styled.div`
@@ -27,5 +36,10 @@ export const InfoContainer = styled.div`
 `;
 
 export const LinkStyled = styled(Link)`
+  display: block;
   color: ${({ theme }) => theme.colors.text.primary};
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    width: 100%;
+  }
 `;

@@ -8,6 +8,10 @@ export const Container = styled.div`
 
   @media ${({ theme }) => theme.device.mobileS} {
     padding: 0 10px;
+
+    & img {
+      width: 100%;
+    }
   }
 
   @media ${({ theme }) => theme.device.laptop} {
