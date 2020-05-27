@@ -46,3 +46,9 @@ export const combineEpisodeNumber = (
   }
   return `${seasonNumber}${episodeNumber}`;
 };
+
+export const shortenName = (name: string, length: number): string => {
+  const shortName =
+    name.length > length ? `${name.slice(0, length - 2)}...` : name;
+  return shortName;
+};

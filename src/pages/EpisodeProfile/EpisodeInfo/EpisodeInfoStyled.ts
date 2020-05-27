@@ -20,6 +20,10 @@ export const EpisodeTitle = styled.h1`
   margin: 0;
   font-size: ${({ theme }) => theme.fontSize.heading.small};
   font-weight: normal;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    margin-bottom: 5px;
+  }
 `;
 
 export const PlotTitle = styled.h2`
