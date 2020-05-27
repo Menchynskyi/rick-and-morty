@@ -14,7 +14,7 @@ import {
   ButtonContainer,
 } from './EpisodesListStyled';
 import { useEpisodeState } from '../../../contexts';
-import { displaySeparateEpisode } from '../../../utils';
+import { displaySeparateEpisode, shortenName } from '../../../utils';
 
 type EpisodeQuery = {
   episodes: {
@@ -64,14 +64,17 @@ export const EpisodesList: React.FC = () => {
   const content = loading ? (
     <Skeleton count={10} />
   ) : (
-    episodeList.map(({ id, name, episode }) => (
-      <EpisodesListItem key={id}>
-        <LinkStyled to={`/episodes/${id}/${episode}`}>
-          <EpisodeName>{name}</EpisodeName>
-          <EpisodeType>{displaySeparateEpisode(episode)}</EpisodeType>
-        </LinkStyled>
-      </EpisodesListItem>
-    ))
+    episodeList.map(({ id, name, episode }) => {
+      const shortName = shortenName(name, 21);
+      return (
+        <EpisodesListItem key={id}>
+          <LinkStyled to={`/episodes/${id}/${episode}`}>
+            <EpisodeName>{shortName}</EpisodeName>
+            <EpisodeType>{displaySeparateEpisode(episode)}</EpisodeType>
+          </LinkStyled>
+        </EpisodesListItem>
+      );
+    })
   );
 
   return (

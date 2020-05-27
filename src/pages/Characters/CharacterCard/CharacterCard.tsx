@@ -6,17 +6,14 @@ import {
   LinkStyled,
 } from './CharacterCardStyled';
 import { ProfileImage } from '../../../components/ProfileImage';
+import { shortenName } from '../../../utils';
 
 type CharacterCardProps = {
   character: Character;
 };
 
 export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
-  const shortenName = (name: string): string => {
-    const shortName = name.length > 21 ? `${name.slice(0, 19)}...` : name;
-    return shortName;
-  };
-  const characterName = shortenName(character.name);
+  const characterName = shortenName(character.name, 21);
 
   return (
     <LinkStyled to={`characters/${character.id}`}>

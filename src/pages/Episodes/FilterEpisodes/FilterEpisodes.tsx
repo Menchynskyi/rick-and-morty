@@ -10,7 +10,7 @@ type Select = {
 };
 
 const episodesNumber = {
-  seasons: ['1', '2', '3'],
+  seasons: ['1', '2', '3', '4'],
   episodes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
 };
 
