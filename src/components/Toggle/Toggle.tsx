@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ToggleThumb, ToggleContainer, InputStyled } from './ToggleStyled';
 
 type ToggleProps = {
-  leftIcon?: any; //eslint-disable-line
-  rightIcon?: any; //eslint-disable-line
+  leftIcon?: IconDefinition;
+  rightIcon?: IconDefinition;
   isChecked?: boolean;
   handleToggle?: () => void;
 };
