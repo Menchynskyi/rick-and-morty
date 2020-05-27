@@ -19,6 +19,13 @@ export const CharacterListContainer = styled.ul`
     }
   }
 
+  @media ${({ theme }) => theme.device.mobileS} {
+    .react-loading-skeleton {
+      width: calc(100vw - 20px) !important;
+      height: calc(100vw - 20px) !important;
+    }
+  }
+
   @media ${({ theme }) => theme.device.desktop} {
     padding: 20px 10px;
   }
@@ -30,6 +37,10 @@ export const CharacterListItem = styled.li`
   margin-bottom: 15px;
   width: 315px;
   list-style: none;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    width: 100%;
+  }
 `;
 
 export const PageSwitchContainer = styled.div`
