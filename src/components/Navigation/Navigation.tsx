@@ -1,6 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { faBars, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faTimesCircle,
+  faMask,
+  faVideo,
+  faCompass,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   LinkStyled,
   NavList,
@@ -16,9 +22,9 @@ import { Route } from '../../types';
 import { MobileHeader } from '../MobileHeader';
 
 const routes: Route[] = [
-  { name: 'Characters', path: '/characters' },
-  { name: 'Episodes', path: '/episodes' },
-  { name: 'Locations', path: '/locations' },
+  { name: 'Characters', path: '/characters', icon: faMask },
+  { name: 'Episodes', path: '/episodes', icon: faVideo },
+  { name: 'Locations', path: '/locations', icon: faCompass },
 ];
 
 export const Navigation: React.FC = () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { MobileOnly } from '../../media';
 import {
   AsideStyled,
@@ -36,13 +37,18 @@ export const MobileNavBar: React.FC<MobileNavBarProps> = ({
         {children}
         <nav>
           <NavList>
-            {routes.map(({ name, path }) => (
+            {routes.map(({ name, path, icon }) => (
               <NavListItem
                 onClick={handleNavigation}
                 isActive={pathname.startsWith(path)}
                 key={name}
               >
-                <LinkStyled to={path}>{name}</LinkStyled>
+                <LinkStyled to={path}>
+                  <span>
+                    <FontAwesomeIcon icon={icon} />
+                  </span>
+                  <span>{name}</span>
+                </LinkStyled>
               </NavListItem>
             ))}
           </NavList>

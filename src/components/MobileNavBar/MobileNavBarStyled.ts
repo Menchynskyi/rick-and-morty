@@ -32,7 +32,6 @@ export const NavList = styled.ul`
 export const NavListItem = styled.li<NavListItemProps>`
   position: relative;
   display: flex;
-  justify-content: center;
   margin: 0;
   padding: 20px;
   list-style: none;
@@ -40,6 +39,11 @@ export const NavListItem = styled.li<NavListItemProps>`
     `1px solid ${theme.colors.background.disabled.main}`};
   background-color: ${({ isActive, theme }) =>
     isActive && theme.colors.background.secondary.dark};
+
+  & svg {
+    margin-right: 20px;
+    color: ${({ theme }) => theme.colors.text.secondary};
+  }
 `;
 
 export const LinkStyled = styled(Link)`
@@ -47,7 +51,6 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.2s;
 
   &::before {
     position: absolute;

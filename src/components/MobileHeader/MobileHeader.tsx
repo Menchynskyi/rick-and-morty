@@ -1,12 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { MobileHeaderStyled, BarsButton } from './MobileHeaderStyled';
 import { ToggleTheme } from '../ToggleTheme';
 import { useModeState } from '../../contexts';
 
 type MobileHeaderProps = {
   handleToggleBar: () => void;
-  icon: any //eslint-disable-line
+  icon: IconDefinition;
 };
 
 export const MobileHeader: React.FC<MobileHeaderProps> = ({

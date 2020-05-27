@@ -1,3 +1,5 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 export type Location = {
   id: string;
   name: string;
@@ -30,4 +32,5 @@ export type Character = {
 export type Route = {
   name: string;
   path: string;
+  icon: IconDefinition;
 };

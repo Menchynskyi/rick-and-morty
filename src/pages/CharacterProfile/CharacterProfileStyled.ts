@@ -85,6 +85,7 @@ export const InfoListItem = styled.li`
 
 export const LinkStyled = styled(Link)`
   color: ${({ theme }) => theme.colors.text.primary};
+  text-align: right;
   text-decoration: none;
 
   &:hover {
