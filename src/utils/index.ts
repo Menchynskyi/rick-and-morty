@@ -48,6 +48,7 @@ export const combineEpisodeNumber = (
 };
 
 export const shortenName = (name: string, length: number): string => {
+  if (!name) return '';
   const shortName =
     name.length > length ? `${name.slice(0, length - 2)}...` : name;
   return shortName;

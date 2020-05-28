@@ -74,6 +74,10 @@ export const LinkStyled = styled(Link)`
 
 export const ButtonContainer = styled.div`
   margin-top: 15px;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    margin-top: 0;
+  }
 `;
 
 export const Button = styled.button`

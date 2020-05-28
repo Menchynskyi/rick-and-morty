@@ -14,6 +14,8 @@ import {
   LocationType,
 } from './LocationsListStyled';
 import { useLocationState } from '../../../contexts';
+import { shortenName } from '../../../utils';
+import { MobileOnly, DesktopOnly } from '../../../media';
 
 type LocationQuery = {
   locations: {
@@ -63,14 +65,24 @@ export const LocationsList: React.FC = () => {
   const content = loading ? (
     <Skeleton count={10} />
   ) : (
-    locationList.map(({ id, name, type }) => (
-      <LocationsListItem key={id}>
-        <LinkStyled to={`/locations/${id}`}>
-          <LocationName>{name}</LocationName>
-          <LocationType>{type}</LocationType>
-        </LinkStyled>
-      </LocationsListItem>
-    ))
+    locationList.map(({ id, name, type = '' }) => {
+      const shortName = shortenName(name, 21);
+      const shortTypeName = shortenName(type, 15);
+      return (
+        <LocationsListItem key={id}>
+          <LinkStyled to={`/locations/${id}`}>
+            <LocationName>
+              <MobileOnly>{shortName}</MobileOnly>
+              <DesktopOnly>{name}</DesktopOnly>
+            </LocationName>
+            <LocationType>
+              <MobileOnly>{shortTypeName}</MobileOnly>
+              <DesktopOnly>{type}</DesktopOnly>
+            </LocationType>
+          </LinkStyled>
+        </LocationsListItem>
+      );
+    })
   );
 
   return (
