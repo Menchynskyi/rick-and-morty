@@ -55,6 +55,7 @@ export const LocationType = styled.div`
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   color: ${({ theme }) => theme.colors.text.secondary};
   text-transform: capitalize;
+  text-align: right;
 `;
 
 export const LinkStyled = styled(Link)`
