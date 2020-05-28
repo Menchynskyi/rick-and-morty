@@ -15,6 +15,7 @@ import {
 } from './EpisodesListStyled';
 import { useEpisodeState } from '../../../contexts';
 import { displaySeparateEpisode, shortenName } from '../../../utils';
+import { MobileOnly, DesktopOnly } from '../../../media';
 
 type EpisodeQuery = {
   episodes: {
@@ -69,7 +70,10 @@ export const EpisodesList: React.FC = () => {
       return (
         <EpisodesListItem key={id}>
           <LinkStyled to={`/episodes/${id}/${episode}`}>
-            <EpisodeName>{shortName}</EpisodeName>
+            <EpisodeName>
+              <MobileOnly>{shortName}</MobileOnly>
+              <DesktopOnly>{name}</DesktopOnly>
+            </EpisodeName>
             <EpisodeType>{displaySeparateEpisode(episode)}</EpisodeType>
           </LinkStyled>
         </EpisodesListItem>

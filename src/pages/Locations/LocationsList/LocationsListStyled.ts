@@ -51,8 +51,10 @@ export const LocationName = styled.div`
 `;
 
 export const LocationType = styled.div`
+  margin-left: 10px;
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   color: ${({ theme }) => theme.colors.text.secondary};
+  text-transform: capitalize;
 `;
 
 export const LinkStyled = styled(Link)`
@@ -75,4 +77,8 @@ export const LinkStyled = styled(Link)`
 
 export const ButtonContainer = styled.div`
   margin-top: 15px;
+
+  @media ${({ theme }) => theme.device.mobileS} {
+    margin-top: 0;
+  }
 `;

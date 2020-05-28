@@ -20,7 +20,7 @@ export const FilterContainer = styled.div`
   }
 
   @media ${({ theme }) => theme.device.mobileS} {
-    margin: 15px auto 10px auto;
+    margin: 15px auto 0 auto;
     padding: 0 10px;
 
     input,

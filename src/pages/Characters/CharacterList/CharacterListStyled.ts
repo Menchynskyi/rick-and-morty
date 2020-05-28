@@ -20,6 +20,8 @@ export const CharacterListContainer = styled.ul`
   }
 
   @media ${({ theme }) => theme.device.mobileS} {
+    padding: 20px 10px 10px 10px;
+
     .react-loading-skeleton {
       width: calc(100vw - 20px) !important;
       height: calc(100vw - 20px) !important;
