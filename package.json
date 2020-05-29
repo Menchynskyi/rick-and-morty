@@ -2,10 +2,6 @@
   "name": "rick-and-morty",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "npm": "6.14.4",
-    "node": "12.16.2"
-  },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
