@@ -3,7 +3,9 @@
 Rick and Morty's universe knowledge base, or is it more correct to say universes. You can find here info about characters, episodes etc.
 This app uses [Rick and Morty GraphQL API](https://github.com/afuh/rick-and-morty-api) and [OMDB REST API](http://www.omdbapi.com/).
 
-**[Link to working application.](https://rick-and-morty-universe.herokuapp.com/)**
+**[Links to working application:]**
+* [rick-and-morty-universe.netlify.app](https://rick-and-morty-universe.netlify.app/)
+* [rick-and-morty-universe.herokuapp.com](https://rick-and-morty-universe.herokuapp.com/)
 
 ## To run locally:
 
