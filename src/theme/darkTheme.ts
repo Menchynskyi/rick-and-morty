@@ -43,6 +43,7 @@ export const darkTheme: DefaultTheme = {
       primary: '#E8E8E8',
       secondary: '#B0B0B0',
       disabled: '#ABABAB',
+      card: '#E8E8E8',
     },
     skeleton: {
       main: '#2E2E2E',

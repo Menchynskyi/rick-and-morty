@@ -43,6 +43,7 @@ declare module 'styled-components' {
         primary: string;
         secondary: string;
         disabled: string;
+        card: string;
       };
       skeleton: {
         main: string;
