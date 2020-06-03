@@ -1,1 +1,0 @@
-export { useLockBodyScroll } from './useLockBodyScroll';

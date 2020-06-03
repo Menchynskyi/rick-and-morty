@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
-export const MobileHeaderStyled = styled.div`
+type MobileHeaderStyledProps = {
+  mobileBarIsOpen: boolean;
+};
+
+export const MobileHeaderStyled = styled.div<MobileHeaderStyledProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 10px;
+  background-color: ${({ theme, mobileBarIsOpen }) =>
+    mobileBarIsOpen && theme.colors.background.gray.main};
 `;
 
 export const BarsButton = styled.button`

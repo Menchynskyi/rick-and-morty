@@ -11,7 +11,6 @@ type NavListItemProps = {
 
 export const AsideStyled = styled.aside<MobileNavBarStyledProps>`
   position: fixed;
-  top: 0;
   right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
   height: 100%;
   width: 100%;
