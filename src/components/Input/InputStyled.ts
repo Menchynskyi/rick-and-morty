@@ -77,6 +77,9 @@ export const InputStyled = styled.input<any>`
   background-color: ${setBackgroundColor};
   border: 1px solid ${setBorderColor};
   border-radius: ${({ theme }) => theme.borderRadius};
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   font-size: ${({ theme }) => theme.fontSize.text.regular};
   color: ${({ theme }) => theme.colors.text.primary};
   transition: all 0.2s;
@@ -85,7 +88,12 @@ export const InputStyled = styled.input<any>`
     outline: none;
     background-color: transparent;
   }
+
   &::placeholder {
     color: ${setPlaceholderColor};
+  }
+
+  &::-webkit-input-placeholder {
+    line-height: normal !important;
   }
 `;
