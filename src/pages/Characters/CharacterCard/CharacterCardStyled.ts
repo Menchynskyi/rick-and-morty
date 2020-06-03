@@ -37,7 +37,7 @@ export const InfoContainer = styled.div`
 
 export const LinkStyled = styled(Link)`
   display: block;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.card};
 
   @media ${({ theme }) => theme.device.mobileS} {
     width: 100%;

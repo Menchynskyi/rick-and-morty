@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   faBars,
@@ -40,6 +40,10 @@ export const Navigation: React.FC = () => {
     setMobileBarIsOpen((prev) => !prev);
   };
 
+  const headerIcon = useMemo(() => (mobileBarIsOpen ? faTimesCircle : faBars), [
+    mobileBarIsOpen,
+  ]);
+
   return (
     <>
       <DesktopOnly>
@@ -59,17 +63,16 @@ export const Navigation: React.FC = () => {
         </NavStyled>
       </DesktopOnly>
       <MobileOnly>
-        <MobileHeader icon={faBars} handleToggleBar={handleToggleBar} />
+        <MobileHeader
+          mobileBarIsOpen={mobileBarIsOpen}
+          icon={headerIcon}
+          handleToggleBar={handleToggleBar}
+        />
         <MobileNavBar
           handleToggleBar={handleToggleBar}
           routes={routes}
           isOpen={mobileBarIsOpen}
-        >
-          <MobileHeader
-            icon={faTimesCircle}
-            handleToggleBar={handleToggleBar}
-          />
-        </MobileNavBar>
+        />
       </MobileOnly>
     </>
   );

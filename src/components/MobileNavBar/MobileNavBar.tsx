@@ -10,7 +10,6 @@ import {
 } from './MobileNavBarStyled';
 import { Route } from '../../types';
 import { scrollTo } from '../../utils';
-import { useLockBodyScroll } from '../../hooks';
 
 export type MobileNavBarProps = {
   isOpen: boolean;
@@ -21,7 +20,6 @@ export type MobileNavBarProps = {
 export const MobileNavBar: React.FC<MobileNavBarProps> = ({
   isOpen,
   routes,
-  children,
   handleToggleBar,
 }) => {
   const { pathname } = useLocation();
@@ -29,12 +27,10 @@ export const MobileNavBar: React.FC<MobileNavBarProps> = ({
     handleToggleBar();
     scrollTo(0, 0, 'auto');
   };
-  useLockBodyScroll();
 
   return (
     <MobileOnly>
       <AsideStyled isOpen={isOpen}>
-        {children}
         <nav>
           <NavList>
             {routes.map(({ name, path, icon }) => (

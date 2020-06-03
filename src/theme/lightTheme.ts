@@ -44,6 +44,7 @@ export const lightTheme: DefaultTheme = {
       primary: '#1C1C1C',
       secondary: '#808080',
       disabled: '#ABABAB',
+      card: '#4B4B4B',
     },
     skeleton: {
       main: '#EEEEEE',
