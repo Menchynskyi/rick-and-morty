@@ -20,6 +20,7 @@ import { useModeState } from '../../contexts';
 import { MobileNavBar } from '../MobileNavBar';
 import { Route } from '../../types';
 import { MobileHeader } from '../MobileHeader';
+import { useLockBodyScroll } from '../../hooks';
 
 const routes: Route[] = [
   { name: 'Characters', path: '/characters', icon: faMask },
@@ -31,6 +32,8 @@ export const Navigation: React.FC = () => {
   const [mobileBarIsOpen, setMobileBarIsOpen] = useState(false);
   const { pathname } = useLocation();
   const { lightMode } = useModeState();
+
+  useLockBodyScroll(mobileBarIsOpen);
 
   const handleClickNavigation = useCallback(() => {
     scrollTo(0, 0, 'smooth');
