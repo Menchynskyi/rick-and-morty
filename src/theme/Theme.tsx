@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${(props) => props.theme.fontSize.text.regular};
     color: ${(props) => props.theme.colors.text.primary};
   }
-  html {
+  body {
     overflow-y: scroll;
   }
 `;
