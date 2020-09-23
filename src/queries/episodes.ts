@@ -16,7 +16,7 @@ export const GET_ALL_EPISODES = gql`
 `;
 
 export const GET_EPISODE = gql`
-  query AllCharacters($id: ID) {
+  query AllCharacters($id: ID!) {
     episode(id: $id) {
       id
       name
