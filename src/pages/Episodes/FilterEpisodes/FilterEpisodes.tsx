@@ -71,7 +71,7 @@ export const FilterEpisodes: React.FC = () => {
   };
 
   const handleClick = () => {
-    if (Object.values(inputState).some((value) => value)) {
+    if (Object.values(inputState).some((value) => value) || season || episode) {
       clearTimeout(timer);
       setInputState(initialInputState);
       dispatch({ type: 'resetFilterOptions' });

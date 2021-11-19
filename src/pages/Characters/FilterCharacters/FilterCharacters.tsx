@@ -62,7 +62,11 @@ export const FilterCharacters: React.FC = () => {
   };
 
   const handleClick = () => {
-    if (Object.values(inputState).some((value) => value)) {
+    if (
+      Object.values(inputState).some((value) => value) ||
+      filterOptions.gender ||
+      filterOptions.status
+    ) {
       clearTimeout(timer);
       setInputState(initialInputState);
       dispatch({ type: 'resetFilterOptions' });

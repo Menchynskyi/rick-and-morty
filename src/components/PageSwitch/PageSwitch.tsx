@@ -102,7 +102,7 @@ export const PageSwitch: React.FC<PageSwitchProps> = ({ page, allPages }) => {
           value={
             inputState.focused
               ? inputState.value
-              : `${inputState.value} of ${allPages}`
+              : `${inputState.value}/${allPages}`
           }
           onFocus={handleFocus}
           onChange={handleChange}

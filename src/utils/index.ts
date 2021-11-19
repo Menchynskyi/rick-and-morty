@@ -1,3 +1,5 @@
+import { episodNameReg } from '../constants/regex';
+
 export const scrollTo = (
   top: number,
   left: number,
@@ -7,23 +9,21 @@ export const scrollTo = (
 };
 
 export const displaySeparateEpisode = (episode: string): string => {
-  const reg = /[se]/i;
-  if (!reg.test(episode)) {
+  if (!episodNameReg.test(episode)) {
     return 'No such episode';
   }
-  const splittedEpisode = episode.split(reg).filter(Boolean);
+  const splittedEpisode = episode.split(episodNameReg).filter(Boolean);
   return `S${splittedEpisode[0]} E${splittedEpisode[1]}`;
 };
 
 export const separateEpisodeNumber = (
   episode: string
 ): [number, number] | [string, string] => {
-  const reg = /[se]/i;
-  if (!reg.test(episode)) {
+  if (!episodNameReg.test(episode)) {
     return ['', ''];
   }
   const splittedEpisode = episode
-    .split(reg)
+    .split(episodNameReg)
     .filter(Boolean)
     .map((str) => Number(str));
   return [splittedEpisode[0], splittedEpisode[1]];
