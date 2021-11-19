@@ -85,6 +85,19 @@ export const SelectContainer = styled.div<SelectProps>`
     background-color: ${({ theme }) => theme.colors.background.secondary.main};
     border-radius: ${({ theme }) => theme.borderRadius};
   }
+  .react-select__menu-list {
+    &::-webkit-scrollbar {
+      width: 11px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.colors.background.white.main};
+      border-radius: ${({ theme }) => theme.borderRadius};
+      border: 3px solid ${({ theme }) => theme.colors.background.secondary.main};
+    }
+  }
   .react-select__option {
     &:first-of-type {
       border-top-left-radius: calc(${({ theme }) => theme.borderRadius} / 1.5);
